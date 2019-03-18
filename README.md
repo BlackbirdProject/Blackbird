@@ -5,11 +5,17 @@
 Desde GitBash situarse en la carpeta del proyecto y lanzar los siguientes comandos:
 
 $ git init
+
 $ git add .
+
 $ git commit -am "initial commit"
+
 $ git remote add origin https://github.com/2DAMUE/pfcjun19-tuequipo.git
+
 $ git pull origin master --allow-unrelated-histories
+
 (si se abre el editor vi, tenéis que teclear tecla ESC y luego :wq con tecla Enter al final
+
 $ git push origin master
 
 2. La coordinación del proyecto se realiza en el siguiente grupo de slack, únete ahora:
