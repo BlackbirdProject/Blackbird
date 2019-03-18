@@ -13,7 +13,6 @@ $ git pull origin master --allow-unrelated-histories
 $ git push origin master
 
 2. La coordinación del proyecto se realiza en el siguiente grupo de slack, únete ahora:
-https://join.slack.com/t/pfcdic18/shared_invite/enQtNDM5MzM1MTUxNTI2LWE3YjBiYTkzODI5OTQxNTZjZjQzN
-DAwZjc1MjYyODBlZmMzZmVjZDBkODQ0MDdjZWEyYTdmNWUzNTc2ZTRmYjI
+https://join.slack.com/t/pfcdic18/shared_invite/enQtNDM5MzM1MTUxNTI2LWE3YjBiYTkzODI5OTQxNTZjZjQzNDAwZjc1MjYyODBlZmMzZmVjZDBkODQ0MDdjZWEyYTdmNWUzNTc2ZTRmYjI
 
 3. Una vez que tengas tu proyecto Android Studio creado y sincronizado, dentro de la carpeta "docs" sustituirás la versión actual por tu versión de las plantillas de Anteproyecto y Memoria
