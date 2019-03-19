@@ -1,10 +1,6 @@
-# Instrucciones para conectar proyecto Android Studio al respositorio en Github
+# Instrucciones para conectar proyecto Android Studio al repositorio en Github
 
-1. La coordinación del proyecto se realiza en el siguiente grupo de slack, únete ahora:
-https://join.slack.com/t/pfcjun19/shared_invite/enQtNTgwNDcyMTgxNTA2LWE5OGRiYWE0ODE1ZGMyZDI0OTZkMTA1YzdlNjkwMGU5ZjQwNzUyMTgwY2Y4ZWZkMWE5MzU4ZDBjYWEyOGFmZWE
-
-
-2. Sincroniza tu proyecto de Android Studio.
+1. Sincroniza tu proyecto de Android Studio.
 
 Desde una terminal tipo GitBash situarse en la carpeta del proyecto y lanzar los siguientes comandos:
 
@@ -23,4 +19,7 @@ $ git pull origin master --allow-unrelated-histories
 $ git push origin master
 
 
-3. Una vez que tengas tu proyecto Android Studio creado y sincronizado, dentro de la carpeta "docs" sustituirás la versión actual por tu versión de las plantillas de Anteproyecto y Memoria
+2. Una vez que tengas tu proyecto Android Studio creado y sincronizado, dentro de la carpeta "docs" sustituirás la versión actual por tu versión de las plantillas de Anteproyecto y Memoria
+
+* La coordinación del proyecto se realiza en el siguiente grupo de slack, únete ahora:
+https://join.slack.com/t/pfcjun19/shared_invite/enQtNTgwNDcyMTgxNTA2LWE5OGRiYWE0ODE1ZGMyZDI0OTZkMTA1YzdlNjkwMGU5ZjQwNzUyMTgwY2Y4ZWZkMWE5MzU4ZDBjYWEyOGFmZWE
