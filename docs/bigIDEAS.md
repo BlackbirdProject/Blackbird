@@ -1,5 +1,10 @@
-# Grandes ideas para PFCs inolvidables
+# Algunas ideas para PFCs
 
+dametuvision
+* app para conectar a voluntarios/as con personas con dificultades visuales
+
+IoT con arduino
+* https://www.arduino.cc/en/IoT/HomePage
 
 hackforgood.net
 * https://hackforgood.net/blog/
