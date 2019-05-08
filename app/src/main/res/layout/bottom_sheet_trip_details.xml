@@ -33,7 +33,7 @@
             android:gravity="right"
             android:text="₹435.00"
             android:textSize="15dp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

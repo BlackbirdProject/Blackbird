@@ -1,26 +1,22 @@
 package com.madblackbird.blackbird.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.fragment.TripDetailsFragment;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TripDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
     private BottomSheetBehavior bottomSheetBehavior;
-
-    @BindView(R.id.bottom_sheet_trip_details)
-    private LinearLayout bottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +27,13 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                 .findFragmentById(R.id.trip_details_map);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        TripDetailsFragment tripDetailsFragment = new TripDetailsFragment();
+        tripDetailsFragment.show(getSupportFragmentManager(), tripDetailsFragment.getTag());
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
     }
+
 }
