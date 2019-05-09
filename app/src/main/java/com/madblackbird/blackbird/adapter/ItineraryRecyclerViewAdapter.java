@@ -2,9 +2,11 @@ package com.madblackbird.blackbird.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -59,9 +61,25 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
         void bind(Itinerary itinerary) {
             lblTime.setText(formatTime(itinerary.getDuration()));
             for (Leg leg : itinerary.getLegs()) {
+                Drawable drawable;
+                switch (leg.getMode()) {
+                    case "BUS":
+                        drawable = context.getDrawable(R.drawable.ic_directions_bus);
+                        break;
+                    case "RAIL":
+                        drawable = context.getDrawable(R.drawable.ic_train);
+                        break;
+                    case "SUBWAY":
+                        drawable = context.getDrawable(R.drawable.ic_directions_subway);
+                        break;
+                    default:
+                        drawable = context.getDrawable(R.drawable.ic_directions_walk);
+                }
                 TextView textView = new TextView(context);
                 textView.setText(leg.getRouteShortName());
                 textView.setTextColor(Color.parseColor("#" + leg.getRouteColor()));
+                ImageView imageView = new ImageView(context);
+                imageView.setImageDrawable(drawable);
                 layoutTransportIcons.addView(textView);
             }
         }
