@@ -1,6 +1,6 @@
 package com.madblackbird.blackbird.service;
 
-import com.google.android.libraries.places.api.model.Place;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -15,10 +15,10 @@ public class TripManagerService {
 
     private static final Gson gson = new Gson();
 
-    private static void findRoute(Place from, Place to, final OnTripLoadCallback callback) {
+    public static void findRoute(LatLng from, LatLng to, final OnTripLoadCallback callback) {
         RequestParams requestParams = new RequestParams();
-        requestParams.add("fromPlace", from.getLatLng().latitude + ", " + from.getLatLng().longitude);
-        requestParams.add("toPlace", to.getLatLng().latitude + ", " + to.getLatLng().longitude);
+        requestParams.add("fromPlace", from.latitude + ", " + from.longitude);
+        requestParams.add("toPlace", to.latitude + ", " + to.longitude);
         requestParams.add("time", "7:02am");
         requestParams.add("date", "04-18-2019");
         requestParams.add("mode", "TRANSIT,WALK");
