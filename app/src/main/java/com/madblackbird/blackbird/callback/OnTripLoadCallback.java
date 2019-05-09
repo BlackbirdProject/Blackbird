@@ -1,10 +1,10 @@
 package com.madblackbird.blackbird.callback;
 
-import com.madblackbird.blackbird.dataClasses.Itinerary;
+import com.madblackbird.blackbird.dataClasses.Plan;
 
 public interface OnTripLoadCallback {
 
-    void onItineraryLoaded(Itinerary itinerary);
+    void onItineraryLoaded(Plan plan);
 
     void onLoadError();
 

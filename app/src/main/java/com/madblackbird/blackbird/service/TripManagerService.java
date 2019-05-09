@@ -5,9 +5,8 @@ import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.madblackbird.blackbird.callback.OnTripLoadCallback;
-import com.madblackbird.blackbird.dataClasses.Itinerary;
+import com.madblackbird.blackbird.dataClasses.TripPlan;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -26,15 +25,11 @@ public class TripManagerService {
         requestParams.add("maxWalkDistance", "1000");
         requestParams.add("arriveBy", "false");
         OTPRestApi.get("plan", requestParams, new JsonHttpResponseHandler() {
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                try {
-                    JSONObject jsonObject = response.getJSONObject("plan").getJSONArray("itineraries").getJSONObject(0);
-                    Itinerary itinerary = gson.fromJson(jsonObject.toString(), Itinerary.class);
-                    callback.onItineraryLoaded(itinerary);
-                } catch (JSONException e) {
-                    callback.onLoadError();
-                }
+                TripPlan tripPlan = gson.fromJson(response.toString(), TripPlan.class);
+                callback.onItineraryLoaded(tripPlan.getPlan());
             }
 
             @Override
