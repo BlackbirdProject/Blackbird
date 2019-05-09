@@ -15,13 +15,13 @@ import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<ItineraryRecyclerViewAdapter.Holder> {
 
-    private ArrayList<Itinerary> itineraries;
+    private List<Itinerary> itineraries;
 
-    public ItineraryRecyclerViewAdapter(ArrayList<Itinerary> itineraries) {
+    public ItineraryRecyclerViewAdapter(List<Itinerary> itineraries) {
         this.itineraries = itineraries;
     }
 
