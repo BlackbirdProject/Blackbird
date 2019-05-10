@@ -77,7 +77,8 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
                 }
                 TextView textView = new TextView(context);
                 textView.setText(leg.getRouteShortName());
-                textView.setTextColor(Color.parseColor("#" + leg.getRouteColor()));
+                if (leg.getRouteColor() != null && !leg.getRouteColor().equals(""))
+                    textView.setTextColor(Color.parseColor("#" + leg.getRouteColor()));
                 ImageView imageView = new ImageView(context);
                 imageView.setImageDrawable(drawable);
                 layoutTransportIcons.addView(textView);
