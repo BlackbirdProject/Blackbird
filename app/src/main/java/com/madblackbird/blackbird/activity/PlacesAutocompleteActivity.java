@@ -16,15 +16,23 @@ import com.google.android.libraries.places.api.model.Place;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.PlacesAutoCompleteAdapter;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PlacesAutocompleteActivity extends AppCompatActivity implements PlacesAutoCompleteAdapter.ClickListener {
 
     private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
     private RecyclerView recyclerView;
 
+    @BindView(R.id.place_search)
+    EditText txtDestination;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_autocomplete);
+        ButterKnife.bind(this);
+        txtDestination.requestFocus();
 
         Places.initialize(this, getResources().getString(R.string.google_maps_api_key));
 
