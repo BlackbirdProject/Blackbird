@@ -15,8 +15,13 @@
     <EditText
         android:id="@+id/search_box_places_autocomplete"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_search_autocomplete"/>
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_search_autocomplete"
+        android:drawableLeft="@drawable/ic_places_search"
+        android:hint="Search"
+        android:inputType="textPostalAddress"
+        android:drawablePadding="7dp"
+        android:padding="15dp" />
 
 </RelativeLayout>
