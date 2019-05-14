@@ -12,14 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <fragment
-        android:id="@+id/autocomplete_fragment"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp" />
-
     <EditText
+        android:id="@+id/search_box_places_autocomplete"
         android:layout_width="match_parent"
         android:layout_margin="20dp"
         android:layout_height="wrap_content"
