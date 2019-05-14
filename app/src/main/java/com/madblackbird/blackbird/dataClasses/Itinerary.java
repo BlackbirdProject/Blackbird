@@ -3,19 +3,20 @@ package com.madblackbird.blackbird.dataClasses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Itinerary {
+public class Itinerary implements Serializable {
 
     @SerializedName("duration")
     @Expose
     private Integer duration;
     @SerializedName("startTime")
     @Expose
-    private Double startTime;
+    private Long startTime;
     @SerializedName("endTime")
     @Expose
-    private Double endTime;
+    private Long endTime;
     @SerializedName("walkTime")
     @Expose
     private Integer walkTime;
@@ -55,19 +56,19 @@ public class Itinerary {
         this.duration = duration;
     }
 
-    public Double getStartTime() {
+    public Long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Double startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
-    public Double getEndTime() {
+    public Long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Double endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 

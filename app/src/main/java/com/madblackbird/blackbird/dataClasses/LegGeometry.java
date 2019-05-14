@@ -3,7 +3,9 @@ package com.madblackbird.blackbird.dataClasses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class LegGeometry {
+import java.io.Serializable;
+
+public class LegGeometry implements Serializable {
 
     @SerializedName("points")
     @Expose
