@@ -53,7 +53,7 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                         color = Color.parseColor("#" + leg.getRouteColor());
                     } catch (Exception ignored) {
                     }
-                    googleMap.addPolyline(new PolylineOptions().addAll(PolyUtil.decode(legGeometry.getPoints())).color(color).width(2));
+                    googleMap.addPolyline(new PolylineOptions().addAll(PolyUtil.decode(legGeometry.getPoints())).color(color));
                 }
             }
         }
