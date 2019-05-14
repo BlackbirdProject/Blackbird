@@ -29,8 +29,6 @@ public class TripManagerService {
         requestParams.add("time", formatCurrentTime());
         requestParams.add("date", formatCurrentDate());
         requestParams.add("mode", "TRANSIT,WALK");
-        requestParams.add("maxWalkDistance", "1000");
-        requestParams.add("arriveBy", "false");
         OTPRestApi.get(
                 context.getString(R.string.otp_server_url),
                 "plan",
