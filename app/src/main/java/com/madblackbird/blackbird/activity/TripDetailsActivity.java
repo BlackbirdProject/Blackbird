@@ -47,8 +47,14 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
         if (itinerary != null) {
             for (Leg leg : itinerary.getLegs()) {
                 LegGeometry legGeometry = leg.getLegGeometry();
-                if (legGeometry != null)
-                    googleMap.addPolyline(new PolylineOptions().addAll(PolyUtil.decode(legGeometry.getPoints())).color(Color.BLUE));
+                if (legGeometry != null) {
+                    int color = Color.BLACK;
+                    try {
+                        color = Color.parseColor("#" + leg.getRouteColor());
+                    } catch (Exception ignored) {
+                    }
+                    googleMap.addPolyline(new PolylineOptions().addAll(PolyUtil.decode(legGeometry.getPoints())).color(color).width(2));
+                }
             }
         }
     }
