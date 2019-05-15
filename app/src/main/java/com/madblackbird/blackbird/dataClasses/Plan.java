@@ -5,9 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Plan {
+public class Plan implements Serializable {
 
 
     @SerializedName("date")

@@ -3,7 +3,9 @@ package com.madblackbird.blackbird.dataClasses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class TripPlan {
+import java.io.Serializable;
+
+public class TripPlan implements Serializable {
 
     @SerializedName("plan")
     @Expose

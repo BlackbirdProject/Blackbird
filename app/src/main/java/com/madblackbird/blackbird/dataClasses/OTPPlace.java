@@ -2,7 +2,9 @@ package com.madblackbird.blackbird.dataClasses;
 
 import org.jetbrains.annotations.NotNull;
 
-public class OTPPlace {
+import java.io.Serializable;
+
+public class OTPPlace implements Serializable {
     private String vertexType;
 
     private String orig;

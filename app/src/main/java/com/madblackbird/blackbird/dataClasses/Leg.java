@@ -3,7 +3,9 @@ package com.madblackbird.blackbird.dataClasses;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Leg {
+import java.io.Serializable;
+
+public class Leg implements Serializable {
 
     @SerializedName("startTime")
     @Expose

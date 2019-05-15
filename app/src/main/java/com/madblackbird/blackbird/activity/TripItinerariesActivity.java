@@ -61,6 +61,13 @@ public class TripItinerariesActivity extends AppCompatActivity {
 
     private void populateRecycleView(List<Itinerary> itineraries) {
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
+        itineraryRecyclerViewAdapter.setOnClickListener(v -> {
+            int pos = recyclerViewItineraries.indexOfChild(v);
+            Itinerary itinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
+            Intent detailsIntent = new Intent(TripItinerariesActivity.this, TripDetailsActivity.class);
+            detailsIntent.putExtra("itinerary", itinerary);
+            startActivity(detailsIntent);
+        });
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
     }
 

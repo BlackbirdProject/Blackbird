@@ -1,5 +1,6 @@
 package com.madblackbird.blackbird.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -12,6 +13,9 @@ import com.madblackbird.blackbird.dataClasses.TripPlan;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import cz.msebera.android.httpclient.Header;
 
 public class TripManagerService {
@@ -22,29 +26,39 @@ public class TripManagerService {
         RequestParams requestParams = new RequestParams();
         requestParams.add("fromPlace", from.latitude + ", " + from.longitude);
         requestParams.add("toPlace", to.latitude + ", " + to.longitude);
-        requestParams.add("time", "7:02am");
-        requestParams.add("date", "04-18-2019");
+        requestParams.add("time", formatCurrentTime());
+        requestParams.add("date", formatCurrentDate());
         requestParams.add("mode", "TRANSIT,WALK");
-        requestParams.add("maxWalkDistance", "1000");
-        requestParams.add("arriveBy", "false");
         OTPRestApi.get(
                 context.getString(R.string.otp_server_url),
                 "plan",
                 requestParams,
                 new JsonHttpResponseHandler() {
 
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                TripPlan tripPlan = gson.fromJson(response.toString(), TripPlan.class);
-                callback.onItineraryLoaded(tripPlan.getPlan());
-            }
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        TripPlan tripPlan = gson.fromJson(response.toString(), TripPlan.class);
+                        callback.onItineraryLoaded(tripPlan.getPlan());
+                    }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                callback.onLoadError();
-            }
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        callback.onLoadError();
+                    }
 
-        });
+                });
+    }
+
+    private static String formatCurrentTime() {
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mma");
+        return dateFormat.format(new Date(System.currentTimeMillis()));
+    }
+
+    private static String formatCurrentDate() {
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        return dateFormat.format(new Date(System.currentTimeMillis()));
     }
 
 }

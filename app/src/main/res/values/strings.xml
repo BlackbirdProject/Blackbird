@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trip_details">Trip Details</string>
+    <string name="space_minutes">minutes</string>
+    <string name="my_location">My Location</string>
+    <string name="search">Search</string>
 </resources>

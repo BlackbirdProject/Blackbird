@@ -12,11 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <fragment
-        android:id="@+id/autocomplete_fragment"
-        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+    <EditText
+        android:id="@+id/search_box_places_autocomplete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp" />
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_search_autocomplete"
+        android:drawableLeft="@drawable/ic_places_search"
+        android:hint="Search"
+        android:inputType="textPostalAddress"
+        android:drawablePadding="7dp"
+        android:padding="15dp" />
 
 </RelativeLayout>
