@@ -40,10 +40,13 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                 .findFragmentById(R.id.trip_details_map);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        TripDetailsFragment tripDetailsFragment = new TripDetailsFragment();
-        tripDetailsFragment.show(getSupportFragmentManager(), tripDetailsFragment.getTag());
         Intent intent = getIntent();
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("itinerary",itinerary);
+        TripDetailsFragment tripDetailsFragment = new TripDetailsFragment();
+        tripDetailsFragment.setArguments(bundle);
+        tripDetailsFragment.show(getSupportFragmentManager(), tripDetailsFragment.getTag());
     }
 
     @Override
