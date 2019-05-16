@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map_main_activity);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        searchBox.setOnClickListener(v ->
-                startActivity(new Intent(this, PlacesAutocompleteActivity.class)));
+        searchBox.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus)
+                startActivity(new Intent(this, PlacesAutocompleteActivity.class));
+        });
     }
 
     @Override
