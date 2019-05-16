@@ -9,13 +9,26 @@
     tools:context=".activity.PlacesAutocompleteActivity">
 
     <EditText
+        android:id="@+id/origin_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_search_autocomplete"
+        android:drawableStart="@drawable/ic_my_location"
+        android:hint="@string/my_location"
+        android:textColorHint="@android:color/black"
+        android:inputType="textPostalAddress"
+        android:drawablePadding="7dp"
+        android:padding="15dp" />
+
+    <EditText
         android:id="@+id/place_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:background="@drawable/bg_search_autocomplete"
-        android:drawableLeft="@drawable/ic_places_search"
-        android:hint="Search"
+        android:drawableStart="@drawable/ic_places_search"
+        android:hint="@string/search"
         android:inputType="textPostalAddress"
         android:drawablePadding="7dp"
         android:padding="15dp" />

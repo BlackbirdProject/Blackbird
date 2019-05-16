@@ -105,7 +105,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
         }
 
         private String formatDuration(Integer duration) {
-            return duration / 60 + " minutes";
+            return duration / 60 + context.getString(R.string.space_minutes);
         }
 
     }
