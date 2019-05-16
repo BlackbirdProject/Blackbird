@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:id="@+id/item_itinerary_leg">
+
+    <ImageView
+        android:id="@+id/item_leg_icon"
+        android:layout_width="30dp"
+        android:layout_height="19dp"
+        android:src="@drawable/ic_metro_madrid"
+        android:layout_marginEnd="7dp"/>
+
+    <TextView
+        android:id="@+id/item_leg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@drawable/bg_line_name"
+        android:gravity="center_vertical|center_horizontal"/>
+
+</LinearLayout>

@@ -42,9 +42,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.PlacesAutocompleteActivity" />
         <activity android:name=".activity.TripItinerariesActivity" />
-        <activity
-            android:name=".activity.TripDetailsActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.TripDetailsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -3,6 +3,7 @@ package com.madblackbird.blackbird.adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,6 +80,9 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
                     DateUtils.FORMAT_SHOW_TIME);
             lblTime.setText(time);
             for (Leg leg : itinerary.getLegs()) {
+                View view = LayoutInflater.from(context).inflate(R.layout.item_itinerary_leg, null);
+                ImageView imgRouteType = view.findViewById(R.id.item_leg_icon);
+                TextView lblRouteName = view.findViewById(R.id.item_leg_name);
                 Drawable drawable;
                 switch (leg.getMode()) {
                     case "BUS":
@@ -88,24 +92,31 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
                         drawable = context.getDrawable(R.drawable.ic_train);
                         break;
                     case "SUBWAY":
-                        drawable = context.getDrawable(R.drawable.ic_directions_subway);
+                        drawable = context.getDrawable(R.drawable.ic_metro_madrid);
                         break;
                     default:
                         drawable = context.getDrawable(R.drawable.ic_directions_walk);
                 }
-                TextView textView = new TextView(context);
-                textView.setText(leg.getRouteShortName());
+                GradientDrawable lblRouteNameBackground = (GradientDrawable) lblRouteName.getBackground();
+                lblRouteName.setText(leg.getRouteShortName());
                 if (leg.getRouteColor() != null && !leg.getRouteColor().equals(""))
-                    textView.setTextColor(Color.parseColor("#" + leg.getRouteColor()));
-                ImageView imageView = new ImageView(context);
-                imageView.setImageDrawable(drawable);
-                layoutTransportIcons.addView(imageView);
-                layoutTransportIcons.addView(textView);
+                    lblRouteNameBackground.setColor(Color.parseColor("#" + leg.getRouteColor()));
+                imgRouteType.setImageDrawable(drawable);
+                if (leg.getRouteShortName() == null || leg.getRouteShortName().equals("")) {
+                    lblRouteName.setBackgroundColor(Color.TRANSPARENT);
+                    lblRouteName.setTextColor(Color.BLACK);
+                    lblRouteName.setText(formatDistance(leg.getDistance().intValue()));
+                }
+                layoutTransportIcons.addView(view);
             }
         }
 
         private String formatDuration(Integer duration) {
             return duration / 60 + context.getString(R.string.space_minutes);
+        }
+
+        private String formatDistance(Integer distance) {
+            return distance >= 1000 ? distance / 1000 + " km" : distance + " m";
         }
 
     }

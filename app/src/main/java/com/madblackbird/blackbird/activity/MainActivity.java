@@ -33,19 +33,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map_main_activity);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        searchBox.setOnClickListener(v ->
-                startActivity(new Intent(this, PlacesAutocompleteActivity.class)));
+        searchBox.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus)
+                startActivity(new Intent(this, PlacesAutocompleteActivity.class));
+        });
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
-        LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                .include(new LatLng(39.938037, -4.815362))
-                .include(new LatLng(41.211806, -2.870480))
-                .build();
-        googleMap.setOnMapLoadedCallback(() ->
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 0)));
     }
 
 }
