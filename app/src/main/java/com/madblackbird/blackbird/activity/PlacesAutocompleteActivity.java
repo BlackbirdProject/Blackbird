@@ -49,6 +49,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
             if (hasFocus) {
                 recyclerView.setVisibility(View.GONE);
                 mAutoCompleteAdapter.setClickListener(destinationClickListener);
+                txtOriginSearch.setHint(R.string.my_location);
             }
         });
 
@@ -56,6 +57,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
             if (hasFocus) {
                 recyclerView.setVisibility(View.GONE);
                 mAutoCompleteAdapter.setClickListener(originClickListener);
+                txtOriginSearch.setHint("");
             }
         });
 
