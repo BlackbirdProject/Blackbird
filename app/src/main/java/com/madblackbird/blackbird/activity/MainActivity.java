@@ -40,12 +40,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
-        LatLngBounds latLngBounds = new LatLngBounds.Builder()
-                .include(new LatLng(39.938037, -4.815362))
-                .include(new LatLng(41.211806, -2.870480))
-                .build();
-        googleMap.setOnMapLoadedCallback(() ->
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 0)));
     }
 
 }

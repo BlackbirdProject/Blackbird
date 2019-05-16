@@ -7,10 +7,16 @@
     tools:context=".activity.MainActivity">
 
     <fragment
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/map_main_activity"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        map:cameraTargetLat="40.416943"
+        map:cameraTargetLng="-3.703618"
+        map:cameraZoom="13"
+        />
 
     <EditText
         android:id="@+id/search_box_places_autocomplete"
@@ -19,9 +25,9 @@
         android:layout_margin="20dp"
         android:background="@drawable/bg_search_autocomplete"
         android:drawableLeft="@drawable/ic_places_search"
-        android:hint="Search"
-        android:inputType="textPostalAddress"
         android:drawablePadding="7dp"
+        android:hint="@string/search"
+        android:inputType="textPostalAddress"
         android:padding="15dp" />
 
 </RelativeLayout>
