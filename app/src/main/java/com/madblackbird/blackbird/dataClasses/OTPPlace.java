@@ -1,19 +1,31 @@
 package com.madblackbird.blackbird.dataClasses;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
 public class OTPPlace implements Serializable {
+
     private String vertexType;
 
     private String orig;
 
     private String name;
 
-    private String lon;
+    private Double lon;
 
-    private String lat;
+    private Double lat;
+
+    public OTPPlace(LatLng latLng) {
+        lat = latLng.latitude;
+        lon = latLng.longitude;
+    }
+
+    public LatLng getLatLng() {
+        return new LatLng(lat, lon);
+    }
 
     public String getVertexType() {
         return vertexType;
@@ -39,19 +51,19 @@ public class OTPPlace implements Serializable {
         this.name = name;
     }
 
-    public String getLon() {
+    public Double getLon() {
         return lon;
     }
 
-    public void setLon(String lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
