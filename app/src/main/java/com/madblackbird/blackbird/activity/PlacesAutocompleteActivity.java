@@ -47,12 +47,14 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
 
         txtDestination.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
+                recyclerView.setVisibility(View.GONE);
                 mAutoCompleteAdapter.setClickListener(destinationClickListener);
             }
         });
 
         txtOriginSearch.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
+                recyclerView.setVisibility(View.GONE);
                 mAutoCompleteAdapter.setClickListener(originClickListener);
             }
         });
