@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 28
@@ -48,6 +49,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "androidx.core:core-ktx:1.0.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // Crashlytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
