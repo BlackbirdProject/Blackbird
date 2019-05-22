@@ -3,6 +3,6 @@
     <string name="app_name">Blackbird</string>
     <string name="my_location">Mi Ubicación</string>
     <string name="search">Buscar</string>
-    <string name="space_minutes">" minutos"</string>
+    <string name="space_minutes">&#160;minutos</string>
     <string name="trip_details">Detalles del Viaje</string>
 </resources>

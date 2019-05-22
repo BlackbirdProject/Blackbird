@@ -3,6 +3,6 @@
     <string name="app_name">Blackbird</string>
     <string name="my_location">Nire Kokapena</string>
     <string name="search">Bilatu</string>
-    <string name="space_minutes">" minutu"</string>
+    <string name="space_minutes">&#160;minutu</string>
     <string name="trip_details">Bidaiaren Xehetasunak</string>
 </resources>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Blackbird</string>
     <string name="trip_details">Trip Details</string>
-    <string name="space_minutes"> minutes</string>
+    <string name="space_minutes">&#160;minutes</string>
     <string name="my_location">My Location</string>
     <string name="search">Search</string>
 </resources>
