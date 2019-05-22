@@ -58,7 +58,11 @@ public class TripItinerariesActivity extends AppCompatActivity {
                     new OnTripLoadCallback() {
                         @Override
                         public void onItineraryLoaded(Plan plan) {
-                            populateRecycleView(plan.getItineraries());
+                            if (plan != null)
+                                populateRecycleView(plan.getItineraries());
+                            else {
+                                // TODO: No available route
+                            }
                         }
 
                         @Override
