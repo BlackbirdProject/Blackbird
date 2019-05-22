@@ -15,17 +15,22 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.PlacesAutoCompleteAdapter;
+import com.madblackbird.blackbird.dataClasses.OTPPlace;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PlacesAutocompleteActivity extends AppCompatActivity implements PlacesAutoCompleteAdapter.ClickListener {
+public class PlacesAutocompleteActivity extends AppCompatActivity {
 
-    private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
-    private RecyclerView recyclerView;
+    @BindView(R.id.origin_search)
+    EditText txtOriginSearch;
 
     @BindView(R.id.place_search)
     EditText txtDestination;
+
+    private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
+    private RecyclerView recyclerView;
+    private Place from;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +42,28 @@ public class PlacesAutocompleteActivity extends AppCompatActivity implements Pla
         Places.initialize(this, getResources().getString(R.string.google_maps_api_key));
 
         recyclerView = findViewById(R.id.places_recycler_view);
-        ((EditText) findViewById(R.id.place_search)).addTextChangedListener(filterTextWatcher);
+        txtDestination.addTextChangedListener(filterTextWatcher);
+        txtOriginSearch.addTextChangedListener(filterTextWatcher);
+
+        txtDestination.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                recyclerView.setVisibility(View.GONE);
+                mAutoCompleteAdapter.setClickListener(destinationClickListener);
+                txtOriginSearch.setHint(R.string.my_location);
+            }
+        });
+
+        txtOriginSearch.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                recyclerView.setVisibility(View.GONE);
+                mAutoCompleteAdapter.setClickListener(originClickListener);
+                txtOriginSearch.setHint("");
+            }
+        });
 
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAutoCompleteAdapter.setClickListener(this);
+        mAutoCompleteAdapter.setClickListener(destinationClickListener);
         recyclerView.setAdapter(mAutoCompleteAdapter);
         mAutoCompleteAdapter.notifyDataSetChanged();
     }
@@ -67,14 +89,21 @@ public class PlacesAutocompleteActivity extends AppCompatActivity implements Pla
         }
     };
 
-    @Override
-    public void click(Place place) {
-        Intent intent = new Intent(this, TripItinerariesActivity.class);
+    private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
+        Intent intent = new Intent(PlacesAutocompleteActivity.this, TripItinerariesActivity.class);
+        if (from != null && from.getLatLng() != null) {
+            intent.putExtra("from", new OTPPlace(from.getLatLng()));
+        }
         if (place.getLatLng() != null) {
-            intent.putExtra("latitude", place.getLatLng().latitude);
-            intent.putExtra("longitude", place.getLatLng().longitude);
+            intent.putExtra("to", new OTPPlace(place.getLatLng()));
         }
         startActivity(intent);
-    }
+    };
+
+    private PlacesAutoCompleteAdapter.ClickListener originClickListener = place -> {
+        txtOriginSearch.setText(place.getName());
+        from = place;
+        txtDestination.requestFocus();
+    };
 
 }

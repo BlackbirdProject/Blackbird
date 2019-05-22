@@ -9,12 +9,15 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.callback.OnTripLoadCallback;
+import com.madblackbird.blackbird.dataClasses.Leg;
 import com.madblackbird.blackbird.dataClasses.TripPlan;
 
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -47,6 +50,18 @@ public class TripManagerService {
                     }
 
                 });
+    }
+
+    public static ArrayList<Object> addStations(List<Leg> legs) {
+        ArrayList<Object> places = new ArrayList<>();
+        for (int i = 0; i < legs.size(); i++) {
+            Leg leg = legs.get(i);
+            if (i == 0)
+                places.add(leg.getFrom());
+            places.add(leg);
+            places.add(leg.getTo());
+        }
+        return places;
     }
 
     private static String formatCurrentTime() {

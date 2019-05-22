@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Plan implements Serializable {
 
-
     @SerializedName("date")
     @Expose
     private String date;

@@ -3,8 +3,11 @@ package com.madblackbird.blackbird.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,20 +19,28 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.maps.android.PolyUtil;
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.adapter.TripDetailsAdapter;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
 import com.madblackbird.blackbird.dataClasses.LegGeometry;
-import com.madblackbird.blackbird.fragment.TripDetailsFragment;
+import com.madblackbird.blackbird.service.TripManagerService;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TripDetailsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private BottomSheetBehavior bottomSheetBehavior;
     private Itinerary itinerary;
+
+    @BindView(R.id.bottom_sheet_trip_details)
+    LinearLayout bottomSheet;
+    @BindView(R.id.recycler_view_trip_details)
+    RecyclerView recyclerViewTripDetails;
+
+    private TripDetailsAdapter tripDetailsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +51,9 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                 .findFragmentById(R.id.trip_details_map);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        TripDetailsFragment tripDetailsFragment = new TripDetailsFragment();
-        tripDetailsFragment.show(getSupportFragmentManager(), tripDetailsFragment.getTag());
         Intent intent = getIntent();
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
     }
 
     @Override
@@ -62,9 +72,11 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                     googleMap.addPolyline(new PolylineOptions()
                             .addAll(PolyUtil.decode(legGeometry.getPoints()))
                             .color(color)
-                    .width(20));
+                            .width(20));
                 }
             }
+            recyclerViewTripDetails.setLayoutManager(new LinearLayoutManager(this));
+            populateRecycleView(itinerary.getLegs());
         }
     }
 
@@ -80,6 +92,11 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             }
             googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 50));
         }
+    }
+
+    private void populateRecycleView(List<Leg> legs) {
+        tripDetailsAdapter = new TripDetailsAdapter(TripManagerService.addStations(legs));
+        recyclerViewTripDetails.setAdapter(tripDetailsAdapter);
     }
 
 }

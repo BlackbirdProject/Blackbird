@@ -91,6 +91,13 @@ public class Leg implements Serializable {
     @SerializedName("legGeometry")
     @Expose
     private LegGeometry legGeometry;
+    @SerializedName("from")
+    @Expose
+    private OTPPlace from;
+
+    @SerializedName("to")
+    @Expose
+    private OTPPlace to;
 
     public Double getStartTime() {
         return startTime;
@@ -315,4 +322,21 @@ public class Leg implements Serializable {
     public void setLegGeometry(LegGeometry legGeometry) {
         this.legGeometry = legGeometry;
     }
+
+    public OTPPlace getFrom() {
+        return from;
+    }
+
+    public void setFrom(OTPPlace from) {
+        this.from = from;
+    }
+
+    public OTPPlace getTo() {
+        return to;
+    }
+
+    public void setTo(OTPPlace to) {
+        this.to = to;
+    }
+
 }
