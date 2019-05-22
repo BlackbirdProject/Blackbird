@@ -2,6 +2,7 @@ package com.madblackbird.blackbird.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -111,10 +112,10 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
                 default:
                     drawable = context.getDrawable(R.drawable.ic_directions_walk);
             }
-            GradientDrawable lblRouteNameBackground = (GradientDrawable) lblLine.getBackground();
+            Drawable lblRouteNameBackground = lblLine.getBackground();
             lblLine.setText(leg.getRouteShortName());
             if (leg.getRouteColor() != null && !leg.getRouteColor().equals(""))
-                lblRouteNameBackground.setColor(Color.parseColor("#" + leg.getRouteColor()));
+                lblRouteNameBackground.setColorFilter(Color.parseColor("#" + leg.getRouteColor()), PorterDuff.Mode.SRC_IN);
             tripDetailImage.setImageDrawable(drawable);
             if (leg.getRouteShortName() == null || leg.getRouteShortName().equals("")) {
                 lblLine.setBackgroundColor(Color.TRANSPARENT);
@@ -142,7 +143,7 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
         PlaceHolder(View view) {
             super(view);
             context = view.getContext();
-            lblPlaceName=view.findViewById(R.id.trip_detail_place_name);
+            lblPlaceName = view.findViewById(R.id.trip_detail_place_name);
         }
 
         void bind(OTPPlace place) {
