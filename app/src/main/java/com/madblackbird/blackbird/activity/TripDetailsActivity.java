@@ -53,8 +53,6 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             mapFragment.getMapAsync(this);
         Intent intent = getIntent();
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("itinerary", itinerary);
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
     }
 

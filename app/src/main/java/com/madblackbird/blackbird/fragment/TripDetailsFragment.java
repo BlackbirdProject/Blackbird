@@ -35,7 +35,7 @@ public class TripDetailsFragment extends RoundedBottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         if (getArguments() != null)
             itinerary = (Itinerary) getArguments().getSerializable("itinerary");
-        return inflater.inflate(R.layout.fragment_trip_details, container, false);
+        return inflater.inflate(R.layout.bottom_sheet_trip_details, container, false);
     }
 
     @Override
