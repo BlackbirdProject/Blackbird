@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.firebase.auth.FirebaseAuth;
 import com.madblackbird.blackbird.R;
 
 import butterknife.BindView;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             mapFragment.getMapAsync(this);
         searchBox.setOnClickListener(v ->
                 startActivity(new Intent(this, PlacesAutocompleteActivity.class)));
+        FirebaseAuth.getInstance().signInAnonymously();
     }
 
     @Override

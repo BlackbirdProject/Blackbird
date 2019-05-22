@@ -15,6 +15,7 @@ import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.Plan;
 import com.madblackbird.blackbird.service.LocationService;
+import com.madblackbird.blackbird.service.TripHistoryService;
 import com.madblackbird.blackbird.service.TripManagerService;
 
 import java.util.List;
@@ -29,11 +30,14 @@ public class TripItinerariesActivity extends AppCompatActivity {
 
     private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
 
+    private TripHistoryService tripHistoryService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_itineraries);
         ButterKnife.bind(this);
+        tripHistoryService = new TripHistoryService();
         recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
         OTPPlace otpFrom = (OTPPlace) intent.getSerializableExtra("from");
@@ -69,6 +73,7 @@ public class TripItinerariesActivity extends AppCompatActivity {
         itineraryRecyclerViewAdapter.setOnClickListener(v -> {
             int pos = recyclerViewItineraries.indexOfChild(v);
             Itinerary itinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
+            tripHistoryService.addTrip(itinerary);
             Intent detailsIntent = new Intent(TripItinerariesActivity.this, TripDetailsActivity.class);
             detailsIntent.putExtra("itinerary", itinerary);
             startActivity(detailsIntent);
