@@ -21,7 +21,7 @@
             android:src="@drawable/ic_metro_madrid" />
 
         <TextView
-            android:id="@+id/item_leg_name"
+            android:id="@+id/trip_detail_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_line_name"
@@ -39,7 +39,6 @@
         android:layout_weight="3"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:gravity="end"
-        android:text="7 min" />
+        android:gravity="end" />
 
 </LinearLayout>
