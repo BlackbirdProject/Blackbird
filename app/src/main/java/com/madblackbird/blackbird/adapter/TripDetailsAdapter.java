@@ -49,12 +49,11 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_trip_detail, parent, false);
             return new LegHolder(view);
-        } else if (viewType == VIEW_TYPE_PLACE) {
+        } else {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_trip_detail_place, parent, false);
             return new PlaceHolder(view);
         }
-        return null;
     }
 
     @Override

@@ -14,6 +14,7 @@ import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.TripDetailsAdapter;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
+import com.madblackbird.blackbird.service.TripManagerService;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +46,7 @@ public class TripDetailsFragment extends RoundedBottomSheetDialogFragment {
     }
 
     private void populateRecycleView(List<Leg> legs) {
-        tripDetailsAdapter = new TripDetailsAdapter(legs);
+        tripDetailsAdapter = new TripDetailsAdapter(TripManagerService.addStations(legs));
         recyclerViewTripDetails.setAdapter(tripDetailsAdapter);
     }
 
