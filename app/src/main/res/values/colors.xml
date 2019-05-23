@@ -5,5 +5,5 @@
     <color name="colorAccent">#00C7C7</color>
     <color name="colorDisabled">#EDEDED</color>
     <color name="white">#FFFFFF</color>
-    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="ic_launcher_back">#1ED2D6</color>
 </resources>
