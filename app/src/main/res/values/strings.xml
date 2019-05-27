@@ -4,4 +4,10 @@
     <string name="space_minutes">&#160;minutes</string>
     <string name="my_location">My Location</string>
     <string name="search">Search</string>
+    <string name="titulo_slider1">¿Qué es Blackbird?</string>
+    <string name="descripcion_slider1">Somos la aplicación que te guiará a cualquier punto de Madrid de forma rápida y eficiente, optimizando los recursos del transporte público para hacer tu viaje más eco-friendly.</string>
+    <string name="titulo_slider2">¿Cómo se usa?</string>
+    <string name="Descripcion_slider2">1. Selecciona tu punto de partida 2. Selecciona tu destino\\n3. Elige el trayecto que prefieras\\n4. ¡Disfruta del viaje!</string>
+    <string name="titulo_slider3">¿Te apuntas?</string>
+    <string name="descripcion_slider3">Cuantos más seamos, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
 </resources>
