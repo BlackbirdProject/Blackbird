@@ -28,37 +28,51 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         navigationView = findViewById(R.id.nv);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                switch (id) {
-                    case R.id.account:
-                        Toast.makeText(HomeActivity.this, "My Account", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.settings:
-                        Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.mycart:
-                        Toast.makeText(HomeActivity.this, "My Cart", Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        return true;
-                }
-                return true;
-
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.account:
+                    Toast.makeText(HomeActivity.this, "My Account", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.settings:
+                    Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.mycart:
+                    Toast.makeText(HomeActivity.this, "My Cart", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    return true;
             }
+            return true;
+
         });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item))
-            return true;
-
+        switch (item.getItemId()) {
+            /*case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+            case R.id.account:
+                MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag("mapFragment");
+                if (mapFragment != null)
+                    mapFragment.changeMapType();
+                return true;
+            /*case R.id.menu_map:
+                MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag("mapFragment");
+                if (mapFragment != null)
+                    mapFragment.changeMapType();
+                return true;
+            case R.id.menu_filter:
+                HomeFragment homeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag("homeFragment");
+                if (homeFragment != null)
+                    homeFragment.changeFilter();
+                break;*/
+        }
         return super.onOptionsItemSelected(item);
     }
 
