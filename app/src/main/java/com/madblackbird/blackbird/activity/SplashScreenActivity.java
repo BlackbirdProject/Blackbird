@@ -19,7 +19,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         Intent intent;
         if (!preferences.contains("firstUse")) {
             SharedPreferences.Editor mEditor = preferences.edit();
-            mEditor.putBoolean("tag", true).apply();
+            mEditor.putBoolean("firstUse", true).apply();
             intent = new Intent(SplashScreenActivity.this, AppIntroActivity.class);
         } else {
             intent = new Intent(SplashScreenActivity.this, HomeActivity.class);

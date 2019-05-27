@@ -1,6 +1,7 @@
 package com.madblackbird.blackbird.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -13,9 +14,12 @@ import com.madblackbird.blackbird.R;
 
 public class AppIntroActivity extends AppIntro {
 
+    private SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = getSharedPreferences("blackbird", MODE_PRIVATE);
         SliderPage sliderPage = new SliderPage();
         sliderPage.setTitle(getString(R.string.titulo_slider1));
         sliderPage.setImageDrawable(R.drawable.ic_blackbird_logo);
@@ -43,6 +47,7 @@ public class AppIntroActivity extends AppIntro {
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        preferences.edit().putBoolean("firstUse", true).apply();
         startActivity(intent);
     }
 
@@ -50,6 +55,7 @@ public class AppIntroActivity extends AppIntro {
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        preferences.edit().putBoolean("firstUse", true).apply();
         startActivity(intent);
     }
 
