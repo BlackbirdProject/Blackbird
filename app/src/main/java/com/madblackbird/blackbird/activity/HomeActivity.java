@@ -2,75 +2,68 @@ package com.madblackbird.blackbird.activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.fragment.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        drawerLayout = findViewById(R.id.activity_main);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nv);
-        navigationView.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-            switch (id) {
-                case R.id.account:
-                    Toast.makeText(HomeActivity.this, "My Account", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.settings:
-                    Toast.makeText(HomeActivity.this, "Settings", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.mycart:
-                    Toast.makeText(HomeActivity.this, "My Cart", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    return true;
-            }
-            return true;
+        initializeUI();
+    }
 
+    private void initializeUI() {
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            menuItem.setChecked(true);
+            drawerLayout.closeDrawers();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            switch (menuItem.getItemId()) {
+                case R.id.menu_home:
+                    transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
+                    break;
+                /*case R.id.nav_map:
+                    menuItems.get(R.id.menu_filter).setVisible(false);
+                    menuItems.get(R.id.menu_map).setVisible(true);
+                    transaction.replace(R.id.content_frame, new MapFragment(), "mapFragment");*/
+            }
+            transaction.addToBackStack(null);
+            transaction.commit();
+            return true;
         });
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
+        navigationView.getMenu().getItem(0).setChecked(true);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            /*case android.R.id.home:
+            case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.account:
+            case R.id.menu_account:
+                return false;
+            /*case R.id.account:
                 MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag("mapFragment");
                 if (mapFragment != null)
                     mapFragment.changeMapType();
-                return true;
-            /*case R.id.menu_map:
-                MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag("mapFragment");
-                if (mapFragment != null)
-                    mapFragment.changeMapType();
-                return true;
-            case R.id.menu_filter:
-                HomeFragment homeFragment = (HomeFragment) getSupportFragmentManager().findFragmentByTag("homeFragment");
-                if (homeFragment != null)
-                    homeFragment.changeFilter();
-                break;*/
+                return true;*/
         }
         return super.onOptionsItemSelected(item);
     }

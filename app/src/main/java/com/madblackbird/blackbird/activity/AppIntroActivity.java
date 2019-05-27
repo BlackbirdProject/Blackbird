@@ -37,8 +37,6 @@ public class AppIntroActivity extends AppIntro {
         sliderPage2.setDescription(getString(R.string.descripcion_slider3));
         sliderPage2.setBgColor(ContextCompat.getColor(getApplicationContext(), R.color.ic_launcher_back));
         addSlide(AppIntroFragment.newInstance(sliderPage2));
-
-
     }
 
     @Override

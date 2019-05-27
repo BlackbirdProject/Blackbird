@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ButterKnife.bind(getView());
+        ButterKnife.bind(this, getView());
         SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager()
                 .findFragmentById(R.id.map_main_activity);
         if (mapFragment != null)
@@ -60,6 +60,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+        this.googleMap = googleMap;
     }
 }
