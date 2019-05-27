@@ -2,14 +2,16 @@ package com.madblackbird.blackbird.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,6 +31,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     @BindView(R.id.search_box_places_autocomplete)
     EditText searchBox;
+
+
+    @BindView(R.id.btn_drawer_menu)
+    ImageView btnDrawerMenu;
 
     public HomeFragment() {
 
@@ -50,12 +56,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         searchBox.setOnClickListener(v ->
                 startActivity(new Intent(getContext(), PlacesAutocompleteActivity.class)));
+        DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
+        btnDrawerMenu.setOnClickListener(v ->
+                drawerLayout.openDrawer(Gravity.START));
         FirebaseAuth.getInstance().signInAnonymously();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame, new HomeFragment());
-        transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 
     @Override
