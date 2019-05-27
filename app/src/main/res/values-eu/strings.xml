@@ -5,4 +5,10 @@
     <string name="search">Bilatu</string>
     <string name="space_minutes">&#160;minutu</string>
     <string name="trip_details">Bidaiaren Xehetasunak</string>
+    <string name="titulo_slider1">Zer da Blackbird?</string>
+    <string name="descripcion_slider1">Somos la aplicación que te guiará a cualquier punto de Madrid de forma rápida y eficiente, optimizando los recursos del transporte público para hacer tu viaje más eco-friendly.</string>
+    <string name="titulo_slider2">Nola erabiltzen da?</string>
+    <string name="Descripcion_slider2">1. Selecciona tu punto de partida 2. Selecciona tu destino\\n3. Elige el trayecto que prefieras\\n4. ¡Disfruta del viaje!</string>
+    <string name="titulo_slider3">¿Te apuntas?</string>
+    <string name="descripcion_slider3">Gero eta gehiago izan ondoren, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
 </resources>
