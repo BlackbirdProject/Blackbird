@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.AppIntroActivity" />
-        <activity android:name=".activity.HomeActivity"></activity>
+        <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
