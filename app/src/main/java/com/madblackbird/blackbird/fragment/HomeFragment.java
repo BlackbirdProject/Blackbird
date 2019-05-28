@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.firebase.auth.FirebaseAuth;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
 
@@ -59,7 +58,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
         btnDrawerMenu.setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
-        FirebaseAuth.getInstance().signInAnonymously();
     }
 
     @Override
