@@ -43,7 +43,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PlacesAutocompleteActivity" />
-        <activity android:name=".activity.TripItinerariesActivity" />
         <activity android:name=".activity.TripDetailsActivity" />
 
         <meta-data
