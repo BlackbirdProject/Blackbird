@@ -18,38 +18,65 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
+import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 
 import java.util.List;
 
-public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<ItineraryRecyclerViewAdapter.Holder> {
+public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
 
-    private List<Itinerary> itineraries;
+    private static final int VIEW_TYPE_ITINERARY = 0;
+    private static final int VIEW_TYPE_PRICE_ESTIMATES = 1;
+
+    private List<Object> itineraries;
     private View.OnClickListener onClickListener;
 
-    public ItineraryRecyclerViewAdapter(List<Itinerary> itineraries) {
+    public ItineraryRecyclerViewAdapter(List<Object> itineraries) {
         this.itineraries = itineraries;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        Object itinerary = itineraries.get(position);
+        if (itinerary instanceof Itinerary) {
+            return VIEW_TYPE_ITINERARY;
+        } else if (itinerary instanceof PriceEstimate) {
+            return VIEW_TYPE_PRICE_ESTIMATES;
+        }
+        return -1;
     }
 
     @NonNull
     @Override
-    public Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_itinerary, viewGroup, false);
-        RecyclerView.ViewHolder holder = new Holder(view);
-        if (onClickListener != null)
-            holder.itemView.setOnClickListener(v -> onClickListener.onClick(v));
-        return new Holder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view;
+        if (viewType == VIEW_TYPE_ITINERARY) {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_itinerary, parent, false);
+            return new ItineraryHolder(view);
+        } else {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_price_estimate, parent, false);
+            return new PriceEstimateHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.bind(itineraries.get(position));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        Object itinerary = itineraries.get(position);
+        switch (viewHolder.getItemViewType()) {
+            case VIEW_TYPE_ITINERARY:
+                ((ItineraryHolder) viewHolder).bind((Itinerary) itinerary);
+                break;
+            case VIEW_TYPE_PRICE_ESTIMATES:
+                ((PriceEstimateHolder) viewHolder).bind((PriceEstimate) itinerary);
+        }
     }
 
     public void setOnClickListener(View.OnClickListener callback) {
         onClickListener = callback;
     }
 
-    public Itinerary getItinerary(int position) {
+    public Object getItinerary(int position) {
         return itineraries.get(position);
     }
 
@@ -58,14 +85,14 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
         return itineraries.size();
     }
 
-    static class Holder extends RecyclerView.ViewHolder {
+    static class ItineraryHolder extends RecyclerView.ViewHolder {
 
         private final LinearLayout layoutTransportIcons;
         private final TextView lblDuration, lblTime;
 
         private final Context context;
 
-        Holder(View view) {
+        ItineraryHolder(View view) {
             super(view);
             layoutTransportIcons = view.findViewById(R.id.linear_transport_icons);
             lblDuration = view.findViewById(R.id.item_itinerary_duration);
@@ -117,6 +144,26 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter<Itinerary
 
         private String formatDistance(Integer distance) {
             return distance >= 1000 ? distance / 1000 + " km" : distance + " m";
+        }
+
+    }
+
+    static class PriceEstimateHolder extends RecyclerView.ViewHolder {
+
+        private final TextView lblUberType, lblEstimate;
+
+        private final Context context;
+
+        PriceEstimateHolder(View view) {
+            super(view);
+            lblUberType = view.findViewById(R.id.lbl_uber_type);
+            lblEstimate = view.findViewById(R.id.lbl_trip_price);
+            context = view.getContext();
+        }
+
+        void bind(PriceEstimate priceEstimate) {
+            lblUberType.setText(priceEstimate.getLocalizedisplayName());
+            lblEstimate.setText(priceEstimate.getEstimate());
         }
 
     }
