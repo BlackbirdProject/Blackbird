@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".activity.LoginActivity"
+    tools:ignore="UseCompoundDrawables">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:srcCompat="@drawable/ic_blackbird_logo" />
+
+    <TextView
+        android:id="@+id/lbl_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You need to sign in to use this feature"
+        android:textColor="#fff"
+        android:textSize="60sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20" />
+
+    <Button
+        android:id="@+id/google_sign_i"
+        style="@style/ButtonConImagen"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:drawableStart="@drawable/google_icon"
+        android:text="@string/google_login" />
+
+    <Button
+        android:id="@+id/btn_phone"
+        style="@style/ButtonConImagen"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:drawableStart="@drawable/phone"
+        android:text="@string/phone_login" />
+
+    <Button
+        android:id="@+id/btn_email"
+        style="@style/ButtonConImagen"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/email"
+        android:text="@string/email_login" />
+
+    <ProgressBar
+        android:id="@+id/first_sign_in_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:visibility="invisible" />
+
+</LinearLayout>
