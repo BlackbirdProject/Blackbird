@@ -11,4 +11,16 @@
     <string name="Descripcion_slider2">1. Selecciona tu punto de partida 2. Selecciona tu destino\\n3. Elige el trayecto que prefieras\\n4. ¡Disfruta del viaje!</string>
     <string name="titulo_slider3">¿Te apuntas?</string>
     <string name="descripcion_slider3">Cuantos más seamos, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
+    <string name="google_login" translatable="false">Google</string>
+    <string name="phone_login" translatable="false">Phone</string>
+    <string name="email_login" translatable="false">E-Mail</string>
+    <string name="verify">Verify</string>
+    <string name="google_sign_in_error">No se ha podido iniciar sesión con Google</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">Recordar contraseña</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="incorrect_credentials">Credenciales incorrectas</string>
+    <string name="e_mail" translatable="false">E-Mail</string>
+    <string name="password">Contraseña</string>
+    <string name="type_phone">Número de teléfono</string>
 </resources>
