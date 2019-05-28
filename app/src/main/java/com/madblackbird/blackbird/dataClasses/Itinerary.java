@@ -47,6 +47,7 @@ public class Itinerary implements Serializable {
     @SerializedName("tooSloped")
     @Expose
     private Boolean tooSloped;
+    private boolean expanded;
 
     public Integer getDuration() {
         return duration;
@@ -150,6 +151,14 @@ public class Itinerary implements Serializable {
 
     public void setTooSloped(Boolean tooSloped) {
         this.tooSloped = tooSloped;
+    }
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
     }
 
 }
