@@ -93,10 +93,10 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
         Intent intent = new Intent();
         if (from != null && from.getLatLng() != null) {
-            intent.putExtra("from", new OTPPlace(from.getLatLng()));
+            intent.putExtra("from", new OTPPlace(from.getName(), from.getLatLng()));
         }
         if (place.getLatLng() != null) {
-            intent.putExtra("to", new OTPPlace(place.getLatLng()));
+            intent.putExtra("to", new OTPPlace(place.getName(), place.getLatLng()));
         }
         setResult(Activity.RESULT_OK, intent);
         finish();
