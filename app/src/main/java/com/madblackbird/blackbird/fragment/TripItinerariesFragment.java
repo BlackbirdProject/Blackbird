@@ -24,7 +24,7 @@ import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.Plan;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
 import com.madblackbird.blackbird.service.LocationService;
-import com.madblackbird.blackbird.service.TripHistoryService;
+import com.madblackbird.blackbird.service.TripDatabaseService;
 import com.madblackbird.blackbird.service.TripManagerService;
 import com.madblackbird.blackbird.service.UberTripService;
 
@@ -40,7 +40,7 @@ public class TripItinerariesFragment extends Fragment {
     RecyclerView recyclerViewItineraries;
 
     private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
-    private TripHistoryService tripHistoryService;
+    private TripDatabaseService tripDatabaseService;
     private List<Object> itineraries;
     private OTPPlace otpFrom;
     private OTPPlace otpTo;
@@ -65,21 +65,22 @@ public class TripItinerariesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, getView());
-        tripHistoryService = new TripHistoryService();
+        tripDatabaseService = new TripDatabaseService();
         recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(getContext()));
         itineraries = new ArrayList<>();
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
         itineraryRecyclerViewAdapter.setOnClickListener(v -> {
             int pos = recyclerViewItineraries.indexOfChild(v);
             Itinerary itinerary = (Itinerary) itineraryRecyclerViewAdapter.getItinerary(pos);
-            tripHistoryService.addTrip(itinerary);
+            tripDatabaseService.addTrip(itinerary);
             Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
             detailsIntent.putExtra("itinerary", itinerary);
+            detailsIntent.putExtra("placeTo", otpTo);
             startActivity(detailsIntent);
         });
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
         if (tripHistory) {
-            tripHistoryService.getItineraries(itinerary -> {
+            tripDatabaseService.getItineraries(itinerary -> {
                 itineraries.add(itinerary);
                 itineraryRecyclerViewAdapter.notifyDataSetChanged();
             });
