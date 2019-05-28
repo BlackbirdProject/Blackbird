@@ -3,7 +3,6 @@ package com.madblackbird.blackbird.service;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.libraries.places.api.model.Place;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -14,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.madblackbird.blackbird.callback.OnItineraryLoadCallback;
 import com.madblackbird.blackbird.callback.OnPlaceLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
+import com.madblackbird.blackbird.dataClasses.OTPPlace;
 
 public class TripDatabaseService {
 
@@ -33,11 +33,11 @@ public class TripDatabaseService {
         }
     }
 
-    public void addFavourite(Place place) {
+    public void addFavourite(OTPPlace place) {
         if (firebaseUser != null) {
             DatabaseReference favouritePlaces = firebaseDatabase.getReference("favouritePlaces");
             favouritePlaces.child(firebaseUser.getUid())
-                    .setPriority(place);
+                    .setValue(place);
         }
     }
 
@@ -47,7 +47,7 @@ public class TripDatabaseService {
             favouritePlaces.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    Place place = dataSnapshot.getValue(Place.class);
+                    OTPPlace place = dataSnapshot.getValue(OTPPlace.class);
                     if (place != null)
                         callback.onLoad(place);
                 }
