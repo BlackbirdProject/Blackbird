@@ -18,7 +18,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.madblackbird.blackbird.R;
-import com.madblackbird.blackbird.activity.HomeActivity;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 
