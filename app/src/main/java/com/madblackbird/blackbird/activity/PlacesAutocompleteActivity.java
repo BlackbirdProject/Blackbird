@@ -1,5 +1,6 @@
 package com.madblackbird.blackbird.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -90,14 +91,15 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
     };
 
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
-        Intent intent = new Intent(PlacesAutocompleteActivity.this, TripItinerariesActivity.class);
+        Intent intent = new Intent();
         if (from != null && from.getLatLng() != null) {
             intent.putExtra("from", new OTPPlace(from.getLatLng()));
         }
         if (place.getLatLng() != null) {
             intent.putExtra("to", new OTPPlace(place.getLatLng()));
         }
-        startActivity(intent);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     };
 
     private PlacesAutoCompleteAdapter.ClickListener originClickListener = place -> {

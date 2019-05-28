@@ -1,5 +1,6 @@
 package com.madblackbird.blackbird.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,12 +18,16 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.activity.HomeActivity;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
+import com.madblackbird.blackbird.dataClasses.OTPPlace;
 
 import org.jetbrains.annotations.NotNull;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.madblackbird.blackbird.activity.HomeActivity.PLACE_ACTIVITY;
 
 public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
@@ -54,10 +59,26 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
         searchBox.setOnClickListener(v ->
-                startActivity(new Intent(getContext(), PlacesAutocompleteActivity.class)));
+                startActivityForResult(new Intent(getContext(), PlacesAutocompleteActivity.class), PLACE_ACTIVITY));
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
         btnDrawerMenu.setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PLACE_ACTIVITY) {
+            if (resultCode == Activity.RESULT_OK) {
+                OTPPlace otpFrom = (OTPPlace) data.getSerializableExtra("from");
+                OTPPlace otpTo = (OTPPlace) data.getSerializableExtra("to");
+                TripItinerariesFragment tripItinerariesFragment = new TripItinerariesFragment(otpFrom, otpTo);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_frame, tripItinerariesFragment, "tripItinerariesFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        }
     }
 
     @Override

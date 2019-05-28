@@ -29,82 +29,10 @@ import butterknife.ButterKnife;
 
 public class TripItinerariesActivity extends AppCompatActivity {
 
-    @BindView(R.id.recycler_view_itineraries)
-    RecyclerView recyclerViewItineraries;
-
-    private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
-    private TripHistoryService tripHistoryService;
-    private List<Object> itineraries;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_itineraries);
-        ButterKnife.bind(this);
-        tripHistoryService = new TripHistoryService();
-        recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(this));
-        itineraries = new ArrayList<>();
-        itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
-        Intent intent = getIntent();
-        OTPPlace otpFrom = (OTPPlace) intent.getSerializableExtra("from");
-        OTPPlace otpTo = (OTPPlace) intent.getSerializableExtra("to");
-        LocationService locationService = new LocationService(this);
-        UberTripService uberTripService = new UberTripService(this);
-        LatLng from;
-        if (otpFrom == null)
-            from = locationService.getCurrentLocation();
-        else
-            from = otpFrom.getLatLng();
-        if (from == null)
-            from = new LatLng(40.447216, -3.692497);
-        if (otpTo != null) {
-            TripManagerService.findRoute(
-                    this,
-                    from,
-                    otpTo.getLatLng(),
-                    new OnTripLoadCallback() {
-                        @Override
-                        public void onItineraryLoaded(Plan plan) {
-                            if (plan != null) {
-                                itineraries.addAll(plan.getItineraries());
-                                itineraryRecyclerViewAdapter.notifyDataSetChanged();
-                            } else {
-                                // TODO: No available route
-                            }
-                        }
-
-                        @Override
-                        public void onLoadError() {
-
-                        }
-                    });
-            uberTripService.priceEstimate(
-                    from,
-                    otpTo.getLatLng(),
-                    new OnPriceEstimatesLoadCallback() {
-                        @Override
-                        public void onLoad(PriceEstimates priceEstimates) {
-                            itineraries.addAll(priceEstimates.getPriceEstimates());
-                            itineraryRecyclerViewAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onLoadError() {
-
-                        }
-                    }
-            );
-
-        }
-        itineraryRecyclerViewAdapter.setOnClickListener(v -> {
-            int pos = recyclerViewItineraries.indexOfChild(v);
-            Itinerary itinerary = (Itinerary) itineraryRecyclerViewAdapter.getItinerary(pos);
-            tripHistoryService.addTrip(itinerary);
-            Intent detailsIntent = new Intent(TripItinerariesActivity.this, TripDetailsActivity.class);
-            detailsIntent.putExtra("itinerary", itinerary);
-            startActivity(detailsIntent);
-        });
-        recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
     }
 
 }
