@@ -2,7 +2,6 @@ package com.madblackbird.blackbird.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 startActivity(new Intent(getContext(), PlacesAutocompleteActivity.class)));
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
         btnDrawerMenu.setOnClickListener(v ->
-                drawerLayout.openDrawer(Gravity.START));
+                drawerLayout.openDrawer(GravityCompat.START));
         FirebaseAuth.getInstance().signInAnonymously();
     }
 
