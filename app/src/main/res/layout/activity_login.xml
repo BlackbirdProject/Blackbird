@@ -34,7 +34,7 @@
 
                 <EditText
                     android:id="@+id/txt_email"
-                    style="@style/CleanseEditText"
+                    style="@style/BlackbirdEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="emailAddress"
