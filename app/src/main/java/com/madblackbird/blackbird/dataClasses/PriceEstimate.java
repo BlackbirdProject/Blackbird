@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PriceEstimate {
 
+    public PriceEstimate() {
+
+    }
+
     @SerializedName("localized_display_name")
     @Expose
     private String localizedisplayName;

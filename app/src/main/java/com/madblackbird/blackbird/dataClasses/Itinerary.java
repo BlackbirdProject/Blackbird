@@ -8,6 +8,10 @@ import java.util.List;
 
 public class Itinerary implements Serializable {
 
+    public Itinerary(){
+
+    }
+
     @SerializedName("duration")
     @Expose
     private Integer duration;

@@ -10,6 +10,10 @@ import java.io.Serializable;
 
 public class OTPPlace implements Serializable {
 
+    public OTPPlace() {
+
+    }
+
     @SerializedName("vertexType")
     @Expose
     private String vertexType;

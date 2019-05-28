@@ -7,6 +7,10 @@ import java.util.List;
 
 public class PriceEstimates {
 
+    public PriceEstimates() {
+
+    }
+
     @SerializedName("prices")
     @Expose
     private List<PriceEstimate> priceEstimates;

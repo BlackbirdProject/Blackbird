@@ -7,6 +7,10 @@ import java.io.Serializable;
 
 public class TripPlan implements Serializable {
 
+    public TripPlan() {
+
+    }
+
     @SerializedName("plan")
     @Expose
     private Plan plan;

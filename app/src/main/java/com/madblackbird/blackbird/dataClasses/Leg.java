@@ -7,6 +7,10 @@ import java.io.Serializable;
 
 public class Leg implements Serializable {
 
+    public Leg() {
+
+    }
+
     @SerializedName("startTime")
     @Expose
     private Double startTime;

@@ -7,6 +7,10 @@ import java.io.Serializable;
 
 public class LegGeometry implements Serializable {
 
+    public LegGeometry() {
+
+    }
+
     @SerializedName("points")
     @Expose
     private String points;
