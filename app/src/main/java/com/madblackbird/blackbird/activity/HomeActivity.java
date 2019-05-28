@@ -1,6 +1,5 @@
 package com.madblackbird.blackbird.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,7 +11,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.madblackbird.blackbird.R;
-import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.fragment.HomeFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
 
@@ -61,6 +59,15 @@ public class HomeActivity extends AppCompatActivity {
     private void openLoginRequiredFragment(int itemId) {
         if (firebaseUser == null) {
             startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            switch (itemId){
+                case R.id.menu_trip_history:
+                    transaction.replace(R.id.content_frame, new TripItinerariesFragment(), "tripItinerariesFragment");
+                    break;
+            }
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
     }
 
