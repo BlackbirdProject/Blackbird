@@ -52,6 +52,8 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
         if (viewType == VIEW_TYPE_ITINERARY) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_itinerary, parent, false);
+            if (onClickListener != null)
+                view.setOnClickListener(v -> onClickListener.onClick(v));
             return new ItineraryHolder(view);
         } else {
             view = LayoutInflater.from(parent.getContext())
