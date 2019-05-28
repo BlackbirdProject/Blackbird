@@ -30,7 +30,8 @@ public class OTPPlace implements Serializable {
     @Expose
     private Double lat;
 
-    public OTPPlace(LatLng latLng) {
+    public OTPPlace(String name, LatLng latLng) {
+        this.name = name;
         lat = latLng.latitude;
         lon = latLng.longitude;
     }
