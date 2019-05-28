@@ -22,4 +22,25 @@
         <item name="android:navigationBarColor">@color/white</item>
     </style>
 
+    <style name="ButtonConImagen" parent="Base.Widget.AppCompat.Button">
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:background">@drawable/button_con_imagen</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="ButtonSinImagen" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_sin_imagen</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="BlackbirdEditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:colorControlActivated">@color/colorPrimary</item>
+    </style>
+
 </resources>
