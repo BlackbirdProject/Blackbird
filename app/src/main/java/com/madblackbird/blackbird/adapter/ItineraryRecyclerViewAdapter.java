@@ -89,7 +89,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
 
     static class ItineraryHolder extends RecyclerView.ViewHolder {
 
-        private final LinearLayout layoutTransportIcons;
+        private final LinearLayout layoutTransportIcons, layoutTransportSummary;
         private final TextView lblDuration, lblTime;
 
         private final Context context;
@@ -97,6 +97,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
         ItineraryHolder(View view) {
             super(view);
             layoutTransportIcons = view.findViewById(R.id.linear_transport_icons);
+            layoutTransportSummary = view.findViewById(R.id.vertical_transport_summary);
             lblDuration = view.findViewById(R.id.item_itinerary_duration);
             lblTime = view.findViewById(R.id.item_itinerary_time);
             context = view.getContext();
@@ -136,7 +137,10 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                     lblRouteName.setTextColor(Color.BLACK);
                     lblRouteName.setText(formatDistance(leg.getDistance().intValue()));
                 }
-                layoutTransportIcons.addView(view);
+                ImageView imgIcon = new ImageView(context);
+                imgIcon.setImageDrawable(drawable);
+                layoutTransportIcons.addView(imgIcon);
+                layoutTransportSummary.addView(view);
             }
         }
 
