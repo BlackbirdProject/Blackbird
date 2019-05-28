@@ -3,16 +3,15 @@ package com.madblackbird.blackbird.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.madblackbird.blackbird.R;
@@ -43,12 +42,12 @@ public class TripItinerariesFragment extends Fragment {
     private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
     private TripHistoryService tripHistoryService;
     private List<Object> itineraries;
-
     private OTPPlace otpFrom;
     private OTPPlace otpTo;
+    private boolean tripHistory;
 
     public TripItinerariesFragment() {
-
+        tripHistory = true;
     }
 
     public TripItinerariesFragment(OTPPlace otpFrom, OTPPlace otpTo) {
@@ -79,7 +78,13 @@ public class TripItinerariesFragment extends Fragment {
             startActivity(detailsIntent);
         });
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
-        initializeItineraries();
+        if (tripHistory) {
+            tripHistoryService.getItineraries(itinerary -> {
+                itineraries.add(itinerary);
+                itineraryRecyclerViewAdapter.notifyDataSetChanged();
+            });
+        } else
+            initializeItineraries();
     }
 
     public void initializeItineraries() {
