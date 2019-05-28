@@ -3,6 +3,7 @@ package com.madblackbird.blackbird.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,8 @@ import com.madblackbird.blackbird.adapter.TripDetailsAdapter;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
 import com.madblackbird.blackbird.dataClasses.LegGeometry;
+import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.service.TripDatabaseService;
 import com.madblackbird.blackbird.service.TripManagerService;
 
 import java.util.Arrays;
@@ -38,25 +41,32 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
 
     private GoogleMap googleMap;
     private Itinerary itinerary;
+    private OTPPlace placeTo;
 
     @BindView(R.id.bottom_sheet_trip_details)
     LinearLayout bottomSheet;
     @BindView(R.id.recycler_view_trip_details)
     RecyclerView recyclerViewTripDetails;
+    @BindView(R.id.button_add_favourite)
+    Button btnAddFavourite;
 
     private TripDetailsAdapter tripDetailsAdapter;
+    private TripDatabaseService tripDatabaseService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip_details);
         ButterKnife.bind(this);
+        tripDatabaseService = new TripDatabaseService();
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.trip_details_map);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
         Intent intent = getIntent();
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
+        placeTo = (OTPPlace) intent.getSerializableExtra("placeTo");
+        btnAddFavourite.setOnClickListener(v -> addFavourite());
     }
 
     @Override
@@ -73,6 +83,10 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             recyclerViewTripDetails.setLayoutManager(new LinearLayoutManager(this));
             populateRecycleView(itinerary.getLegs());
         }
+    }
+
+    private void addFavourite() {
+        tripDatabaseService.addFavourite(placeTo);
     }
 
     private void drawTransitPolyline(Leg leg) {
