@@ -12,6 +12,7 @@ import android.provider.Settings;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.madblackbird.blackbird.callback.LocationUpdatesCallback;
 
 import java.util.List;
 
@@ -107,6 +108,36 @@ public class LocationService {
         if (bestLocation != null)
             returnLocation = new LatLng(bestLocation.getLatitude(), bestLocation.getLongitude());
         return returnLocation;
+    }
+
+    /**
+     * @param callback Called when location is changed
+     */
+    public void setLocationListener(LocationUpdatesCallback callback) {
+        if (checkPermission()) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    callback.locationUpdate(location);
+                    locationManager.removeUpdates(this);
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                }
+
+                @Override
+                public void onProviderEnabled(String provider) {
+
+                }
+
+                @Override
+                public void onProviderDisabled(String provider) {
+
+                }
+            });
+        }
     }
 
 

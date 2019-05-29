@@ -14,12 +14,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.service.LocationService;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -38,6 +41,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     @BindView(R.id.btn_drawer_menu)
     ImageView btnDrawerMenu;
+
+    private LocationService locationService;
+    private boolean followUser;
 
     public HomeFragment() {
 
@@ -62,6 +68,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
         btnDrawerMenu.setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
+        locationService = new LocationService(getContext());
     }
 
     @Override
@@ -83,5 +90,18 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        if (locationService.checkPermission()) {
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+            googleMap.setOnMyLocationButtonClickListener(() -> {
+                followUser = true;
+                return false;
+            });
+            locationService.setLocationListener(location -> {
+                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                if (followUser)
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11.0f));
+            });
+        }
     }
 }

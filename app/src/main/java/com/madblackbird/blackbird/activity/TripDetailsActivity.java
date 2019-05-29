@@ -28,6 +28,7 @@ import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
 import com.madblackbird.blackbird.dataClasses.LegGeometry;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 import com.madblackbird.blackbird.service.TripManagerService;
 
@@ -52,6 +53,9 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
 
     private TripDetailsAdapter tripDetailsAdapter;
     private TripDatabaseService tripDatabaseService;
+    private LocationService locationService;
+    private boolean followUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,7 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
         placeTo = (OTPPlace) intent.getSerializableExtra("placeTo");
         btnAddFavourite.setOnClickListener(v -> addFavourite());
+        locationService = new LocationService(this);
     }
 
     @Override
@@ -119,6 +124,10 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
     }
 
     public void onMapLoaded() {
+        if (locationService.checkPermission()) {
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+        }
         if (itinerary != null) {
             LatLngBounds.Builder bounds = new LatLngBounds.Builder();
             for (Leg leg : itinerary.getLegs()) {
