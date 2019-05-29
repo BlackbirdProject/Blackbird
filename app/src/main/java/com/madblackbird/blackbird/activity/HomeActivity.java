@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.fragment.FavouriteDestinationFragment;
 import com.madblackbird.blackbird.fragment.HomeFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
 
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
                     transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
                     break;
                 case R.id.menu_trip_history:
+                case R.id.menu_favourite_destinations:
                     openLoginRequiredFragment(menuItem.getItemId());
                     break;
             }
@@ -61,9 +63,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
         } else {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            switch (itemId){
+            switch (itemId) {
                 case R.id.menu_trip_history:
                     transaction.replace(R.id.content_frame, new TripItinerariesFragment(), "tripItinerariesFragment");
+                    break;
+                case R.id.menu_favourite_destinations:
+                    transaction.replace(R.id.content_frame, new FavouriteDestinationFragment(), "favouriteDestinationsFragment");
                     break;
             }
             transaction.addToBackStack(null);
