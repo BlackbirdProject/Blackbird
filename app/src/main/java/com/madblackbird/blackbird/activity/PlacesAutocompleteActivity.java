@@ -1,12 +1,16 @@
 package com.madblackbird.blackbird.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,9 +29,10 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
 
     @BindView(R.id.origin_search)
     EditText txtOriginSearch;
-
     @BindView(R.id.place_search)
     EditText txtDestination;
+    @BindView(R.id.layout_edit_preferences_autocomplete)
+    RelativeLayout layoutEditPrefrences;
 
     private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
     private RecyclerView recyclerView;
@@ -62,6 +67,8 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
             }
         });
 
+        layoutEditPrefrences.setOnClickListener(v -> showPreferencesDialog());
+
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAutoCompleteAdapter.setClickListener(destinationClickListener);
@@ -89,6 +96,20 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
         }
     };
+
+    private void showPreferencesDialog() {
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_preferences, null);
+        CheckBox checkBoxTransit = view.findViewById(R.id.checkbox_transit);
+        new AlertDialog.Builder(this)
+                .setView(view)
+                .setTitle("Edit preferences")
+                .setPositiveButton("OK", (dialog, which) -> {
+
+                })
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+    }
 
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
         Intent intent = new Intent();
