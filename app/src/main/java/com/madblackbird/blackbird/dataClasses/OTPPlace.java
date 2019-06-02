@@ -30,8 +30,11 @@ public class OTPPlace implements Serializable {
     @Expose
     private Double lat;
 
-    public OTPPlace(String name, LatLng latLng) {
+    private String addressName;
+
+    public OTPPlace(String name, String addressName, LatLng latLng) {
         this.name = name;
+        this.addressName = addressName;
         lat = latLng.latitude;
         lon = latLng.longitude;
     }
@@ -83,5 +86,13 @@ public class OTPPlace implements Serializable {
     @Override
     public String toString() {
         return "ClassPojo [vertexType = " + vertexType + ", name = " + name + ", lon = " + lon + ", lat = " + lat + "]";
+    }
+
+    public String getAddressName() {
+        return addressName;
+    }
+
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
     }
 }
