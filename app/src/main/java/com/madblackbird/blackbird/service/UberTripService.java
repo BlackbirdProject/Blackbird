@@ -1,6 +1,9 @@
 package com.madblackbird.blackbird.service;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -8,9 +11,14 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.callback.OnPriceEstimatesLoadCallback;
+import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
 
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -20,10 +28,13 @@ public class UberTripService {
     private Context context;
     private UberRestApi uberRestApi;
     private Gson gson;
+    private LocationService locationService;
 
     public UberTripService(Context context) {
+        this.context = context;
         uberRestApi = new UberRestApi(context.getString(R.string.uber_server_token));
         gson = new Gson();
+        locationService = new LocationService(context);
     }
 
     public void priceEstimate(LatLng start, LatLng end, OnPriceEstimatesLoadCallback callback) {
@@ -49,6 +60,24 @@ public class UberTripService {
 
                 }
         );
+    }
+
+    public void openUberApp(PriceEstimate priceEstimate, OTPPlace from, OTPPlace to) {
+        try {
+            Uri deeplink = Uri.parse("uber://?client_id=" + context.getString(R.string.uber_client_id) +
+                    "&action=setPickup&pickup=my_location" +
+                    "&dropoff[latitude]=" + to.getLat() +
+                    "&dropoff[longitude]=" + to.getLon() +
+                    "&dropoff[nickname]=" + URLEncoder.encode(to.getName(), "UTF-8") +
+                    "&dropoff[formatted_address]=" + URLEncoder.encode(to.getAddressName(), "UTF-8") +
+                    "&product_id=" + priceEstimate.getProductid());
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(deeplink);
+            Log.d("uber", deeplink.toString());
+            context.startActivity(intent);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 }
