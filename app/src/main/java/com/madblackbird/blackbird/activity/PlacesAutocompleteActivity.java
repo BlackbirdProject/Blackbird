@@ -68,7 +68,6 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         });
 
         layoutEditPrefrences.setOnClickListener(v -> showPreferencesDialog());
-
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAutoCompleteAdapter.setClickListener(destinationClickListener);
@@ -104,7 +103,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
                 .setView(view)
                 .setTitle("Edit preferences")
                 .setPositiveButton("OK", (dialog, which) -> {
-
+                    // TODO TravelOptions
                 })
                 .setNegativeButton("Cancel", null)
                 .create()
@@ -114,10 +113,10 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
         Intent intent = new Intent();
         if (from != null && from.getLatLng() != null) {
-            intent.putExtra("from", new OTPPlace(from.getName(), from.getLatLng()));
+            intent.putExtra("from", new OTPPlace(from.getName(), "My Location", from.getLatLng()));
         }
         if (place.getLatLng() != null) {
-            intent.putExtra("to", new OTPPlace(place.getName(), place.getLatLng()));
+            intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
         }
         setResult(Activity.RESULT_OK, intent);
         finish();
