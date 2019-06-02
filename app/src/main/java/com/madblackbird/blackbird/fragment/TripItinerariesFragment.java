@@ -22,6 +22,7 @@ import com.madblackbird.blackbird.callback.OnTripLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.Plan;
+import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
 import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
@@ -41,6 +42,7 @@ public class TripItinerariesFragment extends Fragment {
 
     private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
     private TripDatabaseService tripDatabaseService;
+    private UberTripService uberTripService;
     private List<Object> itineraries;
     private OTPPlace otpFrom;
     private OTPPlace otpTo;
@@ -66,17 +68,25 @@ public class TripItinerariesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, getView());
         tripDatabaseService = new TripDatabaseService();
+        uberTripService = new UberTripService(getContext());
         recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(getContext()));
         itineraries = new ArrayList<>();
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
-        itineraryRecyclerViewAdapter.setOnClickListener(v -> {
+        itineraryRecyclerViewAdapter.setItinerariesClickListener(v -> {
             int pos = recyclerViewItineraries.indexOfChild(v);
-            Itinerary itinerary = (Itinerary) itineraryRecyclerViewAdapter.getItinerary(pos);
-            tripDatabaseService.addTrip(itinerary);
-            Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
-            detailsIntent.putExtra("itinerary", itinerary);
-            detailsIntent.putExtra("placeTo", otpTo);
-            startActivity(detailsIntent);
+            Object objItinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
+            if (objItinerary instanceof Itinerary) {
+                Itinerary itinerary = (Itinerary) objItinerary;
+                tripDatabaseService.addTrip(itinerary);
+                Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
+                detailsIntent.putExtra("itinerary", itinerary);
+                detailsIntent.putExtra("placeTo", otpTo);
+                startActivity(detailsIntent);
+            } else if (objItinerary instanceof PriceEstimate) {
+                PriceEstimate priceEstimate = (PriceEstimate) itineraryRecyclerViewAdapter
+                        .getItinerary(recyclerViewItineraries.indexOfChild(v));
+                uberTripService.openUberApp(priceEstimate, otpFrom, otpTo);
+            }
         });
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
         if (tripHistory) {
