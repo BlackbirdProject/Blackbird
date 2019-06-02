@@ -28,7 +28,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
     private static final int VIEW_TYPE_PRICE_ESTIMATES = 1;
 
     private List<Object> itineraries;
-    private View.OnClickListener onClickListener;
+    private View.OnClickListener itinerariesClickListener;
 
     public ItineraryRecyclerViewAdapter(List<Object> itineraries) {
         this.itineraries = itineraries;
@@ -52,12 +52,14 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
         if (viewType == VIEW_TYPE_ITINERARY) {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_itinerary, parent, false);
-            if (onClickListener != null)
-                view.setOnClickListener(v -> onClickListener.onClick(v));
+            if (itinerariesClickListener != null)
+                view.setOnClickListener(v -> itinerariesClickListener.onClick(v));
             return new ItineraryHolder(view);
         } else {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_price_estimate, parent, false);
+            if (itinerariesClickListener != null)
+                view.setOnClickListener(v -> itinerariesClickListener.onClick(v));
             return new PriceEstimateHolder(view);
         }
     }
@@ -74,8 +76,8 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void setOnClickListener(View.OnClickListener callback) {
-        onClickListener = callback;
+    public void setItinerariesClickListener(View.OnClickListener callback) {
+        itinerariesClickListener = callback;
     }
 
     public Object getItinerary(int position) {
