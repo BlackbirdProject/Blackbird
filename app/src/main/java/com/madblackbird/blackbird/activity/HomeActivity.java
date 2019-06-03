@@ -50,7 +50,6 @@ public class HomeActivity extends AppCompatActivity {
             switch (menuItem.getItemId()) {
                 case R.id.menu_home:
                     transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
-                    navigationView.getMenu().getItem(0).setChecked(true);
                     break;
                 case R.id.menu_trip_history:
                 case R.id.menu_favourite_destinations:
@@ -87,11 +86,9 @@ public class HomeActivity extends AppCompatActivity {
             switch (itemId) {
                 case R.id.menu_trip_history:
                     transaction.replace(R.id.content_frame, new TripItinerariesFragment(), "tripItinerariesFragment");
-                    navigationView.getMenu().getItem(1).setChecked(true);
                     break;
                 case R.id.menu_favourite_destinations:
                     transaction.replace(R.id.content_frame, new FavouriteDestinationFragment(), "favouriteDestinationsFragment");
-                    navigationView.getMenu().getItem(2).setChecked(true);
                     break;
             }
             transaction.addToBackStack(null);
