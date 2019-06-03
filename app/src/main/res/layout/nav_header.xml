@@ -11,6 +11,13 @@
         android:layout_height="130dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/ic_directions_subway" />
+        android:background="@drawable/ic_blackbird_logo" />
+
+    <TextView
+        android:id="@+id/lbl_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

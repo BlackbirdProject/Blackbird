@@ -2,6 +2,8 @@ package com.madblackbird.blackbird.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,6 +19,7 @@ import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.fragment.FavouriteDestinationFragment;
 import com.madblackbird.blackbird.fragment.HomeFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
+import com.madblackbird.blackbird.service.TripDatabaseService;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -25,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private FirebaseUser firebaseUser;
+    private TripDatabaseService tripDatabaseService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nv);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        tripDatabaseService = new TripDatabaseService();
         initializeUI();
     }
 
@@ -62,6 +67,14 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
         navigationView.getMenu().getItem(0).setChecked(true);
+        navigationView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                navigationView.removeOnLayoutChangeListener(this);
+                TextView textView = navigationView.findViewById(R.id.lbl_distance);
+                tripDatabaseService.getDistance(distance -> textView.setText(Math.round(distance / 1000) + " km recorridos"));
+            }
+        });
         transaction.addToBackStack(null);
         transaction.commit();
     }
