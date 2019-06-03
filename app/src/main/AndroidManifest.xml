@@ -13,10 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity"></activity>
-        <activity android:name=".activity.AppIntroActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.SplashScreenActivity">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AppIntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,8 +50,12 @@
                     android:scheme="blackbird" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PlacesAutocompleteActivity" />
-        <activity android:name=".activity.TripDetailsActivity" />
+        <activity
+            android:name=".activity.PlacesAutocompleteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TripDetailsActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
