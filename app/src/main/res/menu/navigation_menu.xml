@@ -12,6 +12,11 @@
     <item
         android:id="@+id/menu_favourite_destinations"
         android:icon="@drawable/ic_uber_icon"
-        android:title="Favourites"/>
+        android:title="Favourites" />
+    <item
+        android:id="@+id/menu_log_out"
+        android:icon="@drawable/ic_exit"
+        android:title="Log Out"
+        android:visible="false" />
 
 </menu>
