@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar, progressBarphone;
     private Context context;
 
+    private TextView lblAnotherTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,10 @@ public class LoginActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         context = this;
         progressBarphone = findViewById(R.id.progressbar_login_phone);
+        lblAnotherTime = findViewById(R.id.lbl_another_time);
+        lblAnotherTime.setOnClickListener(v -> {
+            LoginActivity.this.finish();
+        });
     }
 
     /**

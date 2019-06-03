@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="You need to sign in to use this feature"
         android:textColor="#fff"
-        android:textSize="60sp" />
+        android:textSize="14sp" />
 
     <View
         android:layout_width="fill_parent"
@@ -56,6 +56,15 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/email"
         android:text="@string/email_login" />
+
+    <TextView
+        android:id="@+id/lbl_another_time"
+        android:layout_marginTop="25dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Another time"/>
 
     <ProgressBar
         android:id="@+id/first_sign_in_pb"
