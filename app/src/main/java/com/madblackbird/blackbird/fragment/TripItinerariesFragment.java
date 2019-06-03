@@ -17,6 +17,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.activity.TripDetailsActivity;
 import com.madblackbird.blackbird.adapter.ItineraryRecyclerViewAdapter;
+import com.madblackbird.blackbird.adapter.UberRecyclerViewAdapter;
 import com.madblackbird.blackbird.callback.OnPriceEstimatesLoadCallback;
 import com.madblackbird.blackbird.callback.OnTripLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
@@ -39,14 +40,20 @@ public class TripItinerariesFragment extends Fragment {
 
     @BindView(R.id.recycler_view_itineraries)
     RecyclerView recyclerViewItineraries;
+    @BindView(R.id.recycler_view_uber)
+    RecyclerView recyclerViewUber;
 
-    private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
     private TripDatabaseService tripDatabaseService;
     private UberTripService uberTripService;
-    private List<Object> itineraries;
     private OTPPlace otpFrom;
     private OTPPlace otpTo;
     private boolean tripHistory;
+
+    private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
+    private List<Itinerary> itineraries;
+
+    private UberRecyclerViewAdapter uberRecyclerViewAdapter;
+    private List<PriceEstimate> priceEstimates;
 
     public TripItinerariesFragment() {
         tripHistory = true;
@@ -70,25 +77,27 @@ public class TripItinerariesFragment extends Fragment {
         tripDatabaseService = new TripDatabaseService();
         uberTripService = new UberTripService(getContext());
         recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewUber.setLayoutManager(new LinearLayoutManager(getContext()));
         itineraries = new ArrayList<>();
+        priceEstimates = new ArrayList<>();
+        uberRecyclerViewAdapter = new UberRecyclerViewAdapter(priceEstimates);
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
         itineraryRecyclerViewAdapter.setItinerariesClickListener(v -> {
             int pos = recyclerViewItineraries.indexOfChild(v);
-            Object objItinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
-            if (objItinerary instanceof Itinerary) {
-                Itinerary itinerary = (Itinerary) objItinerary;
-                tripDatabaseService.addTrip(itinerary);
-                Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
-                detailsIntent.putExtra("itinerary", itinerary);
-                detailsIntent.putExtra("placeTo", otpTo);
-                startActivity(detailsIntent);
-            } else if (objItinerary instanceof PriceEstimate) {
-                PriceEstimate priceEstimate = (PriceEstimate) itineraryRecyclerViewAdapter
-                        .getItinerary(recyclerViewItineraries.indexOfChild(v));
-                uberTripService.openUberApp(priceEstimate, otpFrom, otpTo);
-            }
+            Itinerary objItinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
+            tripDatabaseService.addTrip(objItinerary);
+            Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
+            detailsIntent.putExtra("itinerary", objItinerary);
+            detailsIntent.putExtra("placeTo", otpTo);
+            startActivity(detailsIntent);
+        });
+        uberRecyclerViewAdapter.setItinerariesClickListener(v -> {
+            PriceEstimate priceEstimate = uberRecyclerViewAdapter
+                    .getPriceEstimate(recyclerViewUber.indexOfChild(v));
+            uberTripService.openUberApp(priceEstimate, otpFrom, otpTo);
         });
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
+        recyclerViewUber.setAdapter(uberRecyclerViewAdapter);
         if (tripHistory) {
             tripDatabaseService.getItineraries(itinerary -> {
                 itineraries.add(itinerary);
@@ -134,9 +143,9 @@ public class TripItinerariesFragment extends Fragment {
                     otpTo.getLatLng(),
                     new OnPriceEstimatesLoadCallback() {
                         @Override
-                        public void onLoad(PriceEstimates priceEstimates) {
-                            itineraries.addAll(priceEstimates.getPriceEstimates());
-                            itineraryRecyclerViewAdapter.notifyDataSetChanged();
+                        public void onLoad(PriceEstimates returnPriceEstimates) {
+                            priceEstimates.addAll(returnPriceEstimates.getPriceEstimates());
+                            uberRecyclerViewAdapter.notifyDataSetChanged();
                         }
 
                         @Override

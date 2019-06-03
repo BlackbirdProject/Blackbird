@@ -18,70 +18,41 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
-import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 
 import java.util.HashSet;
 import java.util.List;
 
 public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
 
-    private static final int VIEW_TYPE_ITINERARY = 0;
-    private static final int VIEW_TYPE_PRICE_ESTIMATES = 1;
-
-    private List<Object> itineraries;
+    private List<Itinerary> itineraries;
     private View.OnClickListener itinerariesClickListener;
 
-    public ItineraryRecyclerViewAdapter(List<Object> itineraries) {
+    public ItineraryRecyclerViewAdapter(List<Itinerary> itineraries) {
         this.itineraries = itineraries;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        Object itinerary = itineraries.get(position);
-        if (itinerary instanceof Itinerary) {
-            return VIEW_TYPE_ITINERARY;
-        } else if (itinerary instanceof PriceEstimate) {
-            return VIEW_TYPE_PRICE_ESTIMATES;
-        }
-        return -1;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view;
-        if (viewType == VIEW_TYPE_ITINERARY) {
-            view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_itinerary, parent, false);
-            if (itinerariesClickListener != null)
-                view.setOnClickListener(v -> itinerariesClickListener.onClick(v));
-            return new ItineraryHolder(view);
-        } else {
-            view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_price_estimate, parent, false);
-            if (itinerariesClickListener != null)
-                view.setOnClickListener(v -> itinerariesClickListener.onClick(v));
-            return new PriceEstimateHolder(view);
-        }
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_itinerary, parent, false);
+        if (itinerariesClickListener != null)
+            view.setOnClickListener(v -> itinerariesClickListener.onClick(v));
+        return new ItineraryHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-        Object itinerary = itineraries.get(position);
-        switch (viewHolder.getItemViewType()) {
-            case VIEW_TYPE_ITINERARY:
-                ((ItineraryHolder) viewHolder).bind((Itinerary) itinerary);
-                break;
-            case VIEW_TYPE_PRICE_ESTIMATES:
-                ((PriceEstimateHolder) viewHolder).bind((PriceEstimate) itinerary);
-        }
+        Itinerary itinerary = itineraries.get(position);
+        ((ItineraryHolder) viewHolder).bind(itinerary);
+
     }
 
     public void setItinerariesClickListener(View.OnClickListener callback) {
         itinerariesClickListener = callback;
     }
 
-    public Object getItinerary(int position) {
+    public Itinerary getItinerary(int position) {
         return itineraries.get(position);
     }
 
@@ -157,26 +128,6 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
 
         private String formatDistance(Integer distance) {
             return distance >= 1000 ? distance / 1000 + " km" : distance + " m";
-        }
-
-    }
-
-    static class PriceEstimateHolder extends RecyclerView.ViewHolder {
-
-        private final TextView lblUberType, lblEstimate;
-
-        private final Context context;
-
-        PriceEstimateHolder(View view) {
-            super(view);
-            lblUberType = view.findViewById(R.id.lbl_uber_type);
-            lblEstimate = view.findViewById(R.id.lbl_trip_price);
-            context = view.getContext();
-        }
-
-        void bind(PriceEstimate priceEstimate) {
-            lblUberType.setText(priceEstimate.getLocalizedisplayName());
-            lblEstimate.setText(priceEstimate.getEstimate());
         }
 
     }
