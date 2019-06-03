@@ -21,7 +21,7 @@ import com.madblackbird.blackbird.callback.ItinerariesClickListener;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.Leg;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
@@ -97,7 +97,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                     DateUtils.FORMAT_SHOW_TIME) + " - " + DateUtils.formatDateTime(context, itinerary.getEndTime(),
                     DateUtils.FORMAT_SHOW_TIME);
             lblTime.setText(time);
-            HashSet<String> legModes = new HashSet<>();
+            LinkedHashSet<String> legModes = new LinkedHashSet<>();
             verticalTransportIcons.removeAllViews();
             layoutTransportIcons.removeAllViews();
             for (Leg leg : itinerary.getLegs()) {
