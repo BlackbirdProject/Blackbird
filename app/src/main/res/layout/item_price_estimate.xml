@@ -4,6 +4,8 @@
     android:layout_height="75dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
+    android:background="@drawable/bg_item_itinerary"
+    android:layout_margin="7dp"
     android:padding="10dp"
     android:weightSum="10">
 
