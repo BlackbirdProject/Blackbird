@@ -59,6 +59,8 @@ dependencies {
     implementation 'com.github.AppIntro:AppIntro:5.1.0'
     // Uber Rides SDK
     implementation 'com.uber.sdk:rides-android:0.10.1'
+    // ExpandableRecyclerView
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
 }
 
 apply plugin: 'com.google.gms.google-services'

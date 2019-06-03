@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/item_itinerary_parent_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="75dp"
         android:baselineAligned="false"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:weightSum="10"
-        android:gravity="center_vertical">
+        android:weightSum="10">
 
         <LinearLayout
             android:id="@+id/linear_transport_icons"
@@ -42,10 +43,11 @@
 
         </LinearLayout>
 
-        <ImageView android:id="@+id/iv_arrow_expand"
+        <ImageView
+            android:id="@+id/iv_arrow_expand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_drop_down"/>
+            android:src="@drawable/ic_arrow_drop_down" />
 
     </LinearLayout>
 
@@ -53,6 +55,20 @@
         android:id="@+id/vertical_transport_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/vertical_transport_icons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/btn_open_trip_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go!" />
+        
+    </LinearLayout>
 
 </LinearLayout>

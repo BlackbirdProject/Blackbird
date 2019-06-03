@@ -82,9 +82,8 @@ public class TripItinerariesFragment extends Fragment {
         priceEstimates = new ArrayList<>();
         uberRecyclerViewAdapter = new UberRecyclerViewAdapter(priceEstimates);
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
-        itineraryRecyclerViewAdapter.setItinerariesClickListener(v -> {
-            int pos = recyclerViewItineraries.indexOfChild(v);
-            Itinerary objItinerary = itineraryRecyclerViewAdapter.getItinerary(pos);
+        itineraryRecyclerViewAdapter.setItinerariesClickListener((v, position) -> {
+            Itinerary objItinerary = itineraryRecyclerViewAdapter.getItinerary(position);
             tripDatabaseService.addTrip(objItinerary);
             Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
             detailsIntent.putExtra("itinerary", objItinerary);
