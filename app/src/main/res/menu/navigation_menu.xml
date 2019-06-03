@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/menu_home"
-        android:icon="@drawable/ic_metro_madrid"
+        android:icon="@drawable/ic_home"
         android:title="My Account" />
     <item
         android:id="@+id/menu_trip_history"
@@ -11,7 +11,7 @@
         android:title="Past Trips" />
     <item
         android:id="@+id/menu_favourite_destinations"
-        android:icon="@drawable/ic_uber_icon"
+        android:icon="@drawable/ic_heart"
         android:title="Favourites" />
     <item
         android:id="@+id/menu_log_out"
