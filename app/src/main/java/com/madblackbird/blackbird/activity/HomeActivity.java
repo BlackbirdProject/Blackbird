@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -124,6 +125,13 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        Fragment homeFragment = getSupportFragmentManager().findFragmentByTag("homeFragment");
+        if (!(homeFragment != null && homeFragment.isVisible())) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
+
 }
