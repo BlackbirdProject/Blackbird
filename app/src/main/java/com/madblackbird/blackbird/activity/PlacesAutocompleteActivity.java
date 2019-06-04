@@ -101,11 +101,11 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         CheckBox checkBoxTransit = view.findViewById(R.id.checkbox_transit);
         new AlertDialog.Builder(this)
                 .setView(view)
-                .setTitle("Edit preferences")
-                .setPositiveButton("OK", (dialog, which) -> {
+                .setTitle(getString(R.string.edit_preferences))
+                .setPositiveButton(getString(R.string.ok), (dialog, which) -> {
                     // TODO TravelOptions
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(getString(R.string.cancel), null)
                 .create()
                 .show();
     }

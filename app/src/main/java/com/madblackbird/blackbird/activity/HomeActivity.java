@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 navigationView.removeOnLayoutChangeListener(this);
                 TextView textView = navigationView.findViewById(R.id.lbl_distance);
-                tripDatabaseService.getDistance(distance -> textView.setText(Math.round(distance / 1000) + " km recorridos"));
+                tripDatabaseService.getDistance(distance -> textView.setText(Math.round(distance / 1000) + getString(R.string.travelled_km)));
             }
         });
         transaction.addToBackStack(null);
