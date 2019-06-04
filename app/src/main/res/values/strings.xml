@@ -23,4 +23,6 @@
     <string name="e_mail" translatable="false">E-Mail</string>
     <string name="password">Contraseña</string>
     <string name="type_phone">Número de teléfono</string>
+    <string name="itineraries">Itineraries</string>
+    <string name="uber">Uber</string>
 </resources>

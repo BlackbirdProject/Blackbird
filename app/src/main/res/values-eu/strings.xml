@@ -22,4 +22,6 @@
     <string name="incorrect_credentials">Credenciales incorrectas</string>
     <string name="password">Contraseña</string>
     <string name="type_phone">Número de teléfono</string>
+    <string name="itineraries">Itineraries</string>
+    <string name="uber">Uber</string>
 </resources>

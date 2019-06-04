@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Itineraries"
+                android:text="@string/itineraries"
                 android:visibility="visible" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Uber" />
+                android:text="@string/uber" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_uber"
