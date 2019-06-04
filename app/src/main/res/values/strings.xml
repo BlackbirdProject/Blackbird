@@ -29,7 +29,7 @@
     <string name="past_trips">Past Trips</string>
     <string name="favourites">Favourites</string>
     <string name="log_out">Log Out</string>
-    <string name="travelled_km">&#160;travelled kms</string>
+    <string name="travelled_km">&#160;kms travelled</string>
     <string name="edit_preferences">Edit preferences</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
