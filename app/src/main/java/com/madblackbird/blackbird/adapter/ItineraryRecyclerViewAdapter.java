@@ -49,6 +49,12 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
         ItineraryHolder itineraryHolder = (ItineraryHolder) viewHolder;
         itineraryHolder.bind(itinerary);
         itineraryHolder.itineraryParentView.setOnClickListener(v -> {
+            for (Itinerary otherItinerary : itineraries) {
+                if (otherItinerary.isExpanded() && !otherItinerary.equals(itinerary)) {
+                    otherItinerary.setExpanded(false);
+                    notifyItemChanged(itineraries.indexOf(otherItinerary));
+                }
+            }
             boolean expanded = itinerary.isExpanded();
             itinerary.setExpanded(!expanded);
             notifyItemChanged(position);
