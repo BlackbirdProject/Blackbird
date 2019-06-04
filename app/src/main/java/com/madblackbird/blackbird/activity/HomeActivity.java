@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -71,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 navigationView.removeOnLayoutChangeListener(this);
                 TextView textView = navigationView.findViewById(R.id.lbl_distance);
-                tripDatabaseService.getDistance(distance -> textView.setText(Math.round(distance / 1000) + " km recorridos"));
+                tripDatabaseService.getDistance(distance -> textView.setText(Math.round(distance / 1000) + getString(R.string.travelled_km)));
             }
         });
         transaction.addToBackStack(null);
@@ -124,6 +125,13 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        Fragment homeFragment = getSupportFragmentManager().findFragmentByTag("homeFragment");
+        if (!(homeFragment != null && homeFragment.isVisible())) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, new HomeFragment(), "homeFragment");
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
+
 }

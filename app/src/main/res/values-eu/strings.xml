@@ -24,4 +24,12 @@
     <string name="type_phone">Número de teléfono</string>
     <string name="itineraries">Itineraries</string>
     <string name="uber">Uber</string>
+    <string name="my_account">My Account</string>
+    <string name="past_trips">Past Trips</string>
+    <string name="favourites">Favourites</string>
+    <string name="log_out">Log Out</string>
+    <string name="travelled_km">&#160;km recorridos</string>
+    <string name="edit_preferences">Edit preferences</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>
