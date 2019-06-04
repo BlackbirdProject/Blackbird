@@ -49,6 +49,13 @@ public class FavouriteDestinationFragment extends Fragment {
         recyclerViewFavourites.setLayoutManager(new LinearLayoutManager(getContext()));
         places = new ArrayList<>();
         favouriteDestinationAdapter = new FavouriteDestinationAdapter(places);
+        // TODO: Open home activity and set destination
+        /*favouriteDestinationAdapter.setOnClickListener((v, position) -> {
+            Intent intent = new Intent(getContext(), TripDetailsActivity.class);
+            OTPPlace to = places.get(position);
+            intent.putExtra("placeTo", to);
+            getContext().startActivity(intent);
+        });*/
         recyclerViewFavourites.setAdapter(favouriteDestinationAdapter);
         tripDatabaseService.getFavourites(this::addFavourite);
     }

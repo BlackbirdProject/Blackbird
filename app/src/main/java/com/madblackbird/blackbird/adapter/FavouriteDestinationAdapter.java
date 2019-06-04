@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.madblackbird.blackbird.R;
+import com.madblackbird.blackbird.callback.PlaceClickListener;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class FavouriteDestinationAdapter extends RecyclerView.Adapter<FavouriteDestinationAdapter.Holder> {
 
     private List<OTPPlace> places;
-    private View.OnClickListener onClickListener;
+    private PlaceClickListener onClickListener;
 
     public FavouriteDestinationAdapter(List<OTPPlace> places) {
         this.places = places;
@@ -27,18 +28,17 @@ public class FavouriteDestinationAdapter extends RecyclerView.Adapter<FavouriteD
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_favourite_place, viewGroup, false);
-        RecyclerView.ViewHolder holder = new Holder(view);
-        if (onClickListener != null)
-            holder.itemView.setOnClickListener(v -> onClickListener.onClick(v));
         return new Holder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.bind(places.get(position));
+        if (onClickListener != null)
+            holder.itemView.setOnClickListener(v -> onClickListener.onClick(v, position));
     }
 
-    public void setOnClickListener(View.OnClickListener callback) {
+    public void setOnClickListener(PlaceClickListener callback) {
         onClickListener = callback;
     }
 

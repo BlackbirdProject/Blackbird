@@ -38,8 +38,6 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_itinerary, parent, false);
-        /*if (itinerariesClickListener != null)
-            view.setOnClickListener(v -> itinerariesClickListener.onClick(v));*/
         return new ItineraryHolder(view);
     }
 
@@ -59,7 +57,8 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
             itinerary.setExpanded(!expanded);
             notifyItemChanged(position);
         });
-        itineraryHolder.btnOpenTripDetails.setOnClickListener(v -> itinerariesClickListener.onClick(v, position));
+        if (itinerariesClickListener != null)
+            itineraryHolder.btnOpenTripDetails.setOnClickListener(v -> itinerariesClickListener.onClick(v, position));
     }
 
     public void setItinerariesClickListener(ItinerariesClickListener callback) {
