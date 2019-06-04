@@ -31,9 +31,11 @@ public class TripDatabaseService {
     }
 
     public void addTrip(Itinerary itinerary) {
+        itinerary.setExpanded(false);
         if (firebaseUser != null) {
             DatabaseReference savedTrips = firebaseDatabase.getReference("savedTrips");
             savedTrips.child(firebaseUser.getUid())
+                    .push()
                     .setValue(itinerary);
         }
         addDistance(itinerary);
@@ -137,7 +139,8 @@ public class TripDatabaseService {
     public void getItineraries(OnItineraryLoadCallback callback) {
         if (firebaseUser != null) {
             DatabaseReference savedTrips = firebaseDatabase.getReference("savedTrips");
-            savedTrips.addChildEventListener(new ChildEventListener() {
+            savedTrips.child(firebaseUser.getUid())
+                    .addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     Itinerary itinerary = dataSnapshot.getValue(Itinerary.class);
