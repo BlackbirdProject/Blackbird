@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -115,7 +116,14 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
             if (findAutocompletePredictionsResponse != null)
                 for (AutocompletePrediction prediction : findAutocompletePredictionsResponse.getAutocompletePredictions()) {
                     Log.i(TAG, prediction.getPlaceId());
-                    resultList.add(new PlaceAutocomplete(prediction.getPlaceId(), prediction.getPrimaryText(STYLE_NORMAL).toString(), prediction.getFullText(STYLE_BOLD).toString()));
+                    resultList.add(new PlaceAutocomplete(
+                            prediction.getPlaceId(),
+                            prediction.getPrimaryText(STYLE_NORMAL).toString(),
+                            prediction.getFullText(STYLE_BOLD).toString(),
+                            prediction.getPlaceTypes()));
+                    for (Place.Type type : prediction.getPlaceTypes()) {
+                        Log.d("placeType" + prediction.getFullText(STYLE_NORMAL), type.name() + "   " + type.toString());
+                    }
                 }
 
             return resultList;
@@ -135,7 +143,28 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
 
     @Override
     public void onBindViewHolder(@NonNull PredictionHolder mPredictionHolder, final int i) {
-        mPredictionHolder.address.setText(mResultList.get(i).address);
+        PlaceAutocomplete placeAutocomplete = mResultList.get(i);
+        mPredictionHolder.address.setText(placeAutocomplete.address);
+        mPredictionHolder.imgPlaceImage.setImageDrawable(mContext.getDrawable(getPlaceTypeDrawable(placeAutocomplete.types)));
+    }
+
+    private int getPlaceTypeDrawable(List<Place.Type> types) {
+        if (containsType(types, "SUBWAY_STATION")) {
+            return R.drawable.ic_metro_madrid;
+        } else if (containsType(types, "TRANSIT_STATION") || containsType(types, "TRAIN_STATION")) {
+            return R.drawable.ic_train;
+        } else if (containsType(types, "BUS_STATION")) {
+            return R.drawable.ic_directions_bus;
+        }
+        return R.drawable.ic_action_navigate;
+    }
+
+    private boolean containsType(final List<Place.Type> list, final String type) {
+        for (Place.Type t : list) {
+            if (t.name().equals(type))
+                return true;
+        }
+        return false;
     }
 
     @Override
@@ -151,10 +180,12 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
 
         private TextView address;
         private RelativeLayout mRow;
+        private ImageView imgPlaceImage;
 
         PredictionHolder(View itemView) {
             super(itemView);
             address = itemView.findViewById(R.id.item_place_address);
+            imgPlaceImage = itemView.findViewById(R.id.item_place_image);
             mRow = itemView.findViewById(R.id.predictedRow);
             itemView.setOnClickListener(this);
         }
@@ -180,13 +211,14 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
 
     public class PlaceAutocomplete {
 
-        CharSequence placeId;
-        CharSequence address, area;
+        CharSequence placeId, address, area;
+        List<Place.Type> types;
 
-        PlaceAutocomplete(CharSequence placeId, CharSequence area, CharSequence address) {
+        PlaceAutocomplete(CharSequence placeId, CharSequence area, CharSequence address, List<Place.Type> types) {
             this.placeId = placeId;
             this.area = area;
             this.address = address;
+            this.types = types;
         }
 
         @NotNull
