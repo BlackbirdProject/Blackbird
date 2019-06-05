@@ -121,9 +121,6 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
                             prediction.getPrimaryText(STYLE_NORMAL).toString(),
                             prediction.getFullText(STYLE_BOLD).toString(),
                             prediction.getPlaceTypes()));
-                    for (Place.Type type : prediction.getPlaceTypes()) {
-                        Log.d("placeType" + prediction.getFullText(STYLE_NORMAL), type.name() + "   " + type.toString());
-                    }
                 }
 
             return resultList;
