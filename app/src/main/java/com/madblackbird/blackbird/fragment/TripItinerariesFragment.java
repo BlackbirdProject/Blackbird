@@ -25,12 +25,14 @@ import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.Plan;
 import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
+import com.madblackbird.blackbird.dataClasses.TimeEstimate;
 import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 import com.madblackbird.blackbird.service.TripManagerService;
 import com.madblackbird.blackbird.service.UberTripService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -54,6 +56,7 @@ public class TripItinerariesFragment extends Fragment {
 
     private UberRecyclerViewAdapter uberRecyclerViewAdapter;
     private List<PriceEstimate> priceEstimates;
+    private HashMap<String, TimeEstimate> timeEstimates;
 
     public TripItinerariesFragment() {
         tripHistory = true;
@@ -80,7 +83,8 @@ public class TripItinerariesFragment extends Fragment {
         recyclerViewUber.setLayoutManager(new LinearLayoutManager(getContext()));
         itineraries = new ArrayList<>();
         priceEstimates = new ArrayList<>();
-        uberRecyclerViewAdapter = new UberRecyclerViewAdapter(priceEstimates);
+        timeEstimates = new HashMap<>();
+        uberRecyclerViewAdapter = new UberRecyclerViewAdapter(priceEstimates, timeEstimates);
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
         itineraryRecyclerViewAdapter.setItinerariesClickListener((v, position) -> {
             Itinerary objItinerary = itineraryRecyclerViewAdapter.getItinerary(position);
@@ -139,6 +143,15 @@ public class TripItinerariesFragment extends Fragment {
 
                         }
                     });
+            uberTripService.timeEstimate(
+                    otpTo.getLatLng(),
+                    loadedTimeEstimates -> {
+                        for (TimeEstimate timeEstimate : loadedTimeEstimates.getTimeEstimates()) {
+                            timeEstimates.put(timeEstimate.getProductid(), timeEstimate);
+                        }
+                        uberRecyclerViewAdapter.notifyDataSetChanged();
+                    }
+            );
             uberTripService.priceEstimate(
                     from,
                     otpTo.getLatLng(),

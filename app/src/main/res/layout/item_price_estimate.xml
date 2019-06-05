@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:background="@drawable/bg_item_itinerary"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:background="@drawable/bg_item_itinerary"
-    android:layout_margin="7dp"
     android:padding="10dp"
     android:weightSum="10">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="7"
         android:gravity="center_vertical">
@@ -28,10 +28,33 @@
             android:textColor="@android:color/black" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lbl_trip_price"
-        android:layout_width="96dp"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_weight="3"
+        android:gravity="center_vertical|end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lbl_trip_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="56 minutes"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/lbl_trip_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5€"/>
+
+        <TextView
+            android:id="@+id/lbl_time_estimate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 minute wait"/>
+
+    </LinearLayout>
 
 </LinearLayout>
