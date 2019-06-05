@@ -10,13 +10,13 @@ import com.loopj.android.http.RequestParams;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.callback.OnTripLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Leg;
+import com.madblackbird.blackbird.dataClasses.OTPTime;
 import com.madblackbird.blackbird.dataClasses.TripPlan;
 
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -25,12 +25,12 @@ public class TripManagerService {
 
     private static final Gson gson = new Gson();
 
-    public static void findRoute(Context context, LatLng from, LatLng to, final OnTripLoadCallback callback) {
+    public static void findRoute(Context context, LatLng from, LatLng to, OTPTime otpTime, final OnTripLoadCallback callback) {
         RequestParams requestParams = new RequestParams();
         requestParams.add("fromPlace", from.latitude + ", " + from.longitude);
         requestParams.add("toPlace", to.latitude + ", " + to.longitude);
-        requestParams.add("time", formatCurrentTime());
-        requestParams.add("date", formatCurrentDate());
+        requestParams.add("time", formatTime(otpTime));
+        requestParams.add("date", formatDate(otpTime));
         requestParams.add("mode", "TRANSIT,WALK");
         OTPRestApi.get(
                 context.getString(R.string.otp_server_url),
@@ -64,16 +64,20 @@ public class TripManagerService {
         return places;
     }
 
-    private static String formatCurrentTime() {
+    @SuppressLint("DefaultLocale")
+    private static String formatTime(OTPTime otpTime) {
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mma");
-        return dateFormat.format(new Date(System.currentTimeMillis()));
+        //return dateFormat.format(new Date(System.currentTimeMillis()));
+        return String.format("%02d:%02d", otpTime.getHour(), otpTime.getMinute());
     }
 
-    private static String formatCurrentDate() {
+    @SuppressLint("DefaultLocale")
+    private static String formatDate(OTPTime otpTime) {
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-        return dateFormat.format(new Date(System.currentTimeMillis()));
+        //return dateFormat.format(new Date(System.currentTimeMillis()));
+        return String.format("%02d-%02d-%04d", otpTime.getMonth(), otpTime.getDayOfMonth(), otpTime.getYear());
     }
 
 }
