@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -97,7 +96,6 @@ public class UberTripService {
                     "&product_id=" + priceEstimate.getProductid());
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(deeplink);
-            Log.d("uber", deeplink.toString());
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e) {
