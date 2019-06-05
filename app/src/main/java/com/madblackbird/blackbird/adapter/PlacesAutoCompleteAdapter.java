@@ -156,7 +156,7 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
         } else if (containsType(types, "BUS_STATION")) {
             return R.drawable.ic_directions_bus;
         }
-        return R.drawable.ic_action_navigate;
+        return R.drawable.ic_location_marker;
     }
 
     private boolean containsType(final List<Place.Type> list, final String type) {
