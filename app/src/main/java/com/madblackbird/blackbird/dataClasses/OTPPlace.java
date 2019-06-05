@@ -82,6 +82,11 @@ public class OTPPlace implements Serializable {
         this.lat = lat;
     }
 
+    public void setLatng(LatLng latLng) {
+        this.lat = latLng.latitude;
+        this.lon = latLng.longitude;
+    }
+
     @NotNull
     @Override
     public String toString() {
