@@ -11,7 +11,7 @@
         android:id="@+id/layout_edit_preferences_autocomplete"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#00A2A2"
+        android:background="@color/colorAccent"
         android:gravity="center_vertical">
 
         <TextView
@@ -19,6 +19,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:text="Edit preferences"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_sort" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_edit_time_autocomplete"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Choose time"
             android:textColor="@android:color/white" />
 
         <ImageView
