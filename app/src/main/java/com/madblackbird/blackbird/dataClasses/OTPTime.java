@@ -1,7 +1,5 @@
 package com.madblackbird.blackbird.dataClasses;
 
-import android.util.Log;
-
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +20,6 @@ public class OTPTime implements Serializable {
         year = cal.get(Calendar.YEAR);
         hour = cal.get(Calendar.HOUR_OF_DAY);
         minute = cal.get(Calendar.MINUTE);
-        Log.d("hor:minute", hour + ":" + minute);
     }
 
     public int getDayOfMonth() {
