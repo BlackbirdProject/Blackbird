@@ -11,9 +11,11 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.callback.OnPriceEstimatesLoadCallback;
+import com.madblackbird.blackbird.callback.TimeEstimatesLoadCallback;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
+import com.madblackbird.blackbird.dataClasses.TimeEstimates;
 
 import org.json.JSONObject;
 
@@ -56,6 +58,24 @@ public class UberTripService {
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                         callback.onLoadError();
+                    }
+
+                }
+        );
+    }
+
+    public void timeEstimate(LatLng start, TimeEstimatesLoadCallback callback) {
+        RequestParams requestParams = new RequestParams();
+        requestParams.add("start_latitude", String.valueOf(start.latitude));
+        requestParams.add("start_longitude", String.valueOf(start.longitude));
+        uberRestApi.get(
+                "estimates/time",
+                requestParams,
+                new JsonHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        callback.onTimeEstimatesLoad(gson.fromJson(response.toString(), TimeEstimates.class));
                     }
 
                 }
