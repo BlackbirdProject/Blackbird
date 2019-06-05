@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.OTPTime;
 import com.madblackbird.blackbird.service.LocationService;
 
 import org.jetbrains.annotations.NotNull;
