@@ -78,7 +78,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             if (resultCode == Activity.RESULT_OK) {
                 OTPPlace otpFrom = (OTPPlace) data.getSerializableExtra("from");
                 OTPPlace otpTo = (OTPPlace) data.getSerializableExtra("to");
-                TripItinerariesFragment tripItinerariesFragment = new TripItinerariesFragment(otpFrom, otpTo);
+                OTPTime otpTime = (OTPTime) data.getSerializableExtra("time");
+                TripItinerariesFragment tripItinerariesFragment = new TripItinerariesFragment(otpFrom, otpTo, otpTime);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.content_frame, tripItinerariesFragment, "tripItinerariesFragment")
                         .addToBackStack(null)
