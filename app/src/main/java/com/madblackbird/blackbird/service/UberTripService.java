@@ -1,5 +1,6 @@
 package com.madblackbird.blackbird.service;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,9 @@ import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
 import com.madblackbird.blackbird.dataClasses.TimeEstimates;
+import com.uber.sdk.android.rides.RideParameters;
+import com.uber.sdk.android.rides.RideRequestDeeplink;
+import com.uber.sdk.core.client.SessionConfiguration;
 
 import org.json.JSONObject;
 
@@ -94,7 +98,19 @@ public class UberTripService {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(deeplink);
             Log.d("uber", deeplink.toString());
-            context.startActivity(intent);
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                RideRequestDeeplink rideRequestDeeplink = new RideRequestDeeplink.Builder(context)
+                        .setRideParameters(new RideParameters.Builder()
+                                .build())
+                        .setSessionConfiguration(new SessionConfiguration.Builder()
+                                .setClientId(context.getString(R.string.uber_client_id))
+                                .setServerToken(context.getString(R.string.uber_server_token))
+                                .build())
+                        .build();
+                rideRequestDeeplink.execute();
+            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
