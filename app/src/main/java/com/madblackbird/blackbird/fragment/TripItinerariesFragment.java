@@ -22,6 +22,7 @@ import com.madblackbird.blackbird.callback.OnPriceEstimatesLoadCallback;
 import com.madblackbird.blackbird.callback.OnTripLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.OTPTime;
 import com.madblackbird.blackbird.dataClasses.Plan;
 import com.madblackbird.blackbird.dataClasses.PriceEstimate;
 import com.madblackbird.blackbird.dataClasses.PriceEstimates;
@@ -49,6 +50,7 @@ public class TripItinerariesFragment extends Fragment {
     private UberTripService uberTripService;
     private OTPPlace otpFrom;
     private OTPPlace otpTo;
+    private OTPTime otpTime;
     private boolean tripHistory;
 
     private ItineraryRecyclerViewAdapter itineraryRecyclerViewAdapter;
@@ -62,9 +64,10 @@ public class TripItinerariesFragment extends Fragment {
         tripHistory = true;
     }
 
-    public TripItinerariesFragment(OTPPlace otpFrom, OTPPlace otpTo) {
+    public TripItinerariesFragment(OTPPlace otpFrom, OTPPlace otpTo, OTPTime otpTime) {
         this.otpFrom = otpFrom;
         this.otpTo = otpTo;
+        this.otpTime = otpTime;
     }
 
     @Override
@@ -127,6 +130,7 @@ public class TripItinerariesFragment extends Fragment {
                     getContext(),
                     from,
                     otpTo.getLatLng(),
+                    otpTime,
                     new OnTripLoadCallback() {
                         @Override
                         public void onItineraryLoaded(Plan plan) {
