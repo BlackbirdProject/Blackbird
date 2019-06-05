@@ -2,6 +2,8 @@ package com.madblackbird.blackbird.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,6 +23,10 @@ import com.google.android.libraries.places.api.model.Place;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.PlacesAutoCompleteAdapter;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.OTPTime;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,17 +38,21 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
     @BindView(R.id.place_search)
     EditText txtDestination;
     @BindView(R.id.layout_edit_preferences_autocomplete)
-    RelativeLayout layoutEditPrefrences;
+    RelativeLayout layoutEditPreferences;
+    @BindView(R.id.layout_edit_time_autocomplete)
+    RelativeLayout layoutEditTime;
 
     private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
     private RecyclerView recyclerView;
     private Place from;
+    private OTPTime otpTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_autocomplete);
         ButterKnife.bind(this);
+        otpTime = new OTPTime();
         txtDestination.requestFocus();
 
         Places.initialize(this, getResources().getString(R.string.google_maps_api_key));
@@ -67,7 +77,8 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
             }
         });
 
-        layoutEditPrefrences.setOnClickListener(v -> showPreferencesDialog());
+        layoutEditPreferences.setOnClickListener(v -> showPreferencesDialog());
+        layoutEditTime.setOnClickListener(v -> changeDate());
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAutoCompleteAdapter.setClickListener(destinationClickListener);
@@ -110,6 +121,31 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
                 .show();
     }
 
+    private void changeDate() {
+        Calendar calendar = Calendar.getInstance();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (view, year, month, dayOfMonth) -> {
+                    otpTime.setYear(year);
+                    otpTime.setMonth(month);
+                    otpTime.setDayOfMonth(dayOfMonth);
+                    changeTime();
+                },
+                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(1546300800000L);
+        datePickerDialog.show();
+    }
+
+    private void changeTime() {
+        new TimePickerDialog(this,
+                (view, hourOfDay, minute) -> {
+                    otpTime.setHour(hourOfDay);
+                    otpTime.setMinute(minute);
+                },
+                GregorianCalendar.HOUR_OF_DAY,
+                GregorianCalendar.MINUTE,
+                true).show();
+    }
+
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
         Intent intent = new Intent();
         if (from != null && from.getLatLng() != null) {
@@ -118,6 +154,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         if (place.getLatLng() != null) {
             intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
         }
+        intent.putExtra("time", otpTime);
         setResult(Activity.RESULT_OK, intent);
         finish();
     };
