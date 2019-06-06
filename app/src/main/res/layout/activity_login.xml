@@ -22,14 +22,15 @@
         android:id="@+id/lbl_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You need to sign in to use this feature"
+        android:layout_marginTop="20dp"
+        android:text="@string/sing_in_required"
         android:textColor="#fff"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="20" />
+        android:layout_weight="15" />
 
     <Button
         android:id="@+id/google_sign_i"
@@ -59,12 +60,12 @@
 
     <TextView
         android:id="@+id/lbl_another_time"
-        android:layout_marginTop="25dp"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Another time"/>
+        android:layout_marginTop="25dp"
+        android:text="@string/another_time"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <ProgressBar
         android:id="@+id/first_sign_in_pb"
