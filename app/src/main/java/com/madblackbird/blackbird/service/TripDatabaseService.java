@@ -14,6 +14,7 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.madblackbird.blackbird.callback.DistanceLoadCallback;
+import com.madblackbird.blackbird.callback.FavouriteAddedCallback;
 import com.madblackbird.blackbird.callback.OnItineraryLoadCallback;
 import com.madblackbird.blackbird.callback.OnPlaceLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
@@ -72,12 +73,15 @@ public class TripDatabaseService {
         }
     }
 
-    public void addFavourite(OTPPlace place) {
+    public void addFavourite(OTPPlace place, FavouriteAddedCallback callback) {
         if (firebaseUser != null) {
             DatabaseReference favouritePlaces = firebaseDatabase.getReference("favouritePlaces");
             favouritePlaces.child(firebaseUser.getUid())
                     .push()
-                    .setValue(place);
+                    .setValue(place)
+                    .addOnSuccessListener(aVoid -> {
+                        callback.favouriteAdded();
+                    });
         }
     }
 

@@ -12,13 +12,26 @@
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".fragment.TripDetailsFragment">
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/trip_details"
-        android:textColor="#000"
-        android:textSize="28sp" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/trip_details"
+            android:textColor="#000"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/img_add_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart_empty"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_trip_details"

@@ -3,7 +3,7 @@ package com.madblackbird.blackbird.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,8 +48,8 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
     LinearLayout bottomSheet;
     @BindView(R.id.recycler_view_trip_details)
     RecyclerView recyclerViewTripDetails;
-    @BindView(R.id.button_add_favourite)
-    Button btnAddFavourite;
+    @BindView(R.id.img_add_favourite)
+    ImageView imgAddFavourite;
 
     private TripDetailsAdapter tripDetailsAdapter;
     private TripDatabaseService tripDatabaseService;
@@ -70,7 +70,7 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
         Intent intent = getIntent();
         itinerary = (Itinerary) intent.getSerializableExtra("itinerary");
         placeTo = (OTPPlace) intent.getSerializableExtra("placeTo");
-        btnAddFavourite.setOnClickListener(v -> addFavourite());
+        imgAddFavourite.setOnClickListener(v -> addFavourite());
         locationService = new LocationService(this);
     }
 
@@ -91,7 +91,10 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
     }
 
     private void addFavourite() {
-        tripDatabaseService.addFavourite(placeTo);
+        tripDatabaseService.addFavourite(
+                placeTo,
+                () -> imgAddFavourite.setImageDrawable(getDrawable(R.drawable.heart_pressed)
+                ));
     }
 
     private void drawTransitPolyline(Leg leg) {
