@@ -8,47 +8,32 @@
     tools:context=".activity.PlacesAutocompleteActivity">
 
     <RelativeLayout
-        android:id="@+id/layout_edit_preferences_autocomplete"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="Edit preferences"
-            android:textColor="@android:color/white" />
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:padding="15dp">
 
         <ImageView
+            android:id="@+id/img_autocomplete_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back" />
+
+        <ImageView
+            android:id="@+id/img_autocomplete_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_toStartOf="@id/img_autocomplete_settings"
+            android:src="@drawable/ic_time" />
+
+        <ImageView
+            android:id="@+id/img_autocomplete_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_sort" />
-    </RelativeLayout>
+            android:src="@drawable/ic_settings" />
 
-    <RelativeLayout
-        android:id="@+id/layout_edit_time_autocomplete"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorAccent"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="Choose time"
-            android:textColor="@android:color/white" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_sort" />
     </RelativeLayout>
 
     <EditText
@@ -56,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/bg_search_autocomplete"

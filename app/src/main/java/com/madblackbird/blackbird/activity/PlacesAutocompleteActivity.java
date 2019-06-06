@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,10 +37,12 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
     EditText txtOriginSearch;
     @BindView(R.id.place_search)
     EditText txtDestination;
-    @BindView(R.id.layout_edit_preferences_autocomplete)
-    RelativeLayout layoutEditPreferences;
-    @BindView(R.id.layout_edit_time_autocomplete)
-    RelativeLayout layoutEditTime;
+    @BindView(R.id.img_autocomplete_settings)
+    ImageView imgEditPreferences;
+    @BindView(R.id.img_autocomplete_time)
+    ImageView imgEditTime;
+    @BindView(R.id.img_autocomplete_back)
+    ImageView imgGoBack;
 
     private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
     private RecyclerView recyclerView;
@@ -77,8 +79,9 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
             }
         });
 
-        layoutEditPreferences.setOnClickListener(v -> showPreferencesDialog());
-        layoutEditTime.setOnClickListener(v -> changeDate());
+        imgEditPreferences.setOnClickListener(v -> showPreferencesDialog());
+        imgEditTime.setOnClickListener(v -> changeDate());
+        imgGoBack.setOnClickListener(v -> onBackPressed());
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAutoCompleteAdapter.setClickListener(destinationClickListener);
