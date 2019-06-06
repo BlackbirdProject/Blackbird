@@ -50,6 +50,8 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
     RecyclerView recyclerViewTripDetails;
     @BindView(R.id.img_add_favourite)
     ImageView imgAddFavourite;
+    @BindView(R.id.img_hybrid_switch_details)
+    ImageView imgHybridSwitch;
 
     private TripDetailsAdapter tripDetailsAdapter;
     private TripDatabaseService tripDatabaseService;
@@ -72,6 +74,14 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
         placeTo = (OTPPlace) intent.getSerializableExtra("placeTo");
         imgAddFavourite.setOnClickListener(v -> addFavourite());
         locationService = new LocationService(this);
+        imgHybridSwitch.setOnClickListener(v -> {
+            if (googleMap != null) {
+                if (googleMap.getMapType() == GoogleMap.MAP_TYPE_NORMAL)
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                else if (googleMap.getMapType() == GoogleMap.MAP_TYPE_HYBRID)
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            }
+        });
     }
 
     @Override

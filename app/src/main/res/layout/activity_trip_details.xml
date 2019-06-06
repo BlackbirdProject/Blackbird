@@ -2,16 +2,28 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/BottomSheetDialogTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/BottomSheetDialogTheme"
     tools:context=".activity.TripDetailsActivity">
 
-    <fragment
+    <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
         android:id="@+id/trip_details_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        map:cameraTargetLat="40.416943"
+        map:cameraTargetLng="-3.703618"
+        map:cameraZoom="13" />
+
+    <ImageView
+        android:id="@+id/img_hybrid_switch_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_hybrid_map" />
 
     <include layout="@layout/bottom_sheet_trip_details" />
 

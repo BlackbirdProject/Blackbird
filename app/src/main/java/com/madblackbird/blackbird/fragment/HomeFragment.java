@@ -38,10 +38,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     @BindView(R.id.search_box_places_autocomplete)
     EditText searchBox;
-
-
     @BindView(R.id.btn_drawer_menu)
     ImageView btnDrawerMenu;
+    @BindView(R.id.img_hybrid_switch)
+    ImageView imgHybridSwitch;
 
     private LocationService locationService;
     private boolean followUser;
@@ -70,6 +70,14 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         btnDrawerMenu.setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));
         locationService = new LocationService(getContext());
+        imgHybridSwitch.setOnClickListener(v -> {
+            if (googleMap != null) {
+                if (googleMap.getMapType() == GoogleMap.MAP_TYPE_NORMAL)
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                else if (googleMap.getMapType() == GoogleMap.MAP_TYPE_HYBRID)
+                    googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            }
+        });
     }
 
     @Override
