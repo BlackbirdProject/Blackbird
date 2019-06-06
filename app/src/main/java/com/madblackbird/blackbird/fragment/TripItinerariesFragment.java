@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,6 +46,8 @@ public class TripItinerariesFragment extends Fragment {
     RecyclerView recyclerViewItineraries;
     @BindView(R.id.recycler_view_uber)
     RecyclerView recyclerViewUber;
+    @BindView(R.id.lbl_uber)
+    TextView lblUber;
 
     private TripDatabaseService tripDatabaseService;
     private UberTripService uberTripService;
@@ -102,6 +105,8 @@ public class TripItinerariesFragment extends Fragment {
                     .getPriceEstimate(recyclerViewUber.indexOfChild(v));
             uberTripService.openUberApp(priceEstimate, otpFrom, otpTo);
         });
+        if (tripHistory)
+            lblUber.setVisibility(View.GONE);
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
         recyclerViewUber.setAdapter(uberRecyclerViewAdapter);
         if (tripHistory) {
