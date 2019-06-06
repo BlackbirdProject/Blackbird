@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,8 @@ public class FavouriteDestinationFragment extends Fragment {
 
     @BindView(R.id.recycler_view_favourites)
     RecyclerView recyclerViewFavourites;
+    @BindView(R.id.img_favourites_back)
+    ImageView imgGoBack;
 
     private FavouriteDestinationAdapter favouriteDestinationAdapter;
     private TripDatabaseService tripDatabaseService;
@@ -58,6 +61,7 @@ public class FavouriteDestinationFragment extends Fragment {
         });*/
         recyclerViewFavourites.setAdapter(favouriteDestinationAdapter);
         tripDatabaseService.getFavourites(this::addFavourite);
+        imgGoBack.setOnClickListener(v -> getActivity().onBackPressed());
     }
 
     private void addFavourite(OTPPlace place) {
