@@ -46,7 +46,7 @@ public class OTPPlace implements Serializable {
         this.lat = lat;
     }
 
-    public LatLng getLatLng() {
+    public LatLng latLng() {
         return new LatLng(lat, lon);
     }
 
@@ -80,11 +80,6 @@ public class OTPPlace implements Serializable {
 
     public void setLat(Double lat) {
         this.lat = lat;
-    }
-
-    public void setLatng(LatLng latLng) {
-        this.lat = latLng.latitude;
-        this.lon = latLng.longitude;
     }
 
     @NotNull

@@ -127,14 +127,14 @@ public class TripItinerariesFragment extends Fragment {
         if (otpFrom == null)
             from = locationService.getCurrentLocation();
         else
-            from = otpFrom.getLatLng();
+            from = otpFrom.latLng();
         if (from == null)
             from = new LatLng(40.447216, -3.692497);
         if (otpTo != null) {
             TripManagerService.findRoute(
                     getContext(),
                     from,
-                    otpTo.getLatLng(),
+                    otpTo.latLng(),
                     otpTime,
                     new OnTripLoadCallback() {
                         @Override
@@ -153,7 +153,7 @@ public class TripItinerariesFragment extends Fragment {
                         }
                     });
             uberTripService.timeEstimate(
-                    otpTo.getLatLng(),
+                    otpTo.latLng(),
                     loadedTimeEstimates -> {
                         for (TimeEstimate timeEstimate : loadedTimeEstimates.getTimeEstimates()) {
                             timeEstimates.put(timeEstimate.getProductid(), timeEstimate);
@@ -163,7 +163,7 @@ public class TripItinerariesFragment extends Fragment {
             );
             uberTripService.priceEstimate(
                     from,
-                    otpTo.getLatLng(),
+                    otpTo.latLng(),
                     new OnPriceEstimatesLoadCallback() {
                         @Override
                         public void onLoad(PriceEstimates returnPriceEstimates) {

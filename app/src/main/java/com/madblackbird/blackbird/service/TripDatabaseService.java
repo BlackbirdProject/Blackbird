@@ -145,33 +145,33 @@ public class TripDatabaseService {
             DatabaseReference savedTrips = firebaseDatabase.getReference("savedTrips");
             savedTrips.child(firebaseUser.getUid())
                     .addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    Itinerary itinerary = dataSnapshot.getValue(Itinerary.class);
-                    if (itinerary != null)
-                        callback.onLoad(itinerary);
-                }
+                        @Override
+                        public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                            Itinerary itinerary = dataSnapshot.getValue(Itinerary.class);
+                            if (itinerary != null)
+                                callback.onLoad(itinerary);
+                        }
 
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                }
+                        }
 
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                }
+                        }
 
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                }
+                        }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
-            });
+                        }
+                    });
         }
     }
 

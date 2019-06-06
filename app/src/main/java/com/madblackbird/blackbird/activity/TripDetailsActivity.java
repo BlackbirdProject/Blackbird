@@ -56,7 +56,6 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
     private TripDetailsAdapter tripDetailsAdapter;
     private TripDatabaseService tripDatabaseService;
     private LocationService locationService;
-    private boolean followUser;
 
 
     @Override
