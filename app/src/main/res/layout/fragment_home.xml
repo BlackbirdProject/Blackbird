@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="7dp"
-            android:src="@drawable/ic_menu"
-            android:tint="@color/colorPrimary" />
+            android:src="@drawable/ic_menu" />
 
         <EditText
             android:id="@+id/search_box_places_autocomplete"
