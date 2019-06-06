@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,8 +29,8 @@ public class FavouriteDestinationFragment extends Fragment {
 
     @BindView(R.id.recycler_view_favourites)
     RecyclerView recyclerViewFavourites;
-    @BindView(R.id.img_favourites_back)
-    ImageView imgGoBack;
+    @BindView(R.id.img_favourites_menu)
+    ImageView imgOpenMenu;
 
     private FavouriteDestinationAdapter favouriteDestinationAdapter;
     private TripDatabaseService tripDatabaseService;
@@ -61,7 +63,9 @@ public class FavouriteDestinationFragment extends Fragment {
         });*/
         recyclerViewFavourites.setAdapter(favouriteDestinationAdapter);
         tripDatabaseService.getFavourites(this::addFavourite);
-        imgGoBack.setOnClickListener(v -> getActivity().onBackPressed());
+        DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
+        imgOpenMenu.setOnClickListener(v ->
+                drawerLayout.openDrawer(GravityCompat.START));
     }
 
     private void addFavourite(OTPPlace place) {
