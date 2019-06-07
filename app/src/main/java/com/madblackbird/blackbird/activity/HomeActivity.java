@@ -108,9 +108,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void checkLoggedIn() {
         if (firebaseUser == null) {
-            navigationView.getMenu().getItem(3).setVisible(false);
+            navigationView.getMenu().getItem(4).setVisible(false);
         } else {
-            navigationView.getMenu().getItem(3).setVisible(true);
+            navigationView.getMenu().getItem(4).setVisible(true);
         }
     }
 
