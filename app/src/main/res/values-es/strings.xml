@@ -40,4 +40,5 @@
     <string name="travelled_kilometers">travelled kilometers</string>
     <string name="avoided_emissions">avoided kg of CO2 emissions</string>
     <string name="plan_a_trip">Plan a trip</string>
+    <string name="stops">&#160;paradas</string>
 </resources>

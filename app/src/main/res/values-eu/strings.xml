@@ -40,4 +40,5 @@
     <string name="travelled_kilometers">kilometro bidaiatutak</string>
     <string name="avoided_emissions">CO2-ko kg isurpen sahiestutak</string>
     <string name="plan_a_trip">Bidaia antolatu</string>
+    <string name="stops">&#160;geldialdi</string>
 </resources>
