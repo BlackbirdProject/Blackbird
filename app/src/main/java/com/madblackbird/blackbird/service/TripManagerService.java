@@ -33,6 +33,7 @@ public class TripManagerService {
         requestParams.add("time", formatTime(otpTime));
         requestParams.add("date", formatDate(otpTime));
         requestParams.add("mode", "TRANSIT,WALK");
+        requestParams.add("showIntermediateStops", "true");
         OTPRestApi.get(
                 context.getString(R.string.otp_server_url),
                 "plan",
