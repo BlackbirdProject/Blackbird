@@ -14,6 +14,7 @@ import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class StatsFragment extends Fragment {
 
@@ -37,10 +38,11 @@ public class StatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, getView());
         tripDatabaseService = new TripDatabaseService();
         tripDatabaseService.getDistance(distance -> {
-            lblTravelledKilometers.setText(String.valueOf(Math.round(distance)));
-            lblSavedEmissions.setText(String.valueOf(co2EmissionsKm(distance)));
+            lblTravelledKilometers.setText(String.valueOf(Math.round(distance / 1000)));
+            lblSavedEmissions.setText(String.valueOf(co2EmissionsKm(distance / 1000)));
         });
     }
 
