@@ -60,6 +60,7 @@
         android:id="@+id/vertical_transport_summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:weightSum="10">
 
         <LinearLayout
