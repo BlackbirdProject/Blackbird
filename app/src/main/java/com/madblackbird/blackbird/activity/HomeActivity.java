@@ -20,6 +20,7 @@ import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.fragment.FavouriteDestinationFragment;
 import com.madblackbird.blackbird.fragment.HomeFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
+import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 
 public class HomeActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private FirebaseUser firebaseUser;
     private TripDatabaseService tripDatabaseService;
+    private LocationService locationService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nv);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         tripDatabaseService = new TripDatabaseService();
+        locationService = new LocationService(this);
         initializeUI();
     }
 
@@ -77,6 +80,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         transaction.addToBackStack(null);
         transaction.commit();
+        locationService.askForLocationPermission();
     }
 
     private void openLoginRequiredFragment(int itemId) {
