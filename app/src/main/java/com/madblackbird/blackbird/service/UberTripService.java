@@ -30,17 +30,14 @@ import cz.msebera.android.httpclient.Header;
 
 public class UberTripService {
 
-    private String authToken;
     private Context context;
     private UberRestApi uberRestApi;
     private Gson gson;
-    private LocationService locationService;
 
     public UberTripService(Context context) {
         this.context = context;
         uberRestApi = new UberRestApi(context.getString(R.string.uber_server_token));
         gson = new Gson();
-        locationService = new LocationService(context);
     }
 
     public void priceEstimate(LatLng start, LatLng end, OnPriceEstimatesLoadCallback callback) {
