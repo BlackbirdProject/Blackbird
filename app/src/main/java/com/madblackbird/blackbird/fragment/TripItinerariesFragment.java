@@ -99,7 +99,8 @@ public class TripItinerariesFragment extends Fragment {
         itineraryRecyclerViewAdapter = new ItineraryRecyclerViewAdapter(itineraries);
         itineraryRecyclerViewAdapter.setItinerariesClickListener((v, position) -> {
             Itinerary objItinerary = itineraryRecyclerViewAdapter.getItinerary(position);
-            tripDatabaseService.addTrip(objItinerary);
+            if (!tripHistory)
+                tripDatabaseService.addTrip(objItinerary);
             Intent detailsIntent = new Intent(getContext(), TripDetailsActivity.class);
             detailsIntent.putExtra("itinerary", objItinerary);
             detailsIntent.putExtra("placeTo", otpTo);
