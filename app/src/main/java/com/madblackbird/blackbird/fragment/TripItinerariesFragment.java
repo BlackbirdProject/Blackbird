@@ -103,7 +103,7 @@ public class TripItinerariesFragment extends Fragment {
         uberRecyclerViewAdapter.setItinerariesClickListener(v -> {
             PriceEstimate priceEstimate = uberRecyclerViewAdapter
                     .getPriceEstimate(recyclerViewUber.indexOfChild(v));
-            uberTripService.openUberApp(priceEstimate, otpFrom, otpTo);
+            uberTripService.openUberApp(priceEstimate, otpTo);
         });
         if (tripHistory)
             lblUber.setVisibility(View.GONE);

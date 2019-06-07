@@ -85,7 +85,7 @@ public class UberTripService {
         );
     }
 
-    public void openUberApp(PriceEstimate priceEstimate, OTPPlace from, OTPPlace to) {
+    public void openUberApp(PriceEstimate priceEstimate, OTPPlace to) {
         try {
             Uri deeplink = Uri.parse("uber://?client_id=" + context.getString(R.string.uber_client_id) +
                     "&action=setPickup&pickup=my_location" +
