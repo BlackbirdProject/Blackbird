@@ -86,7 +86,7 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             tripDetailImage = view.findViewById(R.id.trip_detail_image);
             lblLine = view.findViewById(R.id.trip_detail_line);
             lblDuration = view.findViewById(R.id.trip_detail_text_view);
-            lblStopNumber=view.findViewById(R.id.detail_leg_stops);
+            lblStopNumber = view.findViewById(R.id.detail_leg_stops);
             context = view.getContext();
         }
 
@@ -98,9 +98,11 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
                 text += " " + leg.getRouteShortName();
             lblDuration.setText(text);
             lblDuration.setText(formatDuration(leg.getDuration()));
-            int stopNumber = leg.getIntermediateStops().size();
-            if (stopNumber > 0)
-                lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
+            if (leg.getIntermediateStops() != null) {
+                int stopNumber = leg.getIntermediateStops().size();
+                if (stopNumber > 0)
+                    lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
+            }
             Drawable drawable;
             switch (leg.getMode()) {
                 case "BUS":
