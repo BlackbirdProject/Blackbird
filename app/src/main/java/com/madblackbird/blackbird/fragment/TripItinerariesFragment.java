@@ -90,7 +90,12 @@ public class TripItinerariesFragment extends Fragment {
         ButterKnife.bind(this, getView());
         tripDatabaseService = new TripDatabaseService();
         uberTripService = new UberTripService(getContext());
-        recyclerViewItineraries.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        if (tripHistory) {
+            layoutManager.setReverseLayout(true);
+            layoutManager.setStackFromEnd(true);
+        }
+        recyclerViewItineraries.setLayoutManager(layoutManager);
         recyclerViewUber.setLayoutManager(new LinearLayoutManager(getContext()));
         itineraries = new ArrayList<>();
         priceEstimates = new ArrayList<>();
