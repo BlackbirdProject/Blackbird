@@ -109,6 +109,10 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_itinerary_leg, verticalTransportIcons, false);
                 ImageView imgRouteType = view.findViewById(R.id.item_leg_icon);
                 TextView lblRouteName = view.findViewById(R.id.item_leg_name);
+                TextView lblStopNumber = view.findViewById(R.id.item_leg_stops);
+                int stopNumber = leg.getIntermediateStops().size();
+                if (stopNumber > 0)
+                    lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
                 legModes.add(leg.getMode());
                 GradientDrawable lblRouteNameBackground = (GradientDrawable) lblRouteName.getBackground();
                 lblRouteName.setText(leg.getRouteShortName());
