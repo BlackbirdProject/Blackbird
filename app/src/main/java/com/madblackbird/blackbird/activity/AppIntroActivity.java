@@ -22,7 +22,7 @@ public class AppIntroActivity extends AppIntro {
         preferences = getSharedPreferences("blackbird", MODE_PRIVATE);
         SliderPage sliderPage = new SliderPage();
         sliderPage.setTitle(getString(R.string.titulo_slider1));
-        sliderPage.setImageDrawable(R.drawable.ic_blackbird_logo);
+        sliderPage.setImageDrawable(R.drawable.launcher_logo);
         sliderPage.setDescription(getString(R.string.descripcion_slider1));
         sliderPage.setBgColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
         showSkipButton(true);
