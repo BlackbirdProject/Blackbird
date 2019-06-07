@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textSize="26sp"
         android:layout_marginTop="20dp"
-        android:text="My Stats"/>
+        android:text="@string/my_stats"/>
 
     <TextView
         android:fontFamily="@font/montserrat"
@@ -24,15 +24,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="35sp"
-        android:layout_marginTop="20dp"
-        android:text="35"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="travelled kilometers"
+        android:text="@string/travelled_kilometers"
         android:textSize="18sp"/>
 
     <TextView
@@ -42,15 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="35sp"
-        android:layout_marginTop="20dp"
-        android:text="35"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="avoided kg of CO2 emissions"
+        android:text="@string/avoided_emissions"
         android:textSize="18sp"/>
 
 </LinearLayout>

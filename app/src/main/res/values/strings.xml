@@ -38,4 +38,6 @@
     <string name="another_time">Another time</string>
     <string name="my_stats">My stats</string>
     <string name="home">Home</string>
+    <string name="travelled_kilometers">travelled kilometers</string>
+    <string name="avoided_emissions">avoided kg of CO2 emissions</string>
 </resources>
