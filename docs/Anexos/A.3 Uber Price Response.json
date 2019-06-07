@@ -1,0 +1,26 @@
+{
+  "prices": [
+    {
+      "localized_display_name": "UberX",
+      "distance": 1.81,
+      "display_name": "UberX",
+      "product_id": "19f4a090-ce5b-44c5-8b43-35d35b7eb3bc",
+      "high_estimate": 6,
+      "low_estimate": 5,
+      "duration": 600,
+      "estimate": "€5-6",
+      "currency_code": "EUR"
+    },
+    {
+      "localized_display_name": "Black",
+      "distance": 1.81,
+      "display_name": "Black",
+      "product_id": "eef2fdf0-dca7-46a6-8865-d50d17c3076c",
+      "high_estimate": 13,
+      "low_estimate": 12,
+      "duration": 600,
+      "estimate": "€12-13",
+      "currency_code": "EUR"
+    }
+  ]
+}
