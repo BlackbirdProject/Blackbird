@@ -9,35 +9,35 @@
     <string name="descripcion_slider1">Somos la aplicación que te guiará a cualquier punto de Madrid de forma rápida y eficiente, optimizando los recursos del transporte público para hacer tu viaje más eco-friendly.</string>
     <string name="titulo_slider2">Nola erabiltzen da?</string>
     <string name="Descripcion_slider2">1. Selecciona tu punto de partida 2. Selecciona tu destino\\n3. Elige el trayecto que prefieras\\n4. ¡Disfruta del viaje!</string>
-    <string name="titulo_slider3">¿Te apuntas?</string>
+    <string name="titulo_slider3">Izena emango ahal duzu?</string>
     <string name="descripcion_slider3">Gero eta gehiago izan ondoren, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
     <string name="google_login" translatable="false">Google</string>
-    <string name="phone_login" translatable="false">Phone</string>
-    <string name="email_login" translatable="false">E-Mail</string>
+    <string name="phone_login" translatable="false">Telefonoz</string>
+    <string name="email_login" translatable="false">E-Mailez</string>
     <string name="verify">Verify</string>
-    <string name="google_sign_in_error">No se ha podido iniciar sesión con Google</string>
+    <string name="google_sign_in_error">Ezin izan da Google-ekin saioa hastea</string>
     <string name="log_in">Log In</string>
-    <string name="forgot_password">Recordar contraseña</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="incorrect_credentials">Credenciales incorrectas</string>
-    <string name="password">Contraseña</string>
-    <string name="type_phone">Número de teléfono</string>
-    <string name="itineraries">Itineraries</string>
+    <string name="forgot_password">Pasahitza gogoratu</string>
+    <string name="sign_up">Izena Eman</string>
+    <string name="incorrect_credentials">Oker egiaztagiriak</string>
+    <string name="password">Pasahitza</string>
+    <string name="type_phone">Telefono zenbakia</string>
+    <string name="itineraries">Ibilbideak</string>
     <string name="uber">Uber</string>
-    <string name="my_account">My Account</string>
-    <string name="past_trips">Past Trips</string>
-    <string name="favourites">Favourites</string>
+    <string name="my_account">Nire Kontua</string>
+    <string name="past_trips">Iraganeko Bidaiak</string>
+    <string name="favourites">Gustokoak</string>
     <string name="log_out">Log Out</string>
-    <string name="travelled_km">&#160;km recorridos</string>
+    <string name="travelled_km">&#160;km bidaiatutak</string>
     <string name="edit_preferences">Edit preferences</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="favourite_destinations">Favourite Destinations</string>
-    <string name="sing_in_required">You need to sign in to use this feature</string>
-    <string name="another_time">Another time</string>
-    <string name="my_stats">My stats</string>
+    <string name="cancel">Kantzelatu</string>
+    <string name="favourite_destinations">Gustoko Helbideak</string>
+    <string name="sing_in_required">Ezaugarri hau erabiltzeko, saioa hasi behar duzu</string>
+    <string name="another_time">Beste momentu batean</string>
+    <string name="my_stats">Nire Estadistikak</string>
     <string name="home">Home</string>
-    <string name="travelled_kilometers">travelled kilometers</string>
-    <string name="avoided_emissions">avoided kg of CO2 emissions</string>
-    <string name="plan_a_trip">Plan a trip</string>
+    <string name="travelled_kilometers">kilometro bidaiatutak</string>
+    <string name="avoided_emissions">CO2-ko kg isurpen sahiestutak</string>
+    <string name="plan_a_trip">Bidaia antolatu</string>
 </resources>
