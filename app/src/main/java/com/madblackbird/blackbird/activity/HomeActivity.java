@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.fragment.FavouriteDestinationFragment;
 import com.madblackbird.blackbird.fragment.HomeFragment;
+import com.madblackbird.blackbird.fragment.StatsFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
 import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
@@ -57,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case R.id.menu_trip_history:
                 case R.id.menu_favourite_destinations:
+                case R.id.menu_statistics:
                     openLoginRequiredFragment(menuItem.getItemId());
                     break;
                 case R.id.menu_log_out:
@@ -94,6 +96,9 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case R.id.menu_favourite_destinations:
                     transaction.replace(R.id.content_frame, new FavouriteDestinationFragment(), "favouriteDestinationsFragment");
+                    break;
+                case R.id.menu_statistics:
+                    transaction.replace(R.id.content_frame, new StatsFragment(), "statsFragment");
                     break;
             }
             transaction.addToBackStack(null);

@@ -36,4 +36,5 @@
     <string name="favourite_destinations">Favourite Destinations</string>
     <string name="sing_in_required">You need to sign in to use this feature</string>
     <string name="another_time">Another time</string>
+    <string name="my_stats">My stats</string>
 </resources>
