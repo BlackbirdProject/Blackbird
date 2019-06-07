@@ -2,6 +2,7 @@ package com.madblackbird.blackbird.service;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -46,6 +47,7 @@ public class TripManagerService {
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        Log.d("OTPError", errorResponse.toString());
                         callback.onLoadError();
                     }
 

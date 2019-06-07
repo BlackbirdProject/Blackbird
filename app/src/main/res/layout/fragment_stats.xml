@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryLight"
+    tools:context=".fragment.StatsFragment">
+
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        android:text="@string/my_stats"/>
+
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:id="@+id/lbl_travelled_kilometers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/travelled_kilometers"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:id="@+id/lbl_saved_emissions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/avoided_emissions"
+        android:textSize="18sp"/>
+
+</LinearLayout>

@@ -146,12 +146,14 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
     }
 
     private int getPlaceTypeDrawable(List<Place.Type> types) {
-        if (containsType(types, "SUBWAY_STATION")) {
+        if (containsType(types, "TRAIN_STATION")) {
+            return R.drawable.ic_cercanias_logo;
+        } else if (containsType(types, "SUBWAY_STATION")) {
             return R.drawable.ic_metro_madrid;
-        } else if (containsType(types, "TRANSIT_STATION") || containsType(types, "TRAIN_STATION")) {
-            return R.drawable.ic_train;
         } else if (containsType(types, "BUS_STATION")) {
             return R.drawable.ic_directions_bus;
+        } else if (containsType(types, "TRANSIT_STATION")) {
+            return R.drawable.ic_train;
         }
         return R.drawable.ic_location_marker;
     }

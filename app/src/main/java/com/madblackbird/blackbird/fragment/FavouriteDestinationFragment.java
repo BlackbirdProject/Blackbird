@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.FavouriteDestinationAdapter;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.OTPTime;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 
 import java.util.ArrayList;
@@ -55,12 +56,13 @@ public class FavouriteDestinationFragment extends Fragment {
         places = new ArrayList<>();
         favouriteDestinationAdapter = new FavouriteDestinationAdapter(places);
         // TODO: Open home activity and set destination
-        /*favouriteDestinationAdapter.setOnClickListener((v, position) -> {
-            Intent intent = new Intent(getContext(), TripDetailsActivity.class);
-            OTPPlace to = places.get(position);
-            intent.putExtra("placeTo", to);
-            getContext().startActivity(intent);
-        });*/
+        favouriteDestinationAdapter.setOnClickListener((v, position) -> {
+            TripItinerariesFragment tripItinerariesFragment = new TripItinerariesFragment(null, places.get(position), new OTPTime());
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_frame, tripItinerariesFragment, "tripItinerariesFragment")
+                    .addToBackStack(null)
+                    .commit();
+        });
         recyclerViewFavourites.setAdapter(favouriteDestinationAdapter);
         tripDatabaseService.getFavourites(this::addFavourite);
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);

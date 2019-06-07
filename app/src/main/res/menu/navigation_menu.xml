@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_home"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/menu_trip_history"
         android:icon="@drawable/ic_history"
@@ -13,6 +13,10 @@
         android:id="@+id/menu_favourite_destinations"
         android:icon="@drawable/ic_heart"
         android:title="@string/favourites" />
+    <item
+        android:id="@+id/menu_statistics"
+        android:icon="@drawable/ic_statistics"
+        android:title="@string/my_stats" />
     <item
         android:id="@+id/menu_log_out"
         android:icon="@drawable/ic_exit"

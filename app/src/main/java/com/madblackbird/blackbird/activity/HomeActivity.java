@@ -19,7 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.fragment.FavouriteDestinationFragment;
 import com.madblackbird.blackbird.fragment.HomeFragment;
+import com.madblackbird.blackbird.fragment.StatsFragment;
 import com.madblackbird.blackbird.fragment.TripItinerariesFragment;
+import com.madblackbird.blackbird.service.LocationService;
 import com.madblackbird.blackbird.service.TripDatabaseService;
 
 public class HomeActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private FirebaseUser firebaseUser;
     private TripDatabaseService tripDatabaseService;
+    private LocationService locationService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nv);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         tripDatabaseService = new TripDatabaseService();
+        locationService = new LocationService(this);
         initializeUI();
     }
 
@@ -54,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case R.id.menu_trip_history:
                 case R.id.menu_favourite_destinations:
+                case R.id.menu_statistics:
                     openLoginRequiredFragment(menuItem.getItemId());
                     break;
                 case R.id.menu_log_out:
@@ -77,6 +82,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         transaction.addToBackStack(null);
         transaction.commit();
+        locationService.askForLocationPermission();
     }
 
     private void openLoginRequiredFragment(int itemId) {
@@ -91,6 +97,9 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.menu_favourite_destinations:
                     transaction.replace(R.id.content_frame, new FavouriteDestinationFragment(), "favouriteDestinationsFragment");
                     break;
+                case R.id.menu_statistics:
+                    transaction.replace(R.id.content_frame, new StatsFragment(), "statsFragment");
+                    break;
             }
             transaction.addToBackStack(null);
             transaction.commit();
@@ -99,9 +108,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void checkLoggedIn() {
         if (firebaseUser == null) {
-            navigationView.getMenu().getItem(3).setVisible(false);
+            navigationView.getMenu().getItem(4).setVisible(false);
         } else {
-            navigationView.getMenu().getItem(3).setVisible(true);
+            navigationView.getMenu().getItem(4).setVisible(true);
         }
     }
 

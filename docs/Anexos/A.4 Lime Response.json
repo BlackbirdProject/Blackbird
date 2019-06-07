@@ -1,0 +1,1502 @@
+{
+  "data": {
+    "id": "views::mapview",
+    "type": "map_view",
+    "attributes": {
+      "user": {
+        "id": "KXWMB2SFKADG3",
+        "type": "users",
+        "attributes": {
+          "token": "KXWMB2SFKADG3",
+          "phone_number": "34609490623",
+          "email_address": null,
+          "has_verified_email_address": false,
+          "name": "Lime Rider",
+          "given_name": "Lime",
+          "surname": "Rider",
+          "default_payment_method": null,
+          "referral_code": "RXNAHWX",
+          "num_trips": 0,
+          "edu": false,
+          "subscription_item_states": [],
+          "donation_profile": {
+            "id": "45E7TYGYRF6QV",
+            "type": "donation_profiles",
+            "attributes": {
+              "donation_type": "none",
+              "donation_organizations": [],
+              "total_donation_amount": {
+                "currency_code": "USD",
+                "amount": 0,
+                "amount_str": "0.0",
+                "currency_symbol": "$",
+                "display_string": "$0"
+              },
+              "total_donation_amount_cents": null,
+              "currency": null
+            }
+          },
+          "juicer_profile_status": null,
+          "juicer_profile_initial_activated_at": null,
+          "pod_vehicle_banner_status": "lime_pod_submit_docs",
+          "juicer_referral_type": null,
+          "accepted_user_agreement_version": 1,
+          "new_juicer_earnings_amount": {
+            "currency_code": "EUR",
+            "amount": 100,
+            "amount_str": "100.0",
+            "currency_symbol": "€",
+            "display_string": "€100"
+          },
+          "juicer_referral_amount": null,
+          "balance": {
+            "currency_code": "EUR",
+            "amount": 0,
+            "amount_str": "0.0",
+            "currency_symbol": "€",
+            "display_string": "€0"
+          },
+          "pending_balance": {
+            "currency_code": "USD",
+            "amount": 0,
+            "amount_str": "0.0",
+            "currency_symbol": "$",
+            "display_string": "$0"
+          },
+          "new_juicer_earnings_promo_amount": "100",
+          "new_juicer_earnings_promo_amount_cents": 10000,
+          "new_juicer_earnings_promo_amount_cent": 10000,
+          "new_juicer_earnings_promo_currency": "EUR",
+          "juicer_referral_amount_cents": null,
+          "juicer_referral_currency": null,
+          "balance_cents": 0,
+          "pending_balance_cents": 0,
+          "currency": "USD",
+          "show_group_ride": false
+        }
+      },
+      "regions": null,
+      "zones": [
+        {
+          "id": "2KA6UWD75E46I",
+          "type": "zones",
+          "attributes": {
+            "name": "Flughafen Tempelhof",
+            "polyline": "cjg_IqtupA__@Yk\\qRyGas@DkZlRuvAls@cLdGnQdPra@~Eha@mBnc@u]tkA",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "PKRTNCOTX6S6W",
+          "type": "zones",
+          "attributes": {
+            "name": "Tempelhofer Feld",
+            "polyline": "s`g_I}mupARkShQ{p@`Kuf@cJylAaKbAsIkHaBgS{FjBmb@pMXpFqCf@oA~NbBtLiP`]_FeCmCdRiArOoAx[_Aj`@[bOQ~Cx@@p@\\f@d@Vf@\\`APfBDnCdqAP",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "HSSWN5HQXWHMQ",
+          "type": "zones",
+          "attributes": {
+            "name": "Volkspark Hasenheide",
+            "polyline": "ggj_Igt|pAvX?b@tLvH?f@rIuNblAeNgAcIoHuHz@nHimAlBcL",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "BZRCIWWS5FHUL",
+          "type": "zones",
+          "attributes": {
+            "name": "Ernst-Reuter-Platz",
+            "polyline": "cmo_I}whpAJVVJn@Jr@QVo@L_@Fg@@w@C{@Gg@Ki@Ya@UU[G]BYLOPUb@On@Gl@?j@Dt@Hr@Tb@",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "4RVJ6VVQDGCTF",
+          "type": "zones",
+          "attributes": {
+            "name": "Tiergarten sudwest",
+            "polyline": "uyn_IiqnpA}TnDqBhGxBj_AzH~@vI}Q}Hi]~I_^",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "MPPJE6CSCCMQA",
+          "type": "zones",
+          "attributes": {
+            "name": "Denkmal für die ermordeten Juden",
+            "polyline": "ymo_ImwspAkBcPKBoEhBNx@RdIbHt@",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "6GDFDNVXSKTSU",
+          "type": "zones",
+          "attributes": {
+            "name": "Tiergarten sudost",
+            "polyline": "apo_IgqnpApS_FEwTIo\\i@_YoEoc@oFse@iPqCi@jDbHfrCvCfJ",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "BG5O6YE3CZ3NS",
+          "type": "zones",
+          "attributes": {
+            "name": "Tiergarten nordost",
+            "polyline": "g`p_IcgrpAmH}CExAlAnB_@pd@LpNdCzRi@jOnI|SsDqnB",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "JADGX4N37FXEU",
+          "type": "zones",
+          "attributes": {
+            "name": "Berlin - Kongress Area",
+            "polyline": "_~p_Iqe{pAv@aAzAiB_@k@KMg@s@y@cAUWu@tDe@o@kAu@YhAbEnEJJ@?",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "2NE4B7POA3KKW",
+          "type": "zones",
+          "attributes": {
+            "name": "Hackische Höfe",
+            "polyline": "_xq_I}wxpAlEdDRtDAjHiNjEpEgRt@kF",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "HATCM55YN6KPP",
+          "type": "zones",
+          "attributes": {
+            "name": "Volkspark Friedrichshain",
+            "polyline": "ikr_Iyc}pAvC}JzDgHhCuE|BwDdCuEtByEn@kDGqNoAaMuB]D_CZeCoBsKkD|CaCmNRuA|AwBeFqGcBpAoSbUrLbUcDtEzG|jA",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "SE3CJZ7MUOSTW",
+          "type": "zones",
+          "attributes": {
+            "name": "State Park Volkspark",
+            "polyline": "gjs_IcbdqAl@mDl@iBLaAOkAwAuFKUc@S}AiHu@qCUmAD_@aAkCy@iCGAGBMHgGfDMRKb@U`BYjA]z@IBGDCV}@xEaA~DaCdJy@|CgC~I|@|@BRAVIT?N@HBHLNpD`Ef@aBvAbBz@lAt@CfACCYOIMS?e@xBQ?m@Fm@\\qFr@kJHm@HQHD`L|DJFDK",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "C6E35EUGR22HY",
+          "type": "zones",
+          "attributes": {
+            "name": "Kulturbrauerrei",
+            "polyline": "c{t_Ic_{pAg@WQSbAk@IvA",
+            "category": "parking_zone"
+          }
+        },
+        {
+          "id": "UFOEV3AQB4QWA",
+          "type": "zones",
+          "attributes": {
+            "name": "Mauerpark",
+            "polyline": "}xt_I{zxpAs@wEq@{FuAeMiB|@EQYaCo@aGeAsJCMGGO?i@VmA^iBv@}DzAmGjCLlBVnCj@lHj@hGoCx@wBp@`@vHV~Gl@lNFbBJRFpBdCu@PEBk@l@]dA}ApAS@LTlAvCU|ACfAy@rAaAhAm@LXdGcFTr@HZlBuAu@{Dw@aE",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "VOFIRCNCK45PF",
+          "type": "zones",
+          "attributes": {
+            "name": "Park Humboldthain",
+            "polyline": "ilu_IeltpAbGqLi@oAaBqIcEmTmCyNuBzA}CxBqEjDeCxA}AfAErW`@|@|AfEfBjD~BfDhB_D~AaG`DfHr@FdDzE",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "PWHPC7ELYLMU6",
+          "type": "zones",
+          "attributes": {
+            "name": "Humboltdhain",
+            "polyline": "usu_I}hvpA{R|N}EvF`CfOzTb\\|LyUaLgm@",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "VU76ZRZOGDFX6",
+          "type": "zones",
+          "attributes": {
+            "name": "Weissensee",
+            "polyline": "sxw_IaucqA|AlAh@cCvA|AtB_HHOHKh@@rBf@vEbAXgDe@Y^_D\\H`@sDlDbAkAcGk@_CqBsFgAaDoA}BqAcAKbASCEVMG@QqBu@Gl@e@GSGIzASBEb@kAAuAn@c@j@[|@}@_AQIo@lCAvAPDA`D|AC@|BUd@mBFYFBzDpCAA^QBFXOL@bBGd@LTAP@Z~@n@u@xDNVM|@",
+            "category": "no_parking_zone"
+          }
+        },
+        {
+          "id": "RSFNK26BHCAGT",
+          "type": "zones",
+          "attributes": {
+            "name": "Berlin - Service Area",
+            "polyline": "i}z~H{nspA_zB|kKetEd~EqxDzcBu{EjyZu{Ase@}tC}hS}pDgyEyrDejMafC{ePt{Fuvb@~h`@wjN`cApuEpaAvaXdYbq[o@pH",
+            "category": "service_zone"
+          }
+        },
+        {
+          "id": "CS7J7T2HH2D73",
+          "type": "zones",
+          "attributes": {
+            "name": "outer Berlin east",
+            "polyline": "gu{~H}jpqAzl[hdP`~@{v_C}wfAu~_@qtOfmnBvvKh`s@nxF{jb@vi`@mkNjbApuEbaAlcX",
+            "category": "no_parking_zone"
+          }
+        }
+      ],
+      "bike_clusters": null,
+      "bikes": [
+        {
+          "id": "ET-OIG2OLXARKYFZX2BKSRZGSOIP2Z5VBKFXAPH6QA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-877",
+            "latitude": 52.496639,
+            "longitude": 13.395566,
+            "last_activity_at": "2019-05-16T16:45:05.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 20400,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "877",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-UXGM7I5GKMXS2YFQXYC6CIMMZOI5GL7ORTQTLVQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-173",
+            "latitude": 52.498491,
+            "longitude": 13.406804,
+            "last_activity_at": "2019-05-16T16:39:24.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 50150,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "173",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-LE2QYD36IIJZTGUZTQHHK4MMW4Y2CMAIXARLJ2Y",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-000",
+            "latitude": 52.500749,
+            "longitude": 13.388836,
+            "last_activity_at": "2019-05-16T16:41:13.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 31450,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "000",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-4JCXGK6ZQKQJTUMRGOCPOTKHA5ON3H5EMF5CYTQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-995",
+            "latitude": 52.503559,
+            "longitude": 13.409132,
+            "last_activity_at": "2019-05-16T16:35:56.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 72250,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "995",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-UMXTQBWADP5CAMDVA4AHOHT3BD7EUVUGOXG7TKY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-369",
+            "latitude": 52.506185,
+            "longitude": 13.394474,
+            "last_activity_at": "2019-05-16T16:39:50.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 32300,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "369",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-ISSIGZ3ZBJ6EEVYVBYFJFVPHEDIKAIW3AVUGTJQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-727",
+            "latitude": 52.504111,
+            "longitude": 13.409278,
+            "last_activity_at": "2019-05-16T16:43:44.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 58649,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "727",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-G7ZI4R74ZY6BNMKYYZHVQBDFDKP5BT7OHL2JD2Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-613",
+            "latitude": 52.503628,
+            "longitude": 13.41012,
+            "last_activity_at": "2019-05-16T16:34:32.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 15300,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "613",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-7UIXP72JUNLVK3STR2WSWHZ62JZXX3NBVTH336Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-438",
+            "latitude": 52.492262,
+            "longitude": 13.397775,
+            "last_activity_at": "2019-05-16T16:34:59.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 82450,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "438",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-BUEFTSPO2AWXI6YTN6VTLM7IRQGSZ2AEY4W6YQI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-802",
+            "latitude": 52.506681,
+            "longitude": 13.392553,
+            "last_activity_at": "2019-05-16T16:42:24.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 67150,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "802",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-7LPTPQ7YCAOUFCGTTSNMUWSISLUGBNHAJH5JJVQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-829",
+            "latitude": 52.501838,
+            "longitude": 13.385578,
+            "last_activity_at": "2019-05-16T16:36:18.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 76500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "829",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-OFU4YAVI3EK5FKH72AGQD5TKUGREOBMVPQT2GXQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-739",
+            "latitude": 52.501992,
+            "longitude": 13.38554,
+            "last_activity_at": "2019-05-16T16:44:28.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 14450,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "739",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-EEYSYZ3DVGVOPID7J4TS4PLEEW52C3EAVRO2CXY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-590",
+            "latitude": 52.50182,
+            "longitude": 13.385342,
+            "last_activity_at": "2019-05-16T16:42:06.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 32300,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "590",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-4VYVB6YTQU272RG3KYQ63UN3VBHHCNWCFFELUYQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-205",
+            "latitude": 52.493636,
+            "longitude": 13.387945,
+            "last_activity_at": "2019-05-16T16:32:20.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 63750,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "205",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-BTC2HC54IDQCRQLOM5MABEXHHASO6GF7LDUJFTI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-862",
+            "latitude": 52.490406,
+            "longitude": 13.401574,
+            "last_activity_at": "2019-05-16T16:43:44.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 52700,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "862",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-ECZTURDH3QMHMEYTHABF3AUVCEAQJSHPFQVTMRY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-345",
+            "latitude": 52.493547,
+            "longitude": 13.387941,
+            "last_activity_at": "2019-05-16T16:35:47.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 37400,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "345",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-5JHOBFRY7P2WUKNIXCDNPOQOPJK64XSDZ6OF54Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-535",
+            "latitude": 52.507904,
+            "longitude": 13.390376,
+            "last_activity_at": "2019-05-16T16:33:01.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 85000,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "535",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-25OKKPOJ6K3A6W3NBLDAIKD6IIYRDRQHMYIF77I",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-440",
+            "latitude": 52.493523,
+            "longitude": 13.387833,
+            "last_activity_at": "2019-05-16T16:35:58.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 45900,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "440",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-XR2J573QNY54MG3IBJ6KZ6SVL3MCYMMDDV37KFQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-690",
+            "latitude": 52.507906,
+            "longitude": 13.390185,
+            "last_activity_at": "2019-05-16T16:41:48.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 73950,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "690",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-2ZFHAHNBOTG7FAFZ2FTP2EFY7ORMEMICCI6PHPI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-389",
+            "latitude": 52.507915,
+            "longitude": 13.390185,
+            "last_activity_at": "2019-05-16T16:31:13.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 58649,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "389",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-JQJRKZMJLLOJRHBAL7STW5G3VGIS7Y6ER24QJRQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-282",
+            "latitude": 52.502791,
+            "longitude": 13.384249,
+            "last_activity_at": "2019-05-16T16:42:33.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 41650,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "282",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-3MJOSM3CCEP6JJB62LA2WQM5RQAPZP7DJQZQEMY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-180",
+            "latitude": 52.50799,
+            "longitude": 13.39021,
+            "last_activity_at": "2019-05-16T16:32:42.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 76500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "180",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-277IHHQTXTOOOYQ4ZJXTFFCBPUCOUEUZ6UZQYSY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-452",
+            "latitude": 52.502859,
+            "longitude": 13.384208,
+            "last_activity_at": "2019-05-16T16:42:09.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 49300,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "452",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-2AQ3KD3XLND32HGNM7RW4H3N3DNTA3ZBC5XC4GI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-347",
+            "latitude": 52.505245,
+            "longitude": 13.38584,
+            "last_activity_at": "2019-05-16T16:38:10.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 37400,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "347",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-BZ2JL6NLIOOCU2RLIH6P4DUL3FX6P42NOGJPO2Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-858",
+            "latitude": 52.502288,
+            "longitude": 13.415698,
+            "last_activity_at": "2019-05-16T16:31:52.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 85000,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "858",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-BHZ3J6DS6THAHXGQT6H5EPLRHP2RWILYYRL5VGQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-637",
+            "latitude": 52.502249,
+            "longitude": 13.415725,
+            "last_activity_at": "2019-05-16T16:38:06.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 56950,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "637",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-FFV3WJKTK5JIIC7AJZNX37SPOLOXWAUHGSP6VKA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-172",
+            "latitude": 52.502288,
+            "longitude": 13.415755,
+            "last_activity_at": "2019-05-16T16:40:01.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 47600,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "172",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-5CULC3W2GH7MUYRJS3M4UXCPODALA2WPBAWAVTA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-562",
+            "latitude": 52.502302,
+            "longitude": 13.415774,
+            "last_activity_at": "2019-05-16T16:39:01.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 48449,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "562",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-4766COMKEARVI733M4ILXUU5I5TFSHHYI6REO4Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-956",
+            "latitude": 52.509994,
+            "longitude": 13.401895,
+            "last_activity_at": "2019-05-16T16:36:29.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 37400,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "956",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-5MRQ4KJD2LNULYRG3OLOHTU67JASHYXA2LZRNYY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-966",
+            "latitude": 52.489876,
+            "longitude": 13.397812,
+            "last_activity_at": "2019-05-16T16:40:09.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 28900,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "966",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-QYBZLEIE7HFAXUNM4X4QMVX7Q5YUGX5XECDK75Y",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-337",
+            "latitude": 52.510052,
+            "longitude": 13.395983,
+            "last_activity_at": "2019-05-16T16:41:04.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 42500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "337",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-5JJSJ6PANJI4UBVKY7FAAGJMPF47S6NQXQCK6RY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-137",
+            "latitude": 52.503605,
+            "longitude": 13.383703,
+            "last_activity_at": "2019-05-16T16:31:22.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 43350,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "137",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-JXXHNLSFGJ4YVQFP4O3ARCKIKBOGNW54D7LAVQA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-270",
+            "latitude": 52.503598,
+            "longitude": 13.383605,
+            "last_activity_at": "2019-05-16T16:31:21.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 67150,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "270",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-ORJ6ERURJC4PYAD2WRYAH3L4EH2X2WNF3CUSSTA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-180",
+            "latitude": 52.497028,
+            "longitude": 13.382932,
+            "last_activity_at": "2019-05-16T16:35:04.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 57800,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "180",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-JK3BCMB7M5GB2CZLLWNV7AAS2QY55NPIVLM5AMY",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-708",
+            "latitude": 52.490773,
+            "longitude": 13.390706,
+            "last_activity_at": "2019-05-16T16:33:57.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 22100,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "708",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-T546WU2K4646WBTO5K6RH7447SIOSLLHDDLUUCA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-516",
+            "latitude": 52.501543,
+            "longitude": 13.38219,
+            "last_activity_at": "2019-05-16T16:39:57.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 53550,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "516",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-HYJBFKHJUQFG6XEQRYYG7CH24OT3MIFEEGRTKNI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-208",
+            "latitude": 52.500435,
+            "longitude": 13.418583,
+            "last_activity_at": "2019-05-16T16:36:45.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 69700,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "208",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-NMHH4H6XEX43VJE55USWUXWFEZMN3HEMLIZVDPQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-340",
+            "latitude": 52.500382,
+            "longitude": 13.418587,
+            "last_activity_at": "2019-05-16T16:39:29.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 30600,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "340",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-4KCJLNS6HZDFHVEOTNHBWDLAYF2YX4KOXX3G6VI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-605",
+            "latitude": 52.501442,
+            "longitude": 13.419328,
+            "last_activity_at": "2019-05-16T16:36:49.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 74800,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "605",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-YLR47B33D6CHFY2MYGLJEJ7BXJPWST5PGFKGSEA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-111",
+            "latitude": 52.511496,
+            "longitude": 13.406526,
+            "last_activity_at": "2019-05-16T16:38:59.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 44200,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "111",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-7JVEZRWL5E7OAVSFJD3YKXCX5IKK35WPHDCLDUA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-517",
+            "latitude": 52.501086,
+            "longitude": 13.420308,
+            "last_activity_at": "2019-05-16T16:33:20.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 42500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "517",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-2WHPK2FUNK2NPN22W6F6ATYT6YZYAV4WUK6XG7A",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-451",
+            "latitude": 52.511124,
+            "longitude": 13.389742,
+            "last_activity_at": "2019-05-16T16:34:17.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 62900,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "451",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-ZKBG76D775U3K3K2JJFZ6NZ6U2RSHMBJTU4HP4Q",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-517",
+            "latitude": 52.489833,
+            "longitude": 13.387273,
+            "last_activity_at": "2019-05-16T16:33:26.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 24650,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "517",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-HEUUR7Z3GHF66SPGMXJJID2TNRH2XSEOZZZYNAA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-593",
+            "latitude": 52.494274,
+            "longitude": 13.41872,
+            "last_activity_at": "2019-05-16T16:45:27.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 72250,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "593",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-4LZ3LTKJ4TAZYSOXNCXW3CB4SJC5Z6MBSJZJCPI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-139",
+            "latitude": 52.489836,
+            "longitude": 13.386012,
+            "last_activity_at": "2019-05-16T16:32:30.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "low",
+            "meter_range": 22950,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "139",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-YRBQ63S4YJY7KDTNPY7TY4HHC2VJSPHFTPQM6FQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-584",
+            "latitude": 52.5088,
+            "longitude": 13.416727,
+            "last_activity_at": "2019-05-16T16:39:55.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 85000,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "584",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-OTY2H25QSHU2XHDQLLMF6UNLVAQISRD5Q52GMJA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-933",
+            "latitude": 52.512299,
+            "longitude": 13.390173,
+            "last_activity_at": "2019-05-16T16:32:13.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 76500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "933",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-RFZFYDFARR74ZG3NZ6WRWODIAK26ETJHZFZDBJA",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-011",
+            "latitude": 52.512324,
+            "longitude": 13.390076,
+            "last_activity_at": "2019-05-16T16:31:08.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 85000,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "011",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-LEF4AMBA6ESHWBVBSCMZLFRA6AE4LIEGFQTUTRI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-686",
+            "latitude": 52.512363,
+            "longitude": 13.410171,
+            "last_activity_at": "2019-05-16T16:38:12.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 36550,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "686",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-H5MZWHYYDVIABSW3F2ZX6MSCRAVOKJVAXONLOPQ",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-782",
+            "latitude": 52.512586,
+            "longitude": 13.389602,
+            "last_activity_at": "2019-05-16T16:33:54.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "medium",
+            "meter_range": 30600,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "782",
+            "license_plate_number": null
+          }
+        },
+        {
+          "id": "ET-BNBPL2XBVKGRI66D3UOCSTSBP4FZYTOPNY6ZSCI",
+          "type": "bikes",
+          "attributes": {
+            "status": "locked",
+            "plate_number": "XXX-071",
+            "latitude": 52.488622,
+            "longitude": 13.38633,
+            "last_activity_at": "2019-05-16T16:37:51.000Z",
+            "bike_icon": null,
+            "type_name": "electric",
+            "battery_level": "high",
+            "meter_range": 42500,
+            "rate_plan": "€1 to unlock +\n€0.15 / 1 min",
+            "rate_plan_short": "<b><font color='#7AD319' size='16' face='Montserrat'>€1</font></b><font color='#444A57' size='12' face='Montserrat'> unlock + </font><b><font color='#7AD319' size='16' face='Montserrat'>€0.15 </font></b> <font color='#444A57' size='12' face='Montserrat'> / 1 min</font>",
+            "bike_icon_id": 5,
+            "last_three": "071",
+            "license_plate_number": null
+          }
+        }
+      ],
+      "selected_bike": null,
+      "icons": [
+        {
+          "id": "1",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/default_pin.png?fingerprint=92bcf96642bd8a61eb4f4cca70794496",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "2",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/default_cluster.png?fingerprint=ee1ba7d312070752ad24fd4ef1eb4cc3",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "3",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/billy_pin.png?fingerprint=c8d8e603a165a9e0ab8cade67302d641",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "4",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/bag_pin.png?fingerprint=979b39cf4be0297bc333ac392385496b",
+            "description_icon_url": "https://d22d5yy1i19g9i.cloudfront.net/icons/descriptions/header_bag.png?fingerprint=6fa66737de2752c3b6099a17f0ad7a37",
+            "description_link_url": null,
+            "description": "If you ride a bonus bike for five minutes or more, you get a %{amount} off coupon!"
+          }
+        },
+        {
+          "id": "5",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/electric_pin.png?fingerprint=03879bb627b8bac33b6310df8f16af0c",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": "Lime-E bikes are equipped with powerful motors and rechargeable batteries, ready to go further and faster."
+          }
+        },
+        {
+          "id": "6",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/scooter_pin.png?fingerprint=be5225eac0413888e70a9d27b4fed5c8",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": "Simply hop on to start the ride, and get an electric boost with ease!"
+          }
+        },
+        {
+          "id": "7",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/holidays/bonus_santa_pin.png?fingerprint=617d0c2d272476c8da566e5e9cbe6d85",
+            "description_icon_url": "https://d22d5yy1i19g9i.cloudfront.net/icons/descriptions/header_bag.png?fingerprint=86f278ea1983169b3464ebfa004a9492",
+            "description_link_url": null,
+            "description": "If you ride a bonus bike for five minutes or more, you get a %{amount} off coupon!"
+          }
+        },
+        {
+          "id": "24",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/happy_hour_scooter_pin.png?fingerprint=758c332dfe77a7bbe9a1e8e531b31858",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "25",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/limepod.png?fingerprint=af6642d1ad23dd149e6480e69a21b454",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "26",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/limebike.png?fingerprint=f98a909aafdc2fe9231879649052153e",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "27",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/lime_e_full.png?fingerprint=568cd8a053ea56c6e66c5614539e52fe",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        },
+        {
+          "id": "28",
+          "type": "icons",
+          "attributes": {
+            "url": "https://d22d5yy1i19g9i.cloudfront.net/icons/lime_s_full.png?fingerprint=5843bd8729fce4d7143a5b3e0f266693",
+            "description_icon_url": null,
+            "description_link_url": null,
+            "description": ""
+          }
+        }
+      ],
+      "current_level": "block",
+      "levels": {
+        "region": 7,
+        "subregion": 11,
+        "city": 14
+      },
+      "most_recent_trip": null,
+      "banner": {
+        "id": "756UVAAV6KKOQ",
+        "type": "banners",
+        "attributes": {
+          "text": "Get LimePass",
+          "button_action": "url_link",
+          "button_text": "MORE",
+          "button_link": "limebike://limelab?_auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3Rva2VuIjoiS1hXTUIyU0ZLQURHMyIsImxvZ2luX2NvdW50Ijo0fQ.ALaHBKepW8wpe9jI_dTYmPOkeKceEWiRofnoBlMuHrA&url_to_open=https%3A%2F%2Fwebviews.lime.bike%2Fmodule%2Flimepass%2F%3F_source%3Dbanner"
+        }
+      },
+      "donation_organization": null
+    }
+  },
+  "meta": {
+    "latest_user_agreement_version": "2",
+    "min_ios_version": "2.11.0",
+    "min_android_code": 93,
+    "flags": "IOS_VERSION_V1.0,ANDROID_VERSION_V1.0",
+    "groups": {
+      "show_auto_reload": true,
+      "map_levels_v1": true,
+      "apple_pay": true,
+      "show_lock_indicator": false,
+      "force_location_permission_v1": false,
+      "unlock_button_group": "white_bar",
+      "braze_integration": false,
+      "ring_button_group": "louder_with_tooltip",
+      "default_to_unlock_group": "control",
+      "take_photo": "find_my_ride",
+      "show_battery_level_on_map": true,
+      "unlock_confirmation": false,
+      "short_stop": true,
+      "bluetooth_unlock": true,
+      "lime_t_bluetooth_short_stop": true,
+      "juicer_earnings_notification": true,
+      "parked_or_not": false,
+      "branch_link_referral": true,
+      "persist_rate_ride": true,
+      "no_header_map": true,
+      "donation_group": "control",
+      "group_ride": false,
+      "juicer_satellite_mode": true,
+      "juicer_level_2": true,
+      "juicer_reservation_v1_ios": false,
+      "juicer_reservation_v1_android": false,
+      "juicer_reservation_collected_limes_ios": false,
+      "juicer_reservation_collected_limes_android": false,
+      "juicer_reserved_android_filter": false,
+      "juicer_reserved_ios_filter": false,
+      "juicer_hide_scooter_details": false,
+      "enable_juicer_mock_gps_blocker": true,
+      "id_scanner": "google_vision",
+      "new_method_completing_trip": true,
+      "juicer_bluetooth_unlock": false,
+      "cvv_optional": false,
+      "payment_creation_ui": true,
+      "payment_billing_address": false,
+      "payment_cardholder_name": false,
+      "payment_zip_code": false,
+      "payments": {
+        "cvv_optional": false,
+        "payment_creation_ui": true,
+        "payment_billing_address": false,
+        "payment_cardholder_name": false,
+        "payment_zip_code": false,
+        "payment_card_io_scan": false
+      },
+      "lime_t_whitelisted": true,
+      "map_design_v3": false,
+      "scooter_reservation": false,
+      "pod_reservation": false,
+      "use_moshi": false,
+      "android_how_to_ride_tutorial": true,
+      "enable_juicer_settings": true,
+      "enable_juicer_in_app_message": true,
+      "ios_juicer_multi_task_v1": false,
+      "android_juicer_multi_task_v1": false,
+      "complete_trip_before_take_photo": false,
+      "timeout_retry": false
+    },
+    "trip_id": null,
+    "trip_status": null,
+    "group_id": null,
+    "group_ride_status": null,
+    "notifications": [],
+    "messages": [
+      {
+        "message_token": "TUZ43SHJAIXIB",
+        "title": "Ride More, Pay Less",
+        "image_title": "image_title",
+        "lifecycle": "asap",
+        "body": "Free unlocks for the next week (€1 off per ride) for only €4.99 with LimePass. Limited time offer.",
+        "user_input": false,
+        "image_url": "https://limebike-web-public-assets.s3-us-west-1.amazonaws.com/messages/g2cmdunhe0n%403x.png",
+        "image_medium_url": "https://limebike-web-public-assets.s3-us-west-1.amazonaws.com/messages/w4ujyd41e4%402x.png",
+        "image_small_url": "https://limebike-web-public-assets.s3-us-west-1.amazonaws.com/messages/dfchuo6v49o%401x.png",
+        "layout_type": "basic",
+        "button_action": "url_link",
+        "button_text": "Learn More",
+        "text_input_hint": "",
+        "option_text": "",
+        "button_action_link": {
+          "link": "https://webviews.lime.bike/module/limepass?_auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX3Rva2VuIjoiS1hXTUIyU0ZLQURHMyIsImxvZ2luX2NvdW50Ijo0fQ.ALaHBKepW8wpe9jI_dTYmPOkeKceEWiRofnoBlMuHrA&_source=iam"
+        },
+        "button_action_email": null
+      }
+    ],
+    "country_code": "",
+    "user_agreement_version": 2,
+    "user_agreement_country_code": "",
+    "need_to_show_agreement": true,
+    "user_agreement_url": "https://li.me/user-agreement/",
+    "user_agreement_title": "We've Updated Our User Agreement",
+    "user_agreement_message": "By tapping \"I Agree\" You confirm that You have read, understood, and agreed to Lime’s updated User Agreement.",
+    "user_agreement_primary_button": "I Agree",
+    "user_agreement_view_terms_button": "View Agreement"
+  }
+}
