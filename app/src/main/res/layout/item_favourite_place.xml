@@ -2,17 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="75dp"
-    android:orientation="vertical"
+    android:layout_margin="7dp"
+    android:background="@drawable/bg_item_itinerary"
     android:gravity="center_vertical"
+    android:orientation="vertical"
     android:padding="15dp">
 
     <TextView
         android:id="@+id/txt_favourite_place_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_location_marker"
         android:drawablePadding="15dp"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="18sp" />
 
 </LinearLayout>
