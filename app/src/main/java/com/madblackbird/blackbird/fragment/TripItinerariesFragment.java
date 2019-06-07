@@ -90,7 +90,12 @@ public class TripItinerariesFragment extends Fragment {
         ButterKnife.bind(this, getView());
         tripDatabaseService = new TripDatabaseService();
         uberTripService = new UberTripService(getContext());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         if (tripHistory) {
             layoutManager.setReverseLayout(true);
             layoutManager.setStackFromEnd(true);
@@ -123,6 +128,8 @@ public class TripItinerariesFragment extends Fragment {
             lblUber.setVisibility(View.GONE);
         recyclerViewItineraries.setAdapter(itineraryRecyclerViewAdapter);
         recyclerViewUber.setAdapter(uberRecyclerViewAdapter);
+        recyclerViewUber.setNestedScrollingEnabled(false);
+        recyclerViewItineraries.setNestedScrollingEnabled(false);
         if (tripHistory) {
             tripDatabaseService.getItineraries(itinerary -> {
                 itineraries.add(itinerary);
