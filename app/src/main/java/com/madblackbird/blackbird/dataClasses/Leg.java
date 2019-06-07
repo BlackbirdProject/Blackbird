@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Leg implements Serializable {
 
@@ -98,6 +99,9 @@ public class Leg implements Serializable {
     @SerializedName("from")
     @Expose
     private OTPPlace from;
+    @SerializedName("intermediateStops")
+    @Expose
+    private List<Stop> intermediateStops;
 
     @SerializedName("to")
     @Expose
@@ -343,4 +347,11 @@ public class Leg implements Serializable {
         this.to = to;
     }
 
+    public List<Stop> getIntermediateStops() {
+        return intermediateStops;
+    }
+
+    public void setIntermediateStops(List<Stop> intermediateStops) {
+        this.intermediateStops = intermediateStops;
+    }
 }
