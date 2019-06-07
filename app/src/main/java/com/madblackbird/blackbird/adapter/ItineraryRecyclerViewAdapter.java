@@ -106,7 +106,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
             verticalTransportIcons.removeAllViews();
             layoutTransportIcons.removeAllViews();
             for (Leg leg : itinerary.getLegs()) {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_itinerary_leg, null);
+                View view = LayoutInflater.from(context).inflate(R.layout.item_itinerary_leg, verticalTransportIcons, false);
                 ImageView imgRouteType = view.findViewById(R.id.item_leg_icon);
                 TextView lblRouteName = view.findViewById(R.id.item_leg_name);
                 legModes.add(leg.getMode());
