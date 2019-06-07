@@ -126,7 +126,7 @@ public class TripItinerariesFragment extends Fragment {
         if (tripHistory) {
             tripDatabaseService.getItineraries(itinerary -> {
                 itineraries.add(itinerary);
-                if (itineraries.size() == 1 && !tripHistory)
+                if (!tripHistory && itineraries.size() == 1)
                     itinerary.setExpanded(true);
                 itineraryRecyclerViewAdapter.notifyDataSetChanged();
             });
