@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -149,12 +150,18 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
         }
         if (itinerary != null) {
             LatLngBounds.Builder bounds = new LatLngBounds.Builder();
-            for (Leg leg : itinerary.getLegs()) {
+            List<Leg> legs = itinerary.getLegs();
+            for (Leg leg : legs) {
                 LegGeometry legGeometry = leg.getLegGeometry();
                 List<LatLng> latLngs = PolyUtil.decode(legGeometry.getPoints());
                 for (LatLng latLng : latLngs) {
                     bounds.include(latLng);
                 }
+            }
+            if (legs.size() > 0) {
+                OTPPlace to = legs.get(legs.size() - 1).getTo();
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(to.getLat(), to.getLon())).title(to.getName()));
             }
             googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 50));
         }
