@@ -53,6 +53,10 @@ public class TripItinerariesFragment extends Fragment {
     TextView lblUber;
     @BindView(R.id.img_itineraries_menu)
     ImageView imgOpenMenu;
+    @BindView(R.id.lbl_itineraries_no_results)
+    TextView lblItinerariesNoResults;
+    @BindView(R.id.lbl_uber_no_results)
+    TextView lblUberNoResults;
 
     private TripDatabaseService tripDatabaseService;
     private UberTripService uberTripService;
@@ -90,7 +94,7 @@ public class TripItinerariesFragment extends Fragment {
         ButterKnife.bind(this, getView());
         tripDatabaseService = new TripDatabaseService();
         uberTripService = new UberTripService(getContext());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext()){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext()) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -161,10 +165,12 @@ public class TripItinerariesFragment extends Fragment {
                         @Override
                         public void onItineraryLoaded(Plan plan) {
                             if (plan != null) {
+                                if (plan.getItineraries().size() == 0)
+                                    lblItinerariesNoResults.setVisibility(View.VISIBLE);
                                 itineraries.addAll(plan.getItineraries());
                                 itineraryRecyclerViewAdapter.notifyDataSetChanged();
                             } else {
-                                // TODO: No available route
+                                lblItinerariesNoResults.setVisibility(View.VISIBLE);
                             }
                         }
 
@@ -194,7 +200,7 @@ public class TripItinerariesFragment extends Fragment {
 
                         @Override
                         public void onLoadError() {
-
+                            lblUberNoResults.setVisibility(View.VISIBLE);
                         }
                     }
             );
