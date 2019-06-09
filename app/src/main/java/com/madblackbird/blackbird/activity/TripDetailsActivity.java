@@ -81,6 +81,12 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
                     googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             }
         });
+        tripDatabaseService.isPlaceFavorite(
+                placeTo,
+                isFavourite -> {
+                    if (isFavourite)
+                        imgAddFavourite.setImageDrawable(getDrawable(R.drawable.heart_pressed));
+                });
     }
 
     @Override

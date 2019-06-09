@@ -15,6 +15,7 @@ import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.madblackbird.blackbird.callback.DistanceLoadCallback;
 import com.madblackbird.blackbird.callback.FavouriteAddedCallback;
+import com.madblackbird.blackbird.callback.IsPlaceFavouriteCallback;
 import com.madblackbird.blackbird.callback.OnItineraryLoadCallback;
 import com.madblackbird.blackbird.callback.OnPlaceLoadCallback;
 import com.madblackbird.blackbird.dataClasses.Itinerary;
@@ -73,11 +74,30 @@ public class TripDatabaseService {
         }
     }
 
+    public void isPlaceFavorite(OTPPlace place, IsPlaceFavouriteCallback callback) {
+        if (firebaseUser != null) {
+            firebaseDatabase.getReference("favouritePlaces")
+                    .child(firebaseUser.getUid())
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            callback.isFavoriteLoaded(
+                                    dataSnapshot.child(place.getId()).exists());
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+        }
+    }
+
     public void addFavourite(OTPPlace place, FavouriteAddedCallback callback) {
         if (firebaseUser != null) {
             DatabaseReference favouritePlaces = firebaseDatabase.getReference("favouritePlaces");
             favouritePlaces.child(firebaseUser.getUid())
-                    .push()
+                    .child(place.getId())
                     .setValue(place)
                     .addOnSuccessListener(aVoid -> {
                         callback.favouriteAdded();

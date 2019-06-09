@@ -196,7 +196,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
                 intent.putExtra("from", from);
             }
             if (place.getLatLng() != null) {
-                intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
+                intent.putExtra("to", new OTPPlace(place.getId(), place.getName(), place.getAddress(), place.getLatLng()));
             }
             intent.putExtra("time", otpTime);
             setResult(Activity.RESULT_OK, intent);

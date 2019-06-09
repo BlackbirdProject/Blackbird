@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class OTPPlace implements Serializable {
 
@@ -32,7 +33,18 @@ public class OTPPlace implements Serializable {
 
     private String addressName;
 
+    private String id;
+
     public OTPPlace(String name, String addressName, LatLng latLng) {
+        id = UUID.randomUUID().toString();
+        this.name = name;
+        this.addressName = addressName;
+        lat = latLng.latitude;
+        lon = latLng.longitude;
+    }
+
+    public OTPPlace(String id, String name, String addressName, LatLng latLng) {
+        this.id = id;
         this.name = name;
         this.addressName = addressName;
         lat = latLng.latitude;
@@ -95,4 +107,13 @@ public class OTPPlace implements Serializable {
     public void setAddressName(String addressName) {
         this.addressName = addressName;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }
