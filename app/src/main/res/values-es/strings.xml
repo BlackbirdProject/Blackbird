@@ -43,4 +43,7 @@
     <string name="stops">&#160;paradas</string>
     <string name="depart_at">Depart at</string>
     <string name="arrive_by">Arrive by</string>
+    <string name="destination">Destination</string>
+    <string name="no_origin_dialog_title">No origin selected</string>
+    <string name="no_origin_dialog_body">Please select an origin prior to selecting your destination</string>
 </resources>

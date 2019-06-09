@@ -64,8 +64,11 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 .findFragmentById(R.id.map_main_activity);
         if (mapFragment != null)
             mapFragment.getMapAsync(this);
-        searchBox.setOnClickListener(v ->
-                startActivityForResult(new Intent(getContext(), PlacesAutocompleteActivity.class), PLACE_ACTIVITY));
+        searchBox.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), PlacesAutocompleteActivity.class);
+            intent.putExtra("myLocation", locationService.checkPermission());
+            startActivityForResult(intent, PLACE_ACTIVITY);
+        });
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
         btnDrawerMenu.setOnClickListener(v ->
                 drawerLayout.openDrawer(GravityCompat.START));

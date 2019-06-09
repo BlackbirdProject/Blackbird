@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -65,6 +66,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_autocomplete);
         ButterKnife.bind(this);
+        boolean myLocation = getIntent().getBooleanExtra("myLocation", false);
         otpTime = new OTPTime();
         txtDestination.requestFocus();
         Places.initialize(this, getResources().getString(R.string.google_maps_api_key));
@@ -80,9 +82,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         });
         txtOriginSearch.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                recyclerView.setVisibility(View.GONE);
-                mAutoCompleteAdapter.setClickListener(originClickListener);
-                txtOriginSearch.setHint("");
+                onOriginFocus();
             }
         });
         imgEditDate.setOnClickListener(v -> changeDate());
@@ -95,6 +95,9 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAutoCompleteAdapter);
         mAutoCompleteAdapter.notifyDataSetChanged();
         updateSelectedTime();
+        if (!myLocation && txtOriginSearch.requestFocus()) {
+            onOriginFocus();
+        }
     }
 
     private TextWatcher filterTextWatcher = new TextWatcher() {
@@ -117,6 +120,13 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
         }
     };
+
+    private void onOriginFocus() {
+        recyclerView.setVisibility(View.GONE);
+        mAutoCompleteAdapter.setClickListener(originClickListener);
+        txtOriginSearch.setHintTextColor(Color.LTGRAY);
+        txtOriginSearch.setHint("Origin");
+    }
 
     private void showPreferencesDialog() {
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_preferences, null);
@@ -169,15 +179,24 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
 
     private PlacesAutoCompleteAdapter.ClickListener destinationClickListener = place -> {
         Intent intent = new Intent();
-        if (from != null && from.getLatLng() != null) {
-            intent.putExtra("from", new OTPPlace(from.getName(), "My Location", from.getLatLng()));
+        if (from == null) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.no_origin_dialog_title)
+                    .setMessage(R.string.no_origin_dialog_body)
+                    .setPositiveButton(getString(R.string.ok), null)
+                    .create()
+                    .show();
+        } else {
+            if (from.getLatLng() != null) {
+                intent.putExtra("from", new OTPPlace(from.getName(), "My Location", from.getLatLng()));
+            }
+            if (place.getLatLng() != null) {
+                intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
+            }
+            intent.putExtra("time", otpTime);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
         }
-        if (place.getLatLng() != null) {
-            intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
-        }
-        intent.putExtra("time", otpTime);
-        setResult(Activity.RESULT_OK, intent);
-        finish();
     };
 
     private PlacesAutoCompleteAdapter.ClickListener originClickListener = place -> {
