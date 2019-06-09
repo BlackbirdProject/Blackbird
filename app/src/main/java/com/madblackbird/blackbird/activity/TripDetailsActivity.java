@@ -160,8 +160,13 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             }
             if (legs.size() > 0) {
                 OTPPlace to = legs.get(legs.size() - 1).getTo();
+                String name;
+                if (placeTo != null)
+                    name = placeTo.getName();
+                else
+                    name = to.getName();
                 googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(to.getLat(), to.getLon())).title(to.getName()));
+                        .position(new LatLng(to.getLat(), to.getLon())).title(name));
             }
             googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 50));
         }
