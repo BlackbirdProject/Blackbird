@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         searchBox.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), PlacesAutocompleteActivity.class);
-            intent.putExtra("myLocation", locationService.checkPermission());
+            intent.putExtra("myLocation", locationService.checkLocationInMadrid());
             startActivityForResult(intent, PLACE_ACTIVITY);
         });
         DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);

@@ -13,6 +13,7 @@ import android.provider.Settings;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.madblackbird.blackbird.callback.LocationUpdatesCallback;
 
 import java.util.List;
@@ -53,6 +54,16 @@ public class LocationService {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     50);
         }
+    }
+
+    public boolean checkLocationInMadrid() {
+        LatLngBounds latLngBounds = LatLngBounds.builder()
+                .include(new LatLng(39.938037, -4.815362))
+                .include(new LatLng(41.211806, -2.870480))
+                .build();
+        if (getCurrentLocation() == null)
+            return false;
+        return latLngBounds.contains(getCurrentLocation());
     }
 
     /**

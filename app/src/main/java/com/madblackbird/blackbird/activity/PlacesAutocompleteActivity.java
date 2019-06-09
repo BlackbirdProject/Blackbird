@@ -23,11 +23,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.adapter.PlacesAutoCompleteAdapter;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
 import com.madblackbird.blackbird.dataClasses.OTPTime;
+import com.madblackbird.blackbird.service.LocationService;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -58,14 +58,17 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
 
     private PlacesAutoCompleteAdapter mAutoCompleteAdapter;
     private RecyclerView recyclerView;
-    private Place from;
+    private OTPPlace from;
     private OTPTime otpTime;
+
+    private LocationService locationService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_autocomplete);
         ButterKnife.bind(this);
+        locationService = new LocationService(this);
         boolean myLocation = getIntent().getBooleanExtra("myLocation", false);
         otpTime = new OTPTime();
         txtDestination.requestFocus();
@@ -97,6 +100,8 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         updateSelectedTime();
         if (!myLocation && txtOriginSearch.requestFocus()) {
             onOriginFocus();
+        } else {
+            from = new OTPPlace("My Location", "Current location", locationService.getCurrentLocation());
         }
     }
 
@@ -187,8 +192,8 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
                     .create()
                     .show();
         } else {
-            if (from.getLatLng() != null) {
-                intent.putExtra("from", new OTPPlace(from.getName(), "My Location", from.getLatLng()));
+            if (from.latLng() != null) {
+                intent.putExtra("from", from);
             }
             if (place.getLatLng() != null) {
                 intent.putExtra("to", new OTPPlace(place.getName(), place.getAddress(), place.getLatLng()));
@@ -201,7 +206,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
 
     private PlacesAutoCompleteAdapter.ClickListener originClickListener = place -> {
         txtOriginSearch.setText(place.getName());
-        from = place;
+        from = new OTPPlace(place.getName(), place.getAddress(), place.getLatLng());
         txtDestination.requestFocus();
     };
 
