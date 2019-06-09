@@ -34,6 +34,7 @@ public class TripManagerService {
         requestParams.add("date", formatDate(otpTime));
         requestParams.add("mode", "TRANSIT,WALK");
         requestParams.add("showIntermediateStops", "true");
+        requestParams.add("arriveBy", String.valueOf(otpTime.isArriveBy()));
         OTPRestApi.get(
                 context.getString(R.string.otp_server_url),
                 "plan",

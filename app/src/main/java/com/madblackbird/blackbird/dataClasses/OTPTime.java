@@ -11,6 +11,7 @@ public class OTPTime implements Serializable {
     private int year;
     private int hour;
     private int minute;
+    private boolean arriveBy;
 
     public OTPTime() {
         Calendar cal = Calendar.getInstance();
@@ -60,5 +61,13 @@ public class OTPTime implements Serializable {
 
     public void setMinute(int minute) {
         this.minute = minute;
+    }
+
+    public boolean isArriveBy() {
+        return arriveBy;
+    }
+
+    public void setArriveBy(boolean arriveBy) {
+        this.arriveBy = arriveBy;
     }
 }
