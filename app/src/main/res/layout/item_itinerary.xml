@@ -83,12 +83,13 @@
             android:layout_weight="3"
             android:gravity="bottom|end">
 
-            <Button
-                android:id="@+id/btn_open_trip_details"
+
+            <ImageView
+                android:id="@+id/img_open_trip_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
-                android:text="Go!" />
+                android:src="@drawable/ic_go" />
 
         </RelativeLayout>
 

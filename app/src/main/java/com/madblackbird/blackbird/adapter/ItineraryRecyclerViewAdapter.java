@@ -8,7 +8,6 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -58,7 +57,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
             notifyItemChanged(position);
         });
         if (itinerariesClickListener != null)
-            itineraryHolder.btnOpenTripDetails.setOnClickListener(v -> itinerariesClickListener.onClick(v, position));
+            itineraryHolder.imgOpenTripDetails.setOnClickListener(v -> itinerariesClickListener.onClick(v, position));
     }
 
     public void setItinerariesClickListener(ItinerariesClickListener callback) {
@@ -78,7 +77,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
 
         private final LinearLayout layoutTransportIcons, layoutTransportSummary, itineraryParentView, verticalTransportIcons;
         private final TextView lblDuration, lblTime;
-        private final Button btnOpenTripDetails;
+        private final ImageView imgOpenTripDetails;
 
         private final Context context;
 
@@ -90,7 +89,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
             itineraryParentView = view.findViewById(R.id.item_itinerary_parent_view);
             lblDuration = view.findViewById(R.id.item_itinerary_duration);
             lblTime = view.findViewById(R.id.item_itinerary_time);
-            btnOpenTripDetails = view.findViewById(R.id.btn_open_trip_details);
+            imgOpenTripDetails = view.findViewById(R.id.img_open_trip_details);
             context = view.getContext();
         }
 
