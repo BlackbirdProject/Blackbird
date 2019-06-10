@@ -122,8 +122,12 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             }
             Drawable lblRouteNameBackground = lblLine.getBackground();
             lblLine.setText(leg.getRouteShortName());
-            if (leg.getRouteColor() != null && !leg.getRouteColor().equals(""))
-                lblRouteNameBackground.setColorFilter(Color.parseColor("#" + leg.getRouteColor()), PorterDuff.Mode.SRC_IN);
+            if (leg.getRouteColor() != null && !leg.getRouteColor().equals("")) {
+                int color = Color.parseColor("#" + leg.getRouteColor());
+                if (Color.parseColor("#ffffff") == color)
+                    color = Color.BLUE;
+                lblRouteNameBackground.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+            }
             tripDetailImage.setImageDrawable(drawable);
             if (leg.getRouteShortName() == null || leg.getRouteShortName().equals("")) {
                 lblLine.setBackgroundColor(Color.TRANSPARENT);

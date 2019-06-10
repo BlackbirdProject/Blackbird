@@ -118,8 +118,12 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                 legModes.add(leg.getMode());
                 GradientDrawable lblRouteNameBackground = (GradientDrawable) lblRouteName.getBackground();
                 lblRouteName.setText(leg.getRouteShortName());
-                if (leg.getRouteColor() != null && !leg.getRouteColor().equals(""))
-                    lblRouteNameBackground.setColor(Color.parseColor("#" + leg.getRouteColor()));
+                if (leg.getRouteColor() != null && !leg.getRouteColor().equals("")) {
+                    int color = Color.parseColor("#" + leg.getRouteColor());
+                    if (Color.parseColor("#ffffff") == color)
+                        color = Color.BLUE;
+                    lblRouteNameBackground.setColor(color);
+                }
                 imgRouteType.setImageDrawable(getLegModeDrawable(leg.getMode()));
                 if (leg.getRouteShortName() == null || leg.getRouteShortName().equals("")) {
                     lblRouteName.setBackgroundColor(Color.TRANSPARENT);

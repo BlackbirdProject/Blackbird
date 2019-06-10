@@ -120,6 +120,8 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             int color = Color.BLACK;
             try {
                 color = Color.parseColor("#" + leg.getRouteColor());
+                if (Color.parseColor("#ffffff") == color)
+                    color = Color.BLUE;
             } catch (Exception ignored) {
             }
             googleMap.addPolyline(new PolylineOptions()
