@@ -90,6 +90,7 @@ public class PlacesAutocompleteActivity extends AppCompatActivity {
         });
         imgEditDate.setOnClickListener(v -> changeDate());
         imgEditTime.setOnClickListener(v -> changeTime());
+        imgEditPreferences.setOnClickListener(v -> showPreferencesDialog());
         layoutEditTimeType.setOnClickListener(v -> showPreferencesDialog());
         imgGoBack.setOnClickListener(v -> onBackPressed());
         mAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this);

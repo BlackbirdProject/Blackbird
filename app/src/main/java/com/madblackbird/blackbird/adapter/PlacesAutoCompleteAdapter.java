@@ -191,19 +191,21 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
 
         @Override
         public void onClick(View v) {
-            PlaceAutocomplete item = mResultList.get(getAdapterPosition());
-            if (v.getId() == R.id.predictedRow) {
-                String placeId = String.valueOf(item.placeId);
-                List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG, Place.Field.ADDRESS);
-                FetchPlaceRequest request = FetchPlaceRequest.builder(placeId, placeFields).build();
-                placesClient.fetchPlace(request).addOnSuccessListener(response -> {
-                    Place place = response.getPlace();
-                    clickListener.click(place);
-                }).addOnFailureListener(exception -> {
-                    if (exception instanceof ApiException) {
-                        Toast.makeText(mContext, exception.getMessage() + "", Toast.LENGTH_SHORT).show();
-                    }
-                });
+            if (getAdapterPosition() < mResultList.size()) {
+                PlaceAutocomplete item = mResultList.get(getAdapterPosition());
+                if (v.getId() == R.id.predictedRow) {
+                    String placeId = String.valueOf(item.placeId);
+                    List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG, Place.Field.ADDRESS);
+                    FetchPlaceRequest request = FetchPlaceRequest.builder(placeId, placeFields).build();
+                    placesClient.fetchPlace(request).addOnSuccessListener(response -> {
+                        Place place = response.getPlace();
+                        clickListener.click(place);
+                    }).addOnFailureListener(exception -> {
+                        if (exception instanceof ApiException) {
+                            Toast.makeText(mContext, exception.getMessage() + "", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         }
     }
