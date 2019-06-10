@@ -142,6 +142,8 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                     return context.getDrawable(R.drawable.ic_directions_bus);
                 case "RAIL":
                     return context.getDrawable(R.drawable.ic_cercanias_logo);
+                case "TRAM":
+                    return context.getDrawable(R.drawable.ic_metro_ligero);
                 case "SUBWAY":
                     return context.getDrawable(R.drawable.ic_metro_madrid);
                 default:

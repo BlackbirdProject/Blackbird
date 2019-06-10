@@ -111,6 +111,9 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
                 case "RAIL":
                     drawable = context.getDrawable(R.drawable.ic_train);
                     break;
+                case "TRAM":
+                    drawable = context.getDrawable(R.drawable.ic_metro_ligero);
+                    break;
                 case "SUBWAY":
                     drawable = context.getDrawable(R.drawable.ic_metro_madrid);
                     break;
