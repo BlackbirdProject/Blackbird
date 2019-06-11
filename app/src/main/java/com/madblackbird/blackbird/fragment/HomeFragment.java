@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private LocationService locationService;
     private boolean followUser;
+    private SupportMapFragment mapFragment;
 
     public HomeFragment() {
 
@@ -51,17 +52,17 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_main_activity);
+        if (mapFragment != null)
+            mapFragment.getMapAsync(this);
+        return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ButterKnife.bind(this, getView());
-        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager()
-                .findFragmentById(R.id.map_main_activity);
-        if (mapFragment != null)
-            mapFragment.getMapAsync(this);
         searchBox.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), PlacesAutocompleteActivity.class);
             intent.putExtra("myLocation", locationService.checkLocationInMadrid());
