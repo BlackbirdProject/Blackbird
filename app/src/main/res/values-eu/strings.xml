@@ -39,7 +39,7 @@
     <string name="travelled_kilometers">kilometro bidaiatutak</string>
     <string name="avoided_emissions">CO2-ko kg isurpen sahiestutak</string>
     <string name="plan_a_trip">Bidaia antolatu</string>
-    <string name="stops">&#160;geldialdi</string>
+    <string name="stops">%d geldialdi</string>
     <string name="depart_at">Depart at</string>
     <string name="arrive_by">Arrive by</string>
     <string name="destination">Destination</string>

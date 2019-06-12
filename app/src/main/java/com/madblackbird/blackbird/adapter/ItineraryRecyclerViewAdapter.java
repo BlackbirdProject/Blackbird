@@ -112,7 +112,7 @@ public class ItineraryRecyclerViewAdapter extends RecyclerView.Adapter {
                 if (leg.getIntermediateStops() != null) {
                     int stopNumber = leg.getIntermediateStops().size();
                     if (stopNumber > 0)
-                        lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
+                        lblStopNumber.setText(context.getString(R.string.stops, stopNumber));
                 }
                 legModes.add(leg.getMode());
                 GradientDrawable lblRouteNameBackground = (GradientDrawable) lblRouteName.getBackground();
