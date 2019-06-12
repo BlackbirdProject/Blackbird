@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.dataClasses.Leg;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
+import com.madblackbird.blackbird.dataClasses.Stop;
 
 import java.util.List;
 
@@ -78,6 +80,7 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
 
         private final ImageView tripDetailImage;
         private final TextView lblLine, lblDuration, lblStopNumber;
+        private final LinearLayout layoutStopList;
 
         private final Context context;
 
@@ -87,6 +90,7 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             lblLine = view.findViewById(R.id.trip_detail_line);
             lblDuration = view.findViewById(R.id.trip_detail_text_view);
             lblStopNumber = view.findViewById(R.id.detail_leg_stops);
+            layoutStopList = view.findViewById(R.id.layout_stop_list);
             context = view.getContext();
         }
 
@@ -102,6 +106,12 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
                 int stopNumber = leg.getIntermediateStops().size();
                 if (stopNumber > 0)
                     lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
+            }
+            for (Stop stop : leg.getIntermediateStops()) {
+                View view = LayoutInflater.from(context).inflate(R.layout.item_intermediate_stop, layoutStopList, false);
+                TextView lblStopName = view.findViewById(R.id.lbl_stop_name);
+                lblStopName.setText(stop.getName());
+                layoutStopList.addView(view);
             }
             Drawable drawable;
             switch (leg.getMode()) {
