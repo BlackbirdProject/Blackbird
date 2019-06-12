@@ -107,6 +107,8 @@ public class Leg implements Serializable {
     @Expose
     private OTPPlace to;
 
+    private boolean expanded;
+
     public Double getStartTime() {
         return startTime;
     }
@@ -354,4 +356,13 @@ public class Leg implements Serializable {
     public void setIntermediateStops(List<Stop> intermediateStops) {
         this.intermediateStops = intermediateStops;
     }
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+    }
+
 }

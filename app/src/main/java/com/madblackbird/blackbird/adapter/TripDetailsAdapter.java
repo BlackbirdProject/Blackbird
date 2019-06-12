@@ -63,7 +63,14 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
         Object tripDetail = tripDetails.get(position);
         switch (viewHolder.getItemViewType()) {
             case VIEW_TYPE_LEG:
-                ((LegHolder) viewHolder).bind((Leg) tripDetail);
+                LegHolder legHolder = (LegHolder) viewHolder;
+                Leg leg = (Leg) tripDetail;
+                legHolder.bind(leg);
+                legHolder.mainLayout.setOnClickListener(v -> {
+                    boolean expanded = leg.isExpanded();
+                    leg.setExpanded(!expanded);
+                    notifyItemChanged(position);
+                });
                 break;
             case VIEW_TYPE_PLACE:
                 ((PlaceHolder) viewHolder).bind((OTPPlace) tripDetail);
@@ -78,9 +85,9 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
 
     static class LegHolder extends RecyclerView.ViewHolder {
 
-        private final ImageView tripDetailImage;
+        private final ImageView tripDetailImage, imgExpand;
         private final TextView lblLine, lblDuration, lblStopNumber;
-        private final LinearLayout layoutStopList;
+        private final LinearLayout layoutStopList, mainLayout;
 
         private final Context context;
 
@@ -91,10 +98,14 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             lblDuration = view.findViewById(R.id.trip_detail_text_view);
             lblStopNumber = view.findViewById(R.id.detail_leg_stops);
             layoutStopList = view.findViewById(R.id.layout_stop_list);
+            mainLayout = view.findViewById(R.id.trip_detail_main_layout);
+            imgExpand = view.findViewById(R.id.trip_detail_img_expand);
             context = view.getContext();
         }
 
         void bind(Leg leg) {
+            boolean expanded = leg.isExpanded();
+            layoutStopList.setVisibility(expanded ? View.VISIBLE : View.GONE);
             String text = "";
             if (leg.getHeadsign() != null)
                 text += leg.getHeadsign();
@@ -104,9 +115,16 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
             lblDuration.setText(formatDuration(leg.getDuration()));
             if (leg.getIntermediateStops() != null) {
                 int stopNumber = leg.getIntermediateStops().size();
-                if (stopNumber > 0)
-                    lblStopNumber.setText(stopNumber + context.getString(R.string.stops));
+                if (stopNumber > 0) {
+                    lblStopNumber.setText(context.getString(R.string.stops, stopNumber));
+                    imgExpand.setImageDrawable(
+                            context.getDrawable(
+                                    expanded ? R.drawable.ic_expand_up : R.drawable.ic_expand_down));
+                } else {
+                    mainLayout.setOnClickListener(null);
+                }
             }
+            layoutStopList.removeAllViews();
             for (Stop stop : leg.getIntermediateStops()) {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_intermediate_stop, layoutStopList, false);
                 TextView lblStopName = view.findViewById(R.id.lbl_stop_name);
