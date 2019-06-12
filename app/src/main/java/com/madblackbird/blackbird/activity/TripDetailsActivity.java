@@ -86,8 +86,10 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             tripDatabaseService.isPlaceFavorite(
                     placeTo,
                     isFavourite -> {
-                        if (isFavourite)
+                        if (isFavourite) {
                             imgAddFavourite.setImageDrawable(getDrawable(R.drawable.heart_pressed));
+                            imgAddFavourite.setOnClickListener(null);
+                        }
                     });
     }
 
