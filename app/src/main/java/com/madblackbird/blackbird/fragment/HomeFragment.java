@@ -110,6 +110,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11.0f));
             });
         }
+        final float scale = getResources().getDisplayMetrics().density;
+        int mapPaddingPx = (int) (75 * scale + 0.5f);
+        googleMap.setPadding(0, mapPaddingPx, 0, 0);
         googleMap.setOnMapClickListener(latLng -> {
             if (shownMarker != null)
                 shownMarker.remove();
