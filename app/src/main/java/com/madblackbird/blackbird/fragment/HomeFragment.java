@@ -19,6 +19,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.madblackbird.blackbird.R;
 import com.madblackbird.blackbird.activity.PlacesAutocompleteActivity;
 import com.madblackbird.blackbird.dataClasses.OTPPlace;
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private LocationService locationService;
     private boolean followUser;
     private SupportMapFragment mapFragment;
+    private Marker shownMarker;
 
     public HomeFragment() {
 
@@ -107,5 +110,27 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11.0f));
             });
         }
+        googleMap.setOnMapClickListener(latLng -> {
+            if (shownMarker != null)
+                shownMarker.remove();
+            shownMarker = googleMap.addMarker(new MarkerOptions()
+                    .position(latLng)
+                    .title(getString(R.string.click_to_travel)));
+            shownMarker.showInfoWindow();
+        });
+        googleMap.setOnInfoWindowClickListener(marker -> {
+            LatLng latLngFrom = locationService.getCurrentLocation();
+            LatLng latLngTo = marker.getPosition();
+            if (latLngFrom != null) {
+                OTPPlace otpFrom = new OTPPlace(getString(R.string.my_location), getString(R.string.my_location), latLngFrom);
+                OTPPlace otpTo = new OTPPlace(getString(R.string.destination), getString(R.string.destination), latLngTo);
+                OTPTime otpTime = new OTPTime();
+                TripItinerariesFragment tripItinerariesFragment = new TripItinerariesFragment(otpFrom, otpTo, otpTime);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_frame, tripItinerariesFragment, "tripItinerariesFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 }

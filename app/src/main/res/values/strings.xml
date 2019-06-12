@@ -49,4 +49,5 @@
     <string name="no_origin_dialog_title">No origin selected</string>
     <string name="no_origin_dialog_body">Please select an origin prior to selecting your destination</string>
     <string name="no_results">No results for selected route</string>
+    <string name="click_to_travel">Click to travel here</string>
 </resources>
