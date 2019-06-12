@@ -11,9 +11,8 @@
     <string name="Descripcion_slider2">1. Selecciona tu punto de partida 2. Selecciona tu destino\\n3. Elige el trayecto que prefieras\\n4. ¡Disfruta del viaje!</string>
     <string name="titulo_slider3">Izena emango ahal duzu?</string>
     <string name="descripcion_slider3">Gero eta gehiago izan ondoren, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
-    <string name="google_login" translatable="false">Google</string>
-    <string name="phone_login" translatable="false">Telefonoz</string>
-    <string name="email_login" translatable="false">E-Mailez</string>
+    <string name="phone_login">Telefonoz</string>
+    <string name="email_login">E-Mailez</string>
     <string name="verify">Verify</string>
     <string name="google_sign_in_error">Ezin izan da Google-ekin saioa hastea</string>
     <string name="log_in">Log In</string>

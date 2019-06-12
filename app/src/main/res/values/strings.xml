@@ -12,8 +12,8 @@
     <string name="titulo_slider3">Care to join us?</string>
     <string name="descripcion_slider3">Cuantos más seamos, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
     <string name="google_login" translatable="false">Google</string>
-    <string name="phone_login" translatable="false">Phone</string>
-    <string name="email_login" translatable="false">E-Mail</string>
+    <string name="phone_login">Phone</string>
+    <string name="email_login">E-Mail</string>
     <string name="verify">Verify</string>
     <string name="google_sign_in_error">Couldn\'t sign in with Google</string>
     <string name="log_in">Log In</string>
