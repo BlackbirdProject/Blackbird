@@ -5,24 +5,24 @@
     <string name="space_minutes">&#160;minutes</string>
     <string name="my_location">My Location</string>
     <string name="search">Search</string>
-    <string name="titulo_slider1">¿Qué es Blackbird?</string>
+    <string name="titulo_slider1">What\'s Blackbird?</string>
     <string name="descripcion_slider1">Somos la aplicación que te guiará a cualquier punto de Madrid de forma rápida y eficiente, optimizando los recursos del transporte público para hacer tu viaje más eco-friendly.</string>
-    <string name="titulo_slider2">¿Cómo se usa?</string>
+    <string name="titulo_slider2">How does it work?</string>
     <string name="Descripcion_slider2">Selecciona tu destino, elige el trayecto que prefieras, ¡Y disfruta del viaje!</string>
-    <string name="titulo_slider3">¿Te apuntas?</string>
+    <string name="titulo_slider3">Care to join us?</string>
     <string name="descripcion_slider3">Cuantos más seamos, más se abrirá la información para que podamos mejorar. ¡Salta del nido de las aplicaciones privadas y vuela libre como nuestro código!</string>
     <string name="google_login" translatable="false">Google</string>
     <string name="phone_login" translatable="false">Phone</string>
     <string name="email_login" translatable="false">E-Mail</string>
     <string name="verify">Verify</string>
-    <string name="google_sign_in_error">No se ha podido iniciar sesión con Google</string>
+    <string name="google_sign_in_error">Couldn\'t sign in with Google</string>
     <string name="log_in">Log In</string>
-    <string name="forgot_password">Recordar contraseña</string>
+    <string name="forgot_password">Remember password</string>
     <string name="sign_up">Sign Up</string>
-    <string name="incorrect_credentials">Credenciales incorrectas</string>
+    <string name="incorrect_credentials">Invalid credentials</string>
     <string name="e_mail" translatable="false">E-Mail</string>
-    <string name="password">Contraseña</string>
-    <string name="type_phone">Número de teléfono</string>
+    <string name="password">Password</string>
+    <string name="type_phone">Phone number</string>
     <string name="itineraries">Itineraries</string>
     <string name="uber">Uber</string>
     <string name="my_account">My Account</string>
