@@ -85,8 +85,7 @@ public class PlacesAutoCompleteAdapter extends RecyclerView.Adapter<PlacesAutoCo
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                if (results != null && results.count > 0)
-                    notifyDataSetChanged();
+                notifyDataSetChanged();
             }
         };
     }
