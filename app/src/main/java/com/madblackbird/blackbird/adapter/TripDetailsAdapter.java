@@ -125,12 +125,13 @@ public class TripDetailsAdapter extends RecyclerView.Adapter {
                 }
             }
             layoutStopList.removeAllViews();
-            for (Stop stop : leg.getIntermediateStops()) {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_intermediate_stop, layoutStopList, false);
-                TextView lblStopName = view.findViewById(R.id.lbl_stop_name);
-                lblStopName.setText(stop.getName());
-                layoutStopList.addView(view);
-            }
+            if (leg.getIntermediateStops() != null)
+                for (Stop stop : leg.getIntermediateStops()) {
+                    View view = LayoutInflater.from(context).inflate(R.layout.item_intermediate_stop, layoutStopList, false);
+                    TextView lblStopName = view.findViewById(R.id.lbl_stop_name);
+                    lblStopName.setText(stop.getName());
+                    layoutStopList.addView(view);
+                }
             Drawable drawable;
             switch (leg.getMode()) {
                 case "BUS":
