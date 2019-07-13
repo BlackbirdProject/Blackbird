@@ -152,6 +152,8 @@ public class TripDetailsActivity extends AppCompatActivity implements OnMapReady
             googleMap.setMyLocationEnabled(true);
             googleMap.getUiSettings().setMyLocationButtonEnabled(true);
         }
+        googleMap.getUiSettings().setTiltGesturesEnabled(false);
+        googleMap.getUiSettings().setRotateGesturesEnabled(false);
         if (itinerary != null) {
             LatLngBounds.Builder bounds = new LatLngBounds.Builder();
             List<Leg> legs = itinerary.getLegs();

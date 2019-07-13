@@ -129,6 +129,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                     .icon(bitmapDescriptorFromVector(R.drawable.ic_feather_marker)));
             shownMarker.showInfoWindow();
         });
+        googleMap.getUiSettings().setTiltGesturesEnabled(false);
+        googleMap.getUiSettings().setRotateGesturesEnabled(false);
         googleMap.setOnInfoWindowClickListener(marker -> {
             LatLng latLngFrom = locationService.getCurrentLocation();
             LatLng latLngTo = marker.getPosition();
